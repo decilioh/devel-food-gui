@@ -1,7 +1,7 @@
 import { RouterProvider } from "react-router-dom";
 import { Router } from "./routes/route";
 import { ThemeProvider } from "styled-components";
-import { lightTheme } from "./assets/styles/theme";
+import { darkTheme, lightTheme } from "./assets/styles/theme";
 import { GlobalStyle } from "./assets/styles/global";
 
 export default function App() {
