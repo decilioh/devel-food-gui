@@ -10,16 +10,17 @@ import { useForm } from 'react-hook-form'
 import { LoginData, schema } from './schema'
 import { MdOutlineEmail } from "react-icons/md";
 import { CiUnlock } from "react-icons/ci";
-
+import { useTheme } from '../../hooks/useTheme';
 
 
 export const Login = () => {
-
-    const { register, handleSubmit, setValue, trigger, reset, formState: { errors } } = useForm<LoginData>({
+    const { theme } = useTheme();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<LoginData>({
         resolver: zodResolver(schema),
         mode: "onChange"
     })
 
+    const logo = theme.title === 'light' ? logoLight : logoDark;
     const onSubmitLogin = (data: LoginData) => {
         console.log(data);
 
@@ -36,7 +37,7 @@ export const Login = () => {
             <FormContainer>
                 <Box>
                     <figure>
-                        <img src={logoLight} alt="logo DevelFood" />
+                        <img src={logo} alt="logo DevelFood" />
                     </figure>
                     <Form onSubmit={handleSubmit(onSubmitLogin)}>
                         <fieldset>
@@ -58,7 +59,7 @@ export const Login = () => {
                                 icon={<CiUnlock />}
                             />
                         </fieldset>
-                        <Button>Logar</Button>
+                        <Button id='button-login-submit' type='submit'>Logar</Button>
                     </Form>
 
                     <Link to="esqueci-minha-senha">Esqueci minha senha</Link>

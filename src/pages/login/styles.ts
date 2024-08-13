@@ -31,8 +31,12 @@ export const FormContainer = styled.section`
     align-items:center;
     width:30%;
 
-    @media (max-width: 1084px) {
+    @media (max-width: 1720px) {
         width: 45%;
+    }
+
+    @media (max-width: 1280px) {
+        width: 60%;
     }
 
     @media (max-width: 828px) {
