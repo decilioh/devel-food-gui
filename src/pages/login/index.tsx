@@ -1,5 +1,3 @@
-import logoLight from '../../assets/images/logoLight.svg'
-import logoDark from '../../assets/images/logoDark.svg'
 import { zodResolver } from "@hookform/resolvers/zod";
 import foodImage from '../../assets/images/backlogin.png'
 import { Link } from 'react-router-dom'
@@ -11,6 +9,7 @@ import { LoginData, schema } from './schema'
 import { MdOutlineEmail } from "react-icons/md";
 import { CiUnlock } from "react-icons/ci";
 import { useTheme } from '../../hooks/useTheme';
+import { LogoDevelFood } from "../../components/common/Logo";
 
 
 export const Login = () => {
@@ -20,7 +19,6 @@ export const Login = () => {
         mode: "onChange"
     })
 
-    const logo = theme.title === 'light' ? logoLight : logoDark;
     const onSubmitLogin = (data: LoginData) => {
         console.log(data);
 
@@ -36,9 +34,7 @@ export const Login = () => {
 
             <FormContainer>
                 <Box>
-                    <figure>
-                        <img src={logo} alt="logo DevelFood" />
-                    </figure>
+                    <LogoDevelFood />
                     <Form onSubmit={handleSubmit(onSubmitLogin)}>
                         <fieldset>
                             <Input

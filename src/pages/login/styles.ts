@@ -36,7 +36,7 @@ export const FormContainer = styled.section`
     }
 
     @media (max-width: 1280px) {
-        width: 60%;
+        width: 45%;
     }
 
     @media (max-width: 828px) {
