@@ -15,17 +15,21 @@ import { CiUnlock } from "react-icons/ci";
 
 export const Login = () => {
 
-    const { register, handleSubmit, setValue, trigger, formState: { errors } } = useForm<LoginData>({
+    const { register, handleSubmit, setValue, trigger, reset, formState: { errors } } = useForm<LoginData>({
         resolver: zodResolver(schema),
         mode: "onChange"
     })
 
     const onSubmitLogin = (data: LoginData) => {
         console.log(data);
+
+        if (data) {
+            reset()
+        }
     };
 
     return (
-        <Main>
+        <Main $image={foodImage}>
 
             <FigureIMG $image={foodImage} />
 

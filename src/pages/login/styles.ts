@@ -3,10 +3,15 @@ interface ImageProps {
     $image: string;
 }
 
-export const Main = styled.main`
+export const Main = styled.main<ImageProps>`
     display:flex;
     width:100vw;
     height:100vh;
+    overflow: hidden;
+
+    @media (max-width: 828px) {
+        background-image: url(${(props) => props.$image});
+    }
 `
 
 export const FigureIMG = styled.div<ImageProps>`
@@ -14,6 +19,10 @@ export const FigureIMG = styled.div<ImageProps>`
     background-image: url(${(props) => props.$image});
     background-size: cover;
     background-position: center;
+
+    @media (max-width: 768px) {
+        display:none;
+    }
 `
 
 export const FormContainer = styled.section`
@@ -21,18 +30,27 @@ export const FormContainer = styled.section`
     justify-content:center;
     align-items:center;
     width:30%;
+
+    @media (max-width: 1084px) {
+        width: 45%;
+    }
+
+    @media (max-width: 828px) {
+        width: 100%;
+    }
+
 `
 
 export const Box = styled.div`
     width:80%;
-    height:80%;
+    height:90%;
     display:flex;
     justify-content:center;
     align-items:center;
     flex-direction:column;
     border-radius:23px;
     box-shadow: 2px 2px 20px 0px ${({ theme }) => theme.colors.blackColor};
-
+    background-color:${({ theme }) => theme.colors.backgroundColor};
     figure{
         margin-bottom:1rem;
     }
@@ -42,6 +60,14 @@ export const Box = styled.div`
         font-size:1rem;
         text-decoration:none;
         color:${({ theme }) => theme.colors.primary}
+    }
+
+    @media (max-width: 768px) {
+        padding: 1rem;
+    }
+
+    @media (max-width: 480px) {
+        width: 90%;
     }
 `
 
@@ -63,6 +89,14 @@ export const Form = styled.form`
     button{
         width:100%;
         margin-bottom:1.5rem;
+    }
+
+    @media (max-width: 768px) {
+        gap: 20px;
+    }
+
+    @media (max-width: 480px) {
+        gap: 15px;
     }
 
 `
