@@ -1,1 +1,0 @@
-//Funções utilitárias e helpers que são usados em várias partes da aplicação
