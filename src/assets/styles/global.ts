@@ -24,6 +24,10 @@ fieldset, button{
     border:none;
 }
 
+button{
+    cursor: pointer;
+}
+
 a{
     text-decoration:none;
 }

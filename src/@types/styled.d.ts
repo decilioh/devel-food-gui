@@ -16,6 +16,7 @@ declare module "styled-components" {
             darkGray: string;
             backgroundCard: string;
             textCardColor: string;
+            colorInputBorder: string;
         }
     }
 }
