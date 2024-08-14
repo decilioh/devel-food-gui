@@ -2,6 +2,7 @@ import { useState } from "react";
 import { RequestEmail } from "../../components/RequestEmail";
 import { VerifyCode } from "../../components/VerifyCode";
 import { Main } from "./styles";
+import { ResetPassword } from "../../components/ResetPassword";
 
 export const ForgotPassword = () => {
     const [step, setStep] = useState(1);
@@ -11,6 +12,10 @@ export const ForgotPassword = () => {
         setEmail(email);
         setStep(2);
     };
+
+    const returnNavigate = () => {
+        setStep(2);
+    }
 
     const handleCodeSubmit = () => {
         setStep(3);
@@ -24,7 +29,7 @@ export const ForgotPassword = () => {
         <Main>
             {step === 1 && <RequestEmail onSubmit={handleEmailSubmit} />}
             {step === 2 && <VerifyCode onSubmit={handleCodeSubmit} />}
-            {step === 3 && <div>Step 3: Reset Password Component</div>}
+            {step === 3 && <ResetPassword onSubmit={handlePassWordReset} navigate={returnNavigate} />}
         </Main>
     )
 }
