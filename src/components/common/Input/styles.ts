@@ -2,13 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     background-color:${({ theme }) => theme.colors.whiteColor};
+    border-radius: 8px;
 `
 
 export const InputWrapper = styled.div<{ $hasError: boolean }>`
     padding: 8px;
     display: flex;
     align-items: center;
-    border-radius: 4px;
+    border-radius: 8px;
     border: 1px solid ${({ $hasError, theme }) => ($hasError ? theme.colors.redColor : theme.colors.colorInputBorder)};
     color:${({ theme }) => theme.colors.darkGray};
     transition: border-color 0.3s;
@@ -21,6 +22,7 @@ export const InputWrapper = styled.div<{ $hasError: boolean }>`
 export const StyledInput = styled.input`
     border: none;
     outline: none;
+    border-radius: 8px;
     flex: 1;
     padding: .7rem;
     width:100%;
@@ -36,5 +38,5 @@ export const ErrorMessage = styled.div`
     font-size: 12px;
     margin-top: 4px;
     text-align:left;
-    background-color:${({ theme }) => theme.colors.backgroundColor}
+    background-color:${({ theme }) => theme.colors.backgroundColor};
 `;
