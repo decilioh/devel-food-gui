@@ -44,6 +44,42 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
         }
     };
 
+    const handleNameChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target
+        setValue(name as keyof RestaurantAdressData, value);
+        await trigger('nameAdress');
+    };
+
+    const handleRoadChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target
+        setValue(name as keyof RestaurantAdressData, value);
+        await trigger('road');
+    };
+
+    const handleCityChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target
+        setValue(name as keyof RestaurantAdressData, value);
+        await trigger('city');
+    };
+
+    const handleNeighborhoodChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target
+        setValue(name as keyof RestaurantAdressData, value);
+        await trigger('neighborhood');
+    };
+
+    const handleStateChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target
+        setValue(name as keyof RestaurantAdressData, value);
+        await trigger('state');
+    };
+
+    const handleNumberRestaurantChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target
+        setValue(name as keyof RestaurantAdressData, value);
+        await trigger('numberRestaurant');
+    }
+
     const handleSubmitForm = (dataAdress: RestaurantAdressData) => {
         if (dataAdress) {
             onSubmit(dataAdress)
@@ -70,6 +106,7 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
                             register={register}
                             error={errors.nameAdress?.message}
                             icon={<FaHouse />}
+                            onChange={handleNameChange}
                         />
                     </SpaceDiv>
                     <Input
@@ -90,6 +127,7 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
                         register={register}
                         error={errors.road?.message}
                         icon={<FaHouse />}
+                        onChange={handleRoadChange}
                     />
                 </fieldset>
 
@@ -101,6 +139,7 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
                         register={register}
                         error={errors.city?.message}
                         icon={<FaHouse />}
+                        onChange={handleCityChange}
                     />
                 </fieldset>
 
@@ -112,6 +151,7 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
                         register={register}
                         error={errors.neighborhood?.message}
                         icon={<FaHouse />}
+                        onChange={handleNeighborhoodChange}
                     />
                 </fieldset>
 
@@ -124,6 +164,7 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
                             register={register}
                             error={errors.state?.message}
                             icon={<FaHouse />}
+                            onChange={handleStateChange}
                         />
                     </SpaceDiv>
                     <SpaceNumberAdress>
@@ -135,6 +176,7 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
                             register={register}
                             error={errors.numberRestaurant?.message}
                             icon={<FaHouse />}
+                            onChange={handleNumberRestaurantChange}
                         />
                     </SpaceNumberAdress>
                 </FieldsetFlex>

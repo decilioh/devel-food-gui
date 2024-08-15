@@ -9,6 +9,14 @@ export const Form = styled.form`
     max-width:558px;
     gap:20px;
     padding:1.5rem;
+
+    @media (max-width: 768px) {
+        padding: 1rem;
+    }
+
+    @media (max-width: 480px) {
+        gap: 10px;
+    }
 `
 
 export const InputsContainer = styled.div`
@@ -43,6 +51,8 @@ export const FieldsetFlex = styled.fieldset`
     display:flex;
     width:100%;
     gap:20px;
+    height:100%;
+    
 `
 
 export const SpaceDiv = styled.div`

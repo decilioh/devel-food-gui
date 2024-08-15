@@ -36,6 +36,12 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
         await trigger('cnpj');
     };
 
+    const handleEmailChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target
+        setValue(name as keyof restaurantData, value);
+        await trigger('email');
+    };
+
     const handleSubmitForm = (dataRestaurant: restaurantData) => {
 
         if (dataRestaurant.password !== dataRestaurant.confirmPassword) {
@@ -68,6 +74,7 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
                         register={register}
                         error={errors.email?.message}
                         icon={<CiUnlock />}
+                        onChange={handleEmailChange}
                     />
                 </fieldset>
                 <fieldset>

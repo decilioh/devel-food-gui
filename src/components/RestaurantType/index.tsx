@@ -11,8 +11,6 @@ import { FieldButton, Form, InputsContainer } from "./styles"
 import { maskPhone } from "../../utils/mask"
 import { IoPeopleSharp } from "react-icons/io5";
 import { FaPhoneAlt } from "react-icons/fa";
-import { Select } from "../common/Select"
-import { MdFastfood } from "react-icons/md";
 import { RestaurantTypeDataProps } from '../../pages/RegisterRestaurant/interfaces'
 import { Dropdown } from '../common/DropDown'
 
@@ -31,6 +29,12 @@ export const RestaurantType = ({ onSubmit }: RestaurantTypeProps) => {
         const maskedValue = maskPhone(event.target.value);
         setValue('telefone', maskedValue);
         await trigger('telefone')
+    };
+
+    const handleNameChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target
+        setValue(name as keyof restaurantTypeData, value);
+        await trigger('name');
     };
 
     const handleDropdownChange = (value: string[]) => {
@@ -64,6 +68,7 @@ export const RestaurantType = ({ onSubmit }: RestaurantTypeProps) => {
                         register={register}
                         error={errors.name?.message}
                         icon={<IoPeopleSharp />}
+                        onChange={handleNameChange}
                     />
                 </fieldset>
                 <fieldset>

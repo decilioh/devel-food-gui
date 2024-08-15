@@ -21,7 +21,7 @@ export const Dropdown = ({
     rules,
     options,
     onChange,
-    value = []
+    value = [],
 }: DropdownProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedValues, setSelectedValues] = useState<string[]>(value);
@@ -39,9 +39,8 @@ export const Dropdown = ({
     };
 
     useEffect(() => {
-        // Register the component with React Hook Form
-        register(name, rules);
-    }, [register, name, rules]);
+        register(name, { ...rules, value: selectedValues });
+    }, [register, name, rules, selectedValues]);
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
