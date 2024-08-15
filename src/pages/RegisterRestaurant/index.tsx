@@ -4,6 +4,7 @@ import { RestaurantData } from "../../components/RestarauntData";
 import { RestaurantAdreesDataProps, restaurantDataRegister, RestaurantTypeDataProps } from "./interfaces";
 import { RestaurantType } from "../../components/RestaurantType";
 import { RestaurantAdress } from "../../components/AdressRestaurant";
+import { RegisterSucess } from "../../components/RegisterSucess";
 
 export const RegisterRestaurant = () => {
 
@@ -25,9 +26,10 @@ export const RegisterRestaurant = () => {
 
     return (
         <Main>
-            {step === 1 && <RestaurantData onSubmit={handleRestaurantDataSubmit} />}
+            {step === 4 && <RestaurantData onSubmit={handleRestaurantDataSubmit} />}
             {step === 2 && <RestaurantType onSubmit={handleRestaurantTypeSubmit} />}
             {step === 3 && <RestaurantAdress onSubmit={handleRestaurantDataAdress} />}
+            {step === 1 && <RegisterSucess />}
         </Main>
     )
 }
