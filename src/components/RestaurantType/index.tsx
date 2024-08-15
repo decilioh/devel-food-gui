@@ -13,7 +13,7 @@ import { IoPeopleSharp } from "react-icons/io5";
 import { FaPhoneAlt } from "react-icons/fa";
 import { Select } from "../common/Select"
 import { MdFastfood } from "react-icons/md";
-import { RestaurantTypeDataProps } from "./interface"
+import { RestaurantTypeDataProps } from '../../pages/RegisterRestaurant/interfaces'
 
 interface RestaurantTypeProps {
     onSubmit: (data: RestaurantTypeDataProps) => void;

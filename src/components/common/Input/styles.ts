@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     background-color:${({ theme }) => theme.colors.whiteColor};
     border-radius: 8px;
+    height:100%;
 `
 
 export const InputWrapper = styled.div<{ $hasError: boolean }>`
