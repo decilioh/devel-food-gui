@@ -11,6 +11,7 @@ import { RestaurantAdressData, schema } from "./schema"
 import { FieldButton, FieldsetFlex, Form, InputsContainer, SpaceDiv, SpaceNumberAdress } from "./styles"
 import { maskCEP } from '../../utils/mask';
 import { RestaurantAdreesDataProps } from '../../pages/RegisterRestaurant/interfaces';
+import { fetchAddressByCep } from '../../services/fetchCEP';
 
 
 interface RestaurantAdressProps {
@@ -24,10 +25,23 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
         mode: "onChange"
     })
 
-    const handleCEPChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-        const maskedValue = maskCEP(event.target.value);
+    const handleCepChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+        const rawValue = event.target.value;
+        const maskedValue = maskCEP(rawValue);
         setValue('cep', maskedValue);
-        await trigger('cep')
+
+        if (maskedValue.length === 9) {
+            const cepWithoutDash = maskedValue.replace('-', '');
+            const addressData = await fetchAddressByCep(cepWithoutDash);
+            if (addressData) {
+                setValue('road', addressData.logradouro);
+                setValue('neighborhood', addressData.bairro);
+                setValue('city', addressData.localidade);
+                setValue('state', addressData.uf);
+                console.log(addressData)
+            }
+            await trigger('cep');
+        }
     };
 
     const handleSubmitForm = (dataAdress: RestaurantAdressData) => {
@@ -65,7 +79,7 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
                         register={register}
                         error={errors.cep?.message}
                         icon={<FaHouse />}
-                        onChange={handleCEPChange}
+                        onChange={handleCepChange}
                     />
                 </FieldsetFlex>
                 <fieldset>
