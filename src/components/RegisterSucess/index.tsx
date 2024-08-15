@@ -3,8 +3,11 @@ import { LogoDevelFood } from '../common/Logo'
 import { ActionContainer, CheckContainer, Container } from './styles'
 import SucessIcon from '../../assets/images/RegisterSucessIcon.svg'
 
+interface RegisterSucessProps {
+    onSubmit: () => void;
+}
 
-export const RegisterSucess = () => {
+export const RegisterSucess = ({ onSubmit }: RegisterSucessProps) => {
 
     return (
         <Container>
@@ -23,7 +26,7 @@ export const RegisterSucess = () => {
                     Parabéns! Agora você pode aproveitar nossas ofertas
                     e <br />serviços e economizar com super cupons DevelFood!
                 </span>
-                <Button>Continuar</Button>
+                <Button onClick={onSubmit}>Continuar</Button>
             </ActionContainer>
         </Container>
     )

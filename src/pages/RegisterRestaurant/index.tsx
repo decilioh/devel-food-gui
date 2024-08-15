@@ -5,6 +5,7 @@ import { RestaurantAdreesDataProps, restaurantDataRegister, RestaurantTypeDataPr
 import { RestaurantType } from "../../components/RestaurantType";
 import { RestaurantAdress } from "../../components/AdressRestaurant";
 import { RegisterSucess } from "../../components/RegisterSucess";
+import { RegisterError } from "../../components/RegisterError";
 
 export const RegisterRestaurant = () => {
 
@@ -22,14 +23,20 @@ export const RegisterRestaurant = () => {
 
     const handleRestaurantDataAdress = (data: RestaurantAdreesDataProps) => {
         console.log(data)
+        setStep(4)
+    }
+
+    const handleRegisterSucess = () => {
+        setStep(5)
     }
 
     return (
         <Main>
-            {step === 4 && <RestaurantData onSubmit={handleRestaurantDataSubmit} />}
+            {step === 1 && <RestaurantData onSubmit={handleRestaurantDataSubmit} />}
             {step === 2 && <RestaurantType onSubmit={handleRestaurantTypeSubmit} />}
             {step === 3 && <RestaurantAdress onSubmit={handleRestaurantDataAdress} />}
-            {step === 1 && <RegisterSucess />}
+            {step === 4 && <RegisterSucess onSubmit={handleRegisterSucess} />}
+            {step === 5 && <RegisterError />}
         </Main>
     )
 }
