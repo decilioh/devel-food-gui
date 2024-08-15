@@ -46,6 +46,7 @@ export const FieldsetFlex = styled.fieldset`
 `
 
 export const SpaceDiv = styled.div`
+    height:100%;
     width:100%;
     background-color:transparent;
 `

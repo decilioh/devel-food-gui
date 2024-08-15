@@ -7,7 +7,7 @@ export interface restaurantDataRegister {
 export interface RestaurantTypeDataProps {
     name: string;
     telefone: string;
-    restaurantType: string;
+    restaurantType: string[];
 }
 
 export interface RestaurantAdreesDataProps {

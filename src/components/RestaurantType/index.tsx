@@ -14,6 +14,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { Select } from "../common/Select"
 import { MdFastfood } from "react-icons/md";
 import { RestaurantTypeDataProps } from '../../pages/RegisterRestaurant/interfaces'
+import { Dropdown } from '../common/DropDown'
 
 interface RestaurantTypeProps {
     onSubmit: (data: RestaurantTypeDataProps) => void;
@@ -32,10 +33,12 @@ export const RestaurantType = ({ onSubmit }: RestaurantTypeProps) => {
         await trigger('telefone')
     };
 
+    const handleDropdownChange = (value: string[]) => {
+        setValue('restaurantType', value);
+        trigger('restaurantType');
+    };
+
     const handleSubmitForm = (data: restaurantTypeData) => {
-        // if (data.restaurantType.length === 0) {
-        //     return
-        // }
 
         if (data) {
             onSubmit(data);
@@ -75,18 +78,19 @@ export const RestaurantType = ({ onSubmit }: RestaurantTypeProps) => {
                     />
                 </fieldset>
                 <fieldset>
-                    <Select
+                    <Dropdown
                         name="restaurantType"
                         register={register}
-                        icon={<MdFastfood />}
                         error={errors.restaurantType?.message}
-                    >
-                        <option value="">Tipos de comida</option>
-                        <option value="Brasileira">Brasileira</option>
-                        <option value="Vegatariano / vegano">Vegetariano / vegano</option>
-                        <option value="Mexicana">Mexicana</option>
-                        <option value="Japonesa">Japonesa</option>
-                    </Select>
+                        options={[
+                            { value: 'Brasileira', label: 'Brasileira' },
+                            { value: 'Vegetariano / vegano', label: 'Vegetariano / vegano' },
+                            { value: 'Mexicana', label: 'Mexicana' },
+                            { value: 'Japonesa', label: 'Japonesa' },
+                        ]}
+                        onChange={handleDropdownChange}
+                        value={[]}
+                    />
                 </fieldset>
             </InputsContainer>
 
