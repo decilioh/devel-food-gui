@@ -1,1 +1,0 @@
-//Inclui contextos React que fornecem estado global ou funcionalidades que precisam ser acessíveis em vários componentes.
