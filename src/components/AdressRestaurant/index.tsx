@@ -87,7 +87,7 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
     };
 
     return (
-        <Form onSubmit={handleSubmit(handleSubmitForm)}>
+        <Form id="form-adress-restaurant" onSubmit={handleSubmit(handleSubmitForm)}>
             <LogoDevelFood />
             <figure>
                 <StepRegister
@@ -107,6 +107,7 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
                             error={errors.nameAdress?.message}
                             icon={<FaHouse />}
                             onChange={handleNameChange}
+                            id="input-name-adress"
                         />
                     </SpaceDiv>
                     <Input
@@ -117,6 +118,7 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
                         error={errors.cep?.message}
                         icon={<FaHouse />}
                         onChange={handleCepChange}
+                        id="input-cep"
                     />
                 </FieldsetFlex>
                 <fieldset>
@@ -128,6 +130,7 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
                         error={errors.road?.message}
                         icon={<FaHouse />}
                         onChange={handleRoadChange}
+                        id="input-road"
                     />
                 </fieldset>
 
@@ -140,6 +143,7 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
                         error={errors.city?.message}
                         icon={<FaHouse />}
                         onChange={handleCityChange}
+                        id="input-city"
                     />
                 </fieldset>
 
@@ -152,6 +156,7 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
                         error={errors.neighborhood?.message}
                         icon={<FaHouse />}
                         onChange={handleNeighborhoodChange}
+                        id="input-neighborhood"
                     />
                 </fieldset>
 
@@ -165,6 +170,7 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
                             error={errors.state?.message}
                             icon={<FaHouse />}
                             onChange={handleStateChange}
+                            id="input-state"
                         />
                     </SpaceDiv>
                     <SpaceNumberAdress>
@@ -177,13 +183,14 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
                             error={errors.numberRestaurant?.message}
                             icon={<FaHouse />}
                             onChange={handleNumberRestaurantChange}
+                            id="input-number-restaurant"
                         />
                     </SpaceNumberAdress>
                 </FieldsetFlex>
             </InputsContainer>
 
             <FieldButton>
-                <Button type="submit">Concluir</Button>
+                <Button id="button-submit-adress-restaurant" type="submit">Concluir</Button>
             </FieldButton>
         </Form>
     )

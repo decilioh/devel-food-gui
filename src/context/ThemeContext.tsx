@@ -15,8 +15,8 @@ export interface ThemeProviderProps {
 }
 
 const defaultContextValue: ThemeContextProps = {
-  theme: lightTheme, // Defina um tema padrão
-  toggleTheme: () => { } // Função de troca de tema vazia
+  theme: lightTheme,
+  toggleTheme: () => { }
 };
 
 
