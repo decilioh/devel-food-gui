@@ -30,12 +30,12 @@ export const Login = () => {
     return (
         <Main $image={foodImage}>
 
-            <FigureIMG $image={foodImage} />
+            <FigureIMG $image={foodImage} id="imagem-login" />
 
-            <FormContainer>
+            <FormContainer id="form-container">
                 <Box>
                     <LogoDevelFood />
-                    <Form onSubmit={handleSubmit(onSubmitLogin)}>
+                    <Form id="form-login" onSubmit={handleSubmit(onSubmitLogin)}>
                         <fieldset>
                             <Input
                                 type="email"
@@ -44,6 +44,7 @@ export const Login = () => {
                                 register={register}
                                 error={errors.email?.message}
                                 icon={<MdOutlineEmail />}
+                                id="input-email-login"
                             />
 
                             <Input
@@ -53,13 +54,14 @@ export const Login = () => {
                                 register={register}
                                 error={errors.password?.message}
                                 icon={<CiUnlock />}
+                                id="input-password-login"
                             />
                         </fieldset>
                         <Button id='button-login-submit' type='submit'>Logar</Button>
                     </Form>
 
-                    <Link to="esqueci-minha-senha">Esqueci minha senha</Link>
-                    <Link to="cadastrar">criar conta</Link>
+                    <Link id="link-pagina-esqueci-minha-senha" to="esqueci-minha-senha">Esqueci minha senha</Link>
+                    <Link id="link-pagina-cadastro" to="cadastrar">criar conta</Link>
                 </Box>
             </FormContainer>
 

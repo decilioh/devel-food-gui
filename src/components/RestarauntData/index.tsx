@@ -56,7 +56,7 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
     };
 
     return (
-        <Form onSubmit={handleSubmit(handleSubmitForm)}>
+        <Form id="form-restaurant-data" onSubmit={handleSubmit(handleSubmitForm)}>
             <LogoDevelFood />
             <figure>
                 <StepRegister
@@ -75,6 +75,7 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
                         error={errors.email?.message}
                         icon={<CiUnlock />}
                         onChange={handleEmailChange}
+                        id="input-email"
                     />
                 </fieldset>
                 <fieldset>
@@ -86,6 +87,7 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
                         error={errors.cnpj?.message}
                         icon={<CiUnlock />}
                         onChange={handleCNPJChange}
+                        id="input-cnpj"
                     />
                 </fieldset>
                 <fieldset>
@@ -97,6 +99,7 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
                         error={errors.password?.message}
                         icon={<CiUnlock />}
                         onChange={handlePasswordChange}
+                        id="input-password"
                     />
                 </fieldset>
 
@@ -108,12 +111,13 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
                         register={register}
                         error={errors.confirmPassword?.message}
                         icon={<CiUnlock />}
+                        id="input-confirm-password"
                     />
                 </fieldset>
             </InputsContainer>
 
             <FieldButton>
-                <Button type="submit">Concluir</Button>
+                <Button id="input-submit-restaurant-data" type="submit">Concluir</Button>
             </FieldButton>
         </Form>
     )
