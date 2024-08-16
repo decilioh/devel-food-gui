@@ -14,7 +14,8 @@ export const lightTheme = {
     darkGray: '#A2A2A2',
     backgroundCard: '#031626',
     textCardColor: '#FFF',
-    colorInputBorder: '#DDDDDD'
+    colorInputBorder: '#DDDDDD',
+    backgroundLogin: '#F2F2F2',
   }
 };
 
@@ -34,6 +35,7 @@ export const darkTheme = {
     darkGray: '#A2A2A2',
     backgroundCard: '#071A40',
     textCardColor: '#031626',
-    colorInputBorder: '#DDDDDD'
+    colorInputBorder: '#DDDDDD',
+    backgroundLogin: '#F2F2F2',
   }
 };

@@ -59,7 +59,7 @@ export const Login = () => {
                     </Form>
 
                     <Link to="esqueci-minha-senha">Esqueci minha senha</Link>
-                    <Link to="registrar">criar conta</Link>
+                    <Link to="cadastrar">criar conta</Link>
                 </Box>
             </FormContainer>
 

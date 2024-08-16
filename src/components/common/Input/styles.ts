@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     background-color:${({ theme }) => theme.colors.whiteColor};
     border-radius: 8px;
+    height:100%;
 `
 
 export const InputWrapper = styled.div<{ $hasError: boolean }>`
@@ -35,8 +36,7 @@ export const IconWrapper = styled.div`
 
 export const ErrorMessage = styled.div`
     color: ${({ theme }) => theme.colors.redColor};
-    font-size: 12px;
-    margin-top: 4px;
+    font-size: .8rem;
     text-align:left;
     background-color:${({ theme }) => theme.colors.backgroundColor};
 `;

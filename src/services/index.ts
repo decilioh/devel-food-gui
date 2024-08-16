@@ -1,1 +1,0 @@
-//Contém funções e módulos para interagir com APIs e serviços externos
