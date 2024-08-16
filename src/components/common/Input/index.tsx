@@ -1,9 +1,9 @@
-import { ChangeEvent, ReactNode, useState } from "react";
+import { ChangeEvent, InputHTMLAttributes, ReactNode, useState } from "react";
 import { RegisterOptions, UseFormRegister } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Container, ErrorMessage, IconWrapper, InputWrapper, StyledInput } from "./styles";
 
-interface InputProps {
+interface InputProps extends InputHTMLAttributes<HTMLElement> {
     type: string;
     placeholder: string;
     name: string;
@@ -16,7 +16,7 @@ interface InputProps {
 
 
 
-export const Input = ({ icon, error, placeholder, register, type, rules, name, onChange }: InputProps) => {
+export const Input = ({ icon, error, placeholder, register, type, rules, name, onChange, id }: InputProps) => {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
     const togglePasswordVisibility = () => {
@@ -32,6 +32,7 @@ export const Input = ({ icon, error, placeholder, register, type, rules, name, o
                     type={type === "password" && !isPasswordVisible ? "password" : "text"}
                     name={name}
                     onChange={onChange}
+                    id="id"
                 />
 
                 {type === "password" && (
