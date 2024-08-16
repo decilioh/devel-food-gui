@@ -50,7 +50,7 @@ export const RestaurantType = ({ onSubmit }: RestaurantTypeProps) => {
     }
 
     return (
-        <Form onSubmit={handleSubmit(handleSubmitForm)}>
+        <Form id="form-restaurant-type" onSubmit={handleSubmit(handleSubmitForm)}>
             <LogoDevelFood />
             <figure>
                 <StepRegister
@@ -69,6 +69,7 @@ export const RestaurantType = ({ onSubmit }: RestaurantTypeProps) => {
                         error={errors.name?.message}
                         icon={<IoPeopleSharp />}
                         onChange={handleNameChange}
+                        id="input-name"
                     />
                 </fieldset>
                 <fieldset>
@@ -80,6 +81,7 @@ export const RestaurantType = ({ onSubmit }: RestaurantTypeProps) => {
                         error={errors.telefone?.message}
                         icon={<FaPhoneAlt />}
                         onChange={handlePhoneChange}
+                        id="input-telephone"
                     />
                 </fieldset>
                 <fieldset>
@@ -100,7 +102,7 @@ export const RestaurantType = ({ onSubmit }: RestaurantTypeProps) => {
             </InputsContainer>
 
             <FieldButton>
-                <Button type="submit">Concluir</Button>
+                <Button id="button-submit-restaurant-type" type="submit">Concluir</Button>
             </FieldButton>
         </Form>
     )

@@ -22,7 +22,7 @@ export const RequestEmail = ({ onSubmit }: RequestEmailProps) => {
     };
 
     return (
-        <Form onSubmit={handleSubmit(handleSubmitEmail)}>
+        <Form id="form-recuperar-senha" onSubmit={handleSubmit(handleSubmitEmail)}>
             <LogoDevelFood />
             <fieldset>
                 <Input
@@ -32,10 +32,11 @@ export const RequestEmail = ({ onSubmit }: RequestEmailProps) => {
                     icon={<MdOutlineEmail />}
                     register={register}
                     error={errors.email?.message}
+                    id="input-email"
                 />
             </fieldset>
             <FieldsetButton>
-                <Button type="submit">Continuar</Button>
+                <Button id="button-submit" type="submit">Continuar</Button>
             </FieldsetButton>
         </Form>
     );

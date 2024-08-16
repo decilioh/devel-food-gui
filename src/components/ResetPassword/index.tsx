@@ -35,7 +35,7 @@ export const ResetPassword = ({ onSubmit, navigate }: ResetPasswordProps) => {
     };
 
     return (
-        <Form onSubmit={handleSubmit(handleSubmitForm)}>
+        <Form id='form-reset-password' onSubmit={handleSubmit(handleSubmitForm)}>
             <LogoDevelFood />
             <InputsContainer>
                 <fieldset>
@@ -46,6 +46,7 @@ export const ResetPassword = ({ onSubmit, navigate }: ResetPasswordProps) => {
                         register={register}
                         error={errors.code?.message}
                         icon={<CiUnlock />}
+                        id="input-code-register"
                     />
                 </fieldset>
                 <fieldset>
@@ -57,6 +58,7 @@ export const ResetPassword = ({ onSubmit, navigate }: ResetPasswordProps) => {
                         error={errors.password?.message}
                         icon={<CiUnlock />}
                         onChange={handlePasswordChange}
+                        id="input-password"
                     />
                 </fieldset>
 
@@ -68,13 +70,14 @@ export const ResetPassword = ({ onSubmit, navigate }: ResetPasswordProps) => {
                         register={register}
                         error={errors.confirmPassword?.message}
                         icon={<CiUnlock />}
+                        id="input-confirm-password"
                     />
                 </fieldset>
             </InputsContainer>
 
             <FieldButton>
-                <Button onClick={navigate}>Voltar</Button>
-                <Button type="submit">Concluir</Button>
+                <Button id="return-page" onClick={navigate}>Voltar</Button>
+                <Button id="button-submit-reset-password" type="submit">Concluir</Button>
             </FieldButton>
         </Form>
     )
