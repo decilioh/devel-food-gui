@@ -7,9 +7,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLElement> {
 }
 
 
-export const Button = ({ children }: ButtonProps) => {
+export const Button = ({ children, ...props }: ButtonProps) => {
     return (
-        <ButtonStyled>
+        <ButtonStyled {...props}>
             {children}
         </ButtonStyled>
     )
