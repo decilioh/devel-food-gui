@@ -16,17 +16,17 @@ export const RegisterSucess = ({ onSubmit }: RegisterSucessProps) => {
 
             <CheckContainer>
                 <figure>
-                    <img src={SucessIcon} alt="" />
+                    <img src={SucessIcon} alt="" id='sucess-image' />
                 </figure>
                 <p>Cadastro Finalizado!</p>
             </CheckContainer>
 
             <ActionContainer>
-                <span>
+                <span id='response-message'>
                     Parabéns! Agora você pode aproveitar nossas ofertas
                     e <br />serviços e economizar com super cupons DevelFood!
                 </span>
-                <Button onClick={onSubmit}>Continuar</Button>
+                <Button id='continue-button' onClick={onSubmit}>Continuar</Button>
             </ActionContainer>
         </Container>
     )
