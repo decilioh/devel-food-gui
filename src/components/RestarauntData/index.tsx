@@ -81,7 +81,7 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
                 <fieldset>
                     <Input
                         name="cnpj"
-                        type="cnpj"
+                        type="text"
                         placeholder='CNPJ'
                         register={register}
                         error={errors.cnpj?.message}

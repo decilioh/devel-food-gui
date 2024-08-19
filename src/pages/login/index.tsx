@@ -30,7 +30,7 @@ export const Login = () => {
     return (
         <Main $image={foodImage}>
 
-            <FigureIMG $image={foodImage} id="imagem-login" />
+            <FigureIMG $image={foodImage} id="image-login" />
 
             <FormContainer id="form-container">
                 <Box>
@@ -60,8 +60,8 @@ export const Login = () => {
                         <Button id='button-login-submit' type='submit'>Logar</Button>
                     </Form>
 
-                    <Link id="link-pagina-esqueci-minha-senha" to="esqueci-minha-senha">Esqueci minha senha</Link>
-                    <Link id="link-pagina-cadastro" to="cadastrar">criar conta</Link>
+                    <Link id="link-page-forgot-my-password" to="esqueci-minha-senha">Esqueci minha senha</Link>
+                    <Link id="link-page-register" to="cadastrar">criar conta</Link>
                 </Box>
             </FormContainer>
 
