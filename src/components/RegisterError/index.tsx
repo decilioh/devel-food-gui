@@ -13,16 +13,16 @@ export const RegisterError = () => {
 
             <CheckContainer>
                 <figure>
-                    <img src={ErrorIcon} alt="Ocorreu um erro!" />
+                    <img src={ErrorIcon} alt="Ocorreu um erro!" id='error-image' />
                 </figure>
                 <p>Algo deu errado!</p>
             </CheckContainer>
 
             <ActionContainer>
-                <span>
+                <span id='message-response'>
                     Um erro ocorreu, contate o administrador do site ou tente novamente!
                 </span>
-                <Button>Continuar</Button>
+                <Button id='continue-button'>Continuar</Button>
             </ActionContainer>
         </Container>
     )
