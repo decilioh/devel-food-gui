@@ -12,6 +12,7 @@ interface InputProps extends InputHTMLAttributes<HTMLElement> {
     rules?: RegisterOptions;
     icon?: ReactNode;
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    id: string;
 }
 
 
@@ -32,7 +33,7 @@ export const Input = ({ icon, error, placeholder, register, type, rules, name, o
                     type={type === "password" && !isPasswordVisible ? "password" : "text"}
                     name={name}
                     onChange={onChange}
-                    id="id"
+                    id={id}
                 />
 
                 {type === "password" && (
