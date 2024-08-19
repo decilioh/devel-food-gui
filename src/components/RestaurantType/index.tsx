@@ -63,7 +63,7 @@ export const RestaurantType = ({ onSubmit }: RestaurantTypeProps) => {
                 <fieldset>
                     <Input
                         name="name"
-                        type="name"
+                        type="text"
                         placeholder='Nome'
                         register={register}
                         error={errors.name?.message}

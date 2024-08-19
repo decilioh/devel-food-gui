@@ -4,7 +4,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Container, ErrorMessage, IconWrapper, InputWrapper, StyledInput } from "./styles";
 
 interface InputProps extends InputHTMLAttributes<HTMLElement> {
-    type: string;
+    type: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url';
     placeholder: string;
     name: string;
     register: UseFormRegister<any>;

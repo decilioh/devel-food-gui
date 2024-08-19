@@ -22,7 +22,7 @@ export const RequestEmail = ({ onSubmit }: RequestEmailProps) => {
     };
 
     return (
-        <Form id="form-recuperar-senha" onSubmit={handleSubmit(handleSubmitEmail)}>
+        <Form id="form-recover-password" onSubmit={handleSubmit(handleSubmitEmail)}>
             <LogoDevelFood />
             <fieldset>
                 <Input

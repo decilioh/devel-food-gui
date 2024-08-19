@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, ReactNode } from "react"
 import { ButtonStyled } from "./styles"
 
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLElement> {
     children: ReactNode
 }
 
