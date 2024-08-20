@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { StepRegister } from "../common/StepRegister"
 import { restaurantTypeData, schema } from "./schema"
-import { FieldButton, Form, InputsContainer } from "./styles"
+import { FieldButton, Form, InputsContainer, LogoContainer } from "./styles"
 import { maskPhone } from "../../utils/mask"
 import { IoPeopleSharp } from "react-icons/io5";
 import { FaPhoneAlt } from "react-icons/fa";
@@ -51,7 +51,9 @@ export const RestaurantType = ({ onSubmit }: RestaurantTypeProps) => {
 
     return (
         <Form id="form-restaurant-type" onSubmit={handleSubmit(handleSubmitForm)}>
-            <LogoDevelFood />
+            <LogoContainer>
+                <LogoDevelFood />
+            </LogoContainer>
             <figure>
                 <StepRegister
                     lightSrc={step2Light}

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const Form = styled.form`
     display:flex;
     justify-content:center;
@@ -9,6 +10,10 @@ export const Form = styled.form`
     max-width:558px;
     gap:20px;
     padding:1rem;
+`
+
+export const LogoContainer = styled.div`
+    margin: 0 0 5rem 0;
 `
 
 export const InputsContainer = styled.div`
@@ -30,9 +35,10 @@ export const FieldButton = styled.fieldset`
     align-items:center;
     gap:20px;
     width:100%;
+    max-width:456px;
     margin-top:1.5rem;
     
     button{
-        width:50%;
+        width:100%;
     }
 `
