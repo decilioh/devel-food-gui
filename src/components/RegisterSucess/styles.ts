@@ -5,7 +5,7 @@ export const Container = styled.div`
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    gap:40px;
+    gap:100px;
     padding:1rem;
     text-align:center;
 `
@@ -24,9 +24,14 @@ export const ActionContainer = styled.div`
     justify-content:center;
     align-items:center;
     gap:20px;
+    width:100%;
+    width:456px;
 
     button{
-        width:100%;
-        max-width:456px;
+        width:90%;
     }
+`
+
+export const LogoContainer = styled.div`
+    margin: -10px 0 2rem 0;
 `

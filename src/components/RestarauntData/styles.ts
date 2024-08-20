@@ -21,7 +21,7 @@ export const InputsContainer = styled.div`
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    gap:14px;
+    gap:6px;
     width:100%;
     
     fieldset{

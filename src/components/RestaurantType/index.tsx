@@ -9,10 +9,10 @@ import { StepRegister } from "../common/StepRegister"
 import { restaurantTypeData, schema } from "./schema"
 import { FieldButton, Form, InputsContainer, LogoContainer } from "./styles"
 import { maskPhone } from "../../utils/mask"
-import { IoPeopleSharp } from "react-icons/io5";
 import { FaPhoneAlt } from "react-icons/fa";
 import { RestaurantTypeDataProps } from '../../pages/RegisterRestaurant/interfaces'
 import { Dropdown } from '../common/DropDown'
+import { MdOutlineAccessibility } from 'react-icons/md'
 
 interface RestaurantTypeProps {
     onSubmit: (data: RestaurantTypeDataProps) => void;
@@ -69,7 +69,7 @@ export const RestaurantType = ({ onSubmit }: RestaurantTypeProps) => {
                         placeholder='Nome'
                         register={register}
                         error={errors.name?.message}
-                        icon={<IoPeopleSharp />}
+                        icon={<MdOutlineAccessibility />}
                         onChange={handleNameChange}
                         id="input-name"
                     />
@@ -93,7 +93,7 @@ export const RestaurantType = ({ onSubmit }: RestaurantTypeProps) => {
                         error={errors.restaurantType?.message}
                         options={[
                             { value: 'Brasileira', label: 'Brasileira' },
-                            { value: 'Vegetariano / vegano', label: 'Vegetariano / vegano' },
+                            { value: 'Picante', label: 'Picante' },
                             { value: 'Mexicana', label: 'Mexicana' },
                             { value: 'Japonesa', label: 'Japonesa' },
                         ]}
@@ -104,7 +104,7 @@ export const RestaurantType = ({ onSubmit }: RestaurantTypeProps) => {
             </InputsContainer>
 
             <FieldButton>
-                <Button id="button-submit-restaurant-type" type="submit">Concluir</Button>
+                <Button id="button-submit-restaurant-type" type="submit">Continuar</Button>
             </FieldButton>
         </Form>
     )

@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { StepRegister } from "../common/StepRegister"
 import { RestaurantAdressData, schema } from "./schema"
-import { FieldButton, FieldsetFlex, Form, InputsContainer, SpaceDiv, SpaceNumberAdress } from "./styles"
+import { FieldButton, FieldsetFlex, Form, InputsContainer, LogoContainer, SpaceDiv, SpaceDivName, SpaceNumberAdress } from "./styles"
 import { maskCEP } from '../../utils/mask';
 import { RestaurantAdreesDataProps } from '../../pages/RegisterRestaurant/interfaces';
 import { fetchAddressByCep } from '../../services/fetchCEP';
@@ -88,7 +88,9 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
 
     return (
         <Form id="form-adress-restaurant" onSubmit={handleSubmit(handleSubmitForm)}>
-            <LogoDevelFood />
+            <LogoContainer>
+                <LogoDevelFood />
+            </LogoContainer>
             <figure>
                 <StepRegister
                     lightSrc={step3Light}
@@ -98,7 +100,7 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
             </figure>
             <InputsContainer>
                 <FieldsetFlex>
-                    <SpaceDiv>
+                    <SpaceDivName>
                         <Input
                             name="nameAdress"
                             type="text"
@@ -109,7 +111,7 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
                             onChange={handleNameChange}
                             id="input-name-adress"
                         />
-                    </SpaceDiv>
+                    </SpaceDivName>
                     <Input
                         name="cep"
                         type="text"
@@ -190,7 +192,7 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
             </InputsContainer>
 
             <FieldButton>
-                <Button id="button-submit-adress-restaurant" type="submit">Concluir</Button>
+                <Button id="button-submit-adress-restaurant" type="submit">Continuar</Button>
             </FieldButton>
         </Form>
     )

@@ -38,7 +38,7 @@ export const Input = ({ icon, error, placeholder, register, type, rules, name, o
 
                 {type === "password" && (
                     <IconWrapper onClick={togglePasswordVisibility}>
-                        {isPasswordVisible ? <FaEyeSlash /> : <FaEye />}
+                        {isPasswordVisible ? <FaEye /> : <FaEyeSlash />}
                     </IconWrapper>
                 )}
             </InputWrapper>
