@@ -11,6 +11,9 @@ import step1Light from '../../assets/images/step/light/step-1-light.svg'
 import step1Dark from '../../assets/images/step/dark/step-1-dark.svg'
 import { maskCNPJ } from "../../utils/mask"
 import { restaurantDataRegister } from "../../pages/RegisterRestaurant/interfaces"
+import { MdOutlineEmail } from "react-icons/md"
+import { IoMdCard } from "react-icons/io";
+
 
 
 interface RestaurantDataProps {
@@ -73,7 +76,7 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
                         placeholder='Email'
                         register={register}
                         error={errors.email?.message}
-                        icon={<CiUnlock />}
+                        icon={<MdOutlineEmail />}
                         onChange={handleEmailChange}
                         id="input-email"
                     />
@@ -82,10 +85,10 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
                     <Input
                         name="cnpj"
                         type="text"
-                        placeholder='CNPJ'
+                        placeholder='Cnpj'
                         register={register}
                         error={errors.cnpj?.message}
-                        icon={<CiUnlock />}
+                        icon={<IoMdCard />}
                         onChange={handleCNPJChange}
                         id="input-cnpj"
                     />
@@ -110,7 +113,7 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
                         placeholder='Confirme Senha'
                         register={register}
                         error={errors.confirmPassword?.message}
-                        icon={<CiUnlock />}
+                        icon={<IoMdCard />}
                         id="input-confirm-password"
                     />
                 </fieldset>
