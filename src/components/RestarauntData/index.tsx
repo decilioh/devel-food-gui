@@ -1,4 +1,3 @@
-import { CiUnlock } from "react-icons/ci"
 import { Button } from "../common/Button"
 import { Input } from "../common/Input"
 import { LogoDevelFood } from "../common/Logo"
@@ -13,6 +12,7 @@ import { maskCNPJ } from "../../utils/mask"
 import { restaurantDataRegister } from "../../pages/RegisterRestaurant/interfaces"
 import { MdOutlineEmail } from "react-icons/md"
 import { IoMdCard } from "react-icons/io";
+import { TfiUnlock } from "react-icons/tfi"
 
 
 
@@ -101,7 +101,7 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
                             placeholder='Senha'
                             register={register}
                             error={errors.password?.message}
-                            icon={<CiUnlock />}
+                            icon={<TfiUnlock />}
                             onChange={handlePasswordChange}
                             id="input-password"
                         />

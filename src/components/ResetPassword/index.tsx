@@ -1,4 +1,3 @@
-import { CiUnlock } from "react-icons/ci"
 import { Input } from "../common/Input"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -6,6 +5,8 @@ import { passwordData, schema } from "./schema"
 import { Button } from "../common/Button"
 import { LogoDevelFood } from "../common/Logo"
 import { FieldButton, Form, InputsContainer } from "./styles"
+import { TfiUnlock } from "react-icons/tfi";
+
 
 interface ResetPasswordProps {
     onSubmit: (password: string) => void;
@@ -45,7 +46,7 @@ export const ResetPassword = ({ onSubmit, navigate }: ResetPasswordProps) => {
                         placeholder='Código de validação'
                         register={register}
                         error={errors.code?.message}
-                        icon={<CiUnlock />}
+                        icon={<TfiUnlock />}
                         id="input-code-register"
                     />
                 </fieldset>
@@ -53,10 +54,10 @@ export const ResetPassword = ({ onSubmit, navigate }: ResetPasswordProps) => {
                     <Input
                         name="password"
                         type="password"
-                        placeholder='Senha'
+                        placeholder='Nova senha'
                         register={register}
                         error={errors.password?.message}
-                        icon={<CiUnlock />}
+                        icon={<TfiUnlock />}
                         onChange={handlePasswordChange}
                         id="input-password"
                     />
@@ -66,10 +67,10 @@ export const ResetPassword = ({ onSubmit, navigate }: ResetPasswordProps) => {
                     <Input
                         name="confirmPassword"
                         type="password"
-                        placeholder='Confirme Senha'
+                        placeholder='Confirmar senha'
                         register={register}
                         error={errors.confirmPassword?.message}
-                        icon={<CiUnlock />}
+                        icon={<TfiUnlock />}
                         id="input-confirm-password"
                     />
                 </fieldset>

@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { StepRegister } from "../common/StepRegister"
 import { RestaurantAdressData, schema } from "./schema"
-import { FieldButton, FieldsetFlex, Form, InputsContainer, LogoContainer, SpaceDiv, SpaceDivName, SpaceNumberAdress } from "./styles"
+import { ContainerRestaurant, FieldButton, FieldsetFlex, Form, InputsContainer, LogoContainer, SpaceDiv, SpaceDivName, SpaceNumberAdress } from "./styles"
 import { maskCEP } from '../../utils/mask';
 import { RestaurantAdreesDataProps } from '../../pages/RegisterRestaurant/interfaces';
 import { fetchAddressByCep } from '../../services/fetchCEP';
@@ -87,114 +87,117 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
     };
 
     return (
-        <Form id="form-adress-restaurant" onSubmit={handleSubmit(handleSubmitForm)}>
+        <ContainerRestaurant>
             <LogoContainer>
                 <LogoDevelFood />
             </LogoContainer>
-            <figure>
-                <StepRegister
-                    lightSrc={step3Light}
-                    darkSrc={step3Dark}
-                    alt="Etapa 1"
-                />
-            </figure>
-            <InputsContainer>
-                <FieldsetFlex>
-                    <SpaceDivName>
+            <Form id="form-adress-restaurant" onSubmit={handleSubmit(handleSubmitForm)}>
+                <figure>
+                    <StepRegister
+                        lightSrc={step3Light}
+                        darkSrc={step3Dark}
+                        alt="Etapa 1"
+                    />
+                </figure>
+                <InputsContainer>
+                    <FieldsetFlex>
+                        <SpaceDivName>
+                            <Input
+                                name="nameAdress"
+                                type="text"
+                                placeholder='Apelido do endereço'
+                                register={register}
+                                error={errors.nameAdress?.message}
+                                icon={<FaHouse />}
+                                onChange={handleNameChange}
+                                id="input-name-adress"
+                            />
+                        </SpaceDivName>
                         <Input
-                            name="nameAdress"
+                            name="cep"
                             type="text"
-                            placeholder='Apelido do endereço'
+                            placeholder='CEP'
                             register={register}
-                            error={errors.nameAdress?.message}
+                            error={errors.cep?.message}
                             icon={<FaHouse />}
-                            onChange={handleNameChange}
-                            id="input-name-adress"
+                            onChange={handleCepChange}
+                            id="input-cep"
                         />
-                    </SpaceDivName>
-                    <Input
-                        name="cep"
-                        type="text"
-                        placeholder='CEP'
-                        register={register}
-                        error={errors.cep?.message}
-                        icon={<FaHouse />}
-                        onChange={handleCepChange}
-                        id="input-cep"
-                    />
-                </FieldsetFlex>
-                <fieldset>
-                    <Input
-                        name="road"
-                        type="text"
-                        placeholder='Rua'
-                        register={register}
-                        error={errors.road?.message}
-                        icon={<FaHouse />}
-                        onChange={handleRoadChange}
-                        id="input-road"
-                    />
-                </fieldset>
-
-                <fieldset>
-                    <Input
-                        name="city"
-                        type="text"
-                        placeholder='Cidade'
-                        register={register}
-                        error={errors.city?.message}
-                        icon={<FaHouse />}
-                        onChange={handleCityChange}
-                        id="input-city"
-                    />
-                </fieldset>
-
-                <fieldset>
-                    <Input
-                        name="neighborhood"
-                        type="text"
-                        placeholder='Bairro'
-                        register={register}
-                        error={errors.neighborhood?.message}
-                        icon={<FaHouse />}
-                        onChange={handleNeighborhoodChange}
-                        id="input-neighborhood"
-                    />
-                </fieldset>
-
-                <FieldsetFlex>
-                    <SpaceDiv>
+                    </FieldsetFlex>
+                    <fieldset>
                         <Input
-                            name="state"
+                            name="road"
                             type="text"
-                            placeholder='Estado'
+                            placeholder='Rua'
                             register={register}
-                            error={errors.state?.message}
+                            error={errors.road?.message}
                             icon={<FaHouse />}
-                            onChange={handleStateChange}
-                            id="input-state"
+                            onChange={handleRoadChange}
+                            id="input-road"
                         />
-                    </SpaceDiv>
-                    <SpaceNumberAdress>
+                    </fieldset>
 
+                    <fieldset>
                         <Input
-                            name="numberRestaurant"
+                            name="city"
                             type="text"
-                            placeholder='Número'
+                            placeholder='Cidade'
                             register={register}
-                            error={errors.numberRestaurant?.message}
+                            error={errors.city?.message}
                             icon={<FaHouse />}
-                            onChange={handleNumberRestaurantChange}
-                            id="input-number-restaurant"
+                            onChange={handleCityChange}
+                            id="input-city"
                         />
-                    </SpaceNumberAdress>
-                </FieldsetFlex>
-            </InputsContainer>
+                    </fieldset>
 
-            <FieldButton>
-                <Button id="button-submit-adress-restaurant" type="submit">Continuar</Button>
-            </FieldButton>
-        </Form>
+                    <fieldset>
+                        <Input
+                            name="neighborhood"
+                            type="text"
+                            placeholder='Bairro'
+                            register={register}
+                            error={errors.neighborhood?.message}
+                            icon={<FaHouse />}
+                            onChange={handleNeighborhoodChange}
+                            id="input-neighborhood"
+                        />
+                    </fieldset>
+
+                    <FieldsetFlex>
+                        <SpaceDiv>
+                            <Input
+                                name="state"
+                                type="text"
+                                placeholder='Estado'
+                                register={register}
+                                error={errors.state?.message}
+                                icon={<FaHouse />}
+                                onChange={handleStateChange}
+                                id="input-state"
+                            />
+                        </SpaceDiv>
+                        <SpaceNumberAdress>
+
+                            <Input
+                                name="numberRestaurant"
+                                type="text"
+                                placeholder='Número'
+                                register={register}
+                                error={errors.numberRestaurant?.message}
+                                icon={<FaHouse />}
+                                onChange={handleNumberRestaurantChange}
+                                id="input-number-restaurant"
+                            />
+                        </SpaceNumberAdress>
+                    </FieldsetFlex>
+                </InputsContainer>
+
+                <FieldButton>
+                    <Button id="button-submit-adress-restaurant" type="submit">Continuar</Button>
+                </FieldButton>
+            </Form>
+        </ContainerRestaurant>
+
     )
 
 }

@@ -11,7 +11,7 @@ export const ToggleDiv = styled.div<{ $hasError?: boolean }>`
     border: 1px solid ${({ $hasError, theme }) => ($hasError ? theme.colors.redColor : theme.colors.colorInputBorder)};
     border-radius: 8px;
     background-color: ${({ theme }) => theme.colors.whiteColor};
-    padding: 1.1rem;
+    padding: .95rem;
     cursor: pointer;
     user-select: none;
     justify-content:space-between;
@@ -25,6 +25,11 @@ export const ToggleDiv = styled.div<{ $hasError?: boolean }>`
     div{
         display:flex;
         gap:18px;
+
+        svg{
+            width:22px;
+            height:22px;
+        }
 
         span{
             font-size:.9rem;
@@ -47,6 +52,22 @@ export const CheckboxContainer = styled.div`
     z-index: 1000;
     padding: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+    &::-webkit-scrollbar {
+        width: 5px;
+        height: 2px;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+        background-color:#3F3D3D;
+        border-radius: 4px;
+        height: 2px;
+    }
+  
+    &::-webkit-scrollbar-track {
+        background-color: #f1f1f1;
+        
+    }
 `;
 
 export const CheckboxItem = styled.div`

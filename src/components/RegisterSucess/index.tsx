@@ -23,7 +23,7 @@ export const RegisterSucess = ({ onSubmit }: RegisterSucessProps) => {
                 <p>Cadastro finalizado!</p>
                 <span id='response-message'>
                     Parabéns! Agora você pode aproveitar nossas ofertas
-                    e serviços e <br />economizar com super cupons Develfood!
+                    e serviços e <br />economizar com super cupons Develfood.
                 </span>
             </CheckContainer>
 
