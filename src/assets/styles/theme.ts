@@ -16,6 +16,7 @@ export const lightTheme = {
     textCardColor: '#FFF',
     colorInputBorder: '#DDDDDD',
     backgroundLogin: '#F2F2F2',
+    verifyCodeColor: '#BFBABA'
   }
 };
 
@@ -37,5 +38,6 @@ export const darkTheme = {
     textCardColor: '#031626',
     colorInputBorder: '#DDDDDD',
     backgroundLogin: '#F2F2F2',
+    verifyCodeColor: '#FFFFFF'
   }
 };

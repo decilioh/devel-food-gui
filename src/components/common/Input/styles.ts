@@ -28,10 +28,15 @@ export const StyledInput = styled.input`
     padding: .7rem;
     width:100%;
     color:${({ theme }) => theme.colors.darkGray};
+
+    &::placeholder{
+        color:${({ theme }) => theme.colors.darkGray};
+    }
 `;
 
 export const IconWrapper = styled.div`
     margin-right: 8px;
+    color:${({ theme }) => theme.colors.darkGray};
 `;
 
 export const ErrorMessage = styled.div`

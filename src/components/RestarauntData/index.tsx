@@ -2,7 +2,7 @@ import { CiUnlock } from "react-icons/ci"
 import { Button } from "../common/Button"
 import { Input } from "../common/Input"
 import { LogoDevelFood } from "../common/Logo"
-import { FieldButton, Form, InputsContainer } from "./styles"
+import { Container, FieldButton, Form, InputsContainer } from "./styles"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { restaurantData, schema } from "./schema"
@@ -11,6 +11,9 @@ import step1Light from '../../assets/images/step/light/step-1-light.svg'
 import step1Dark from '../../assets/images/step/dark/step-1-dark.svg'
 import { maskCNPJ } from "../../utils/mask"
 import { restaurantDataRegister } from "../../pages/RegisterRestaurant/interfaces"
+import { MdOutlineEmail } from "react-icons/md"
+import { IoMdCard } from "react-icons/io";
+
 
 
 interface RestaurantDataProps {
@@ -56,70 +59,73 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
     };
 
     return (
-        <Form id="form-restaurant-data" onSubmit={handleSubmit(handleSubmitForm)}>
+        <Container>
             <LogoDevelFood />
-            <figure>
-                <StepRegister
-                    lightSrc={step1Light}
-                    darkSrc={step1Dark}
-                    alt="Etapa 1"
-                />
-            </figure>
-            <InputsContainer>
-                <fieldset>
-                    <Input
-                        name="email"
-                        type="email"
-                        placeholder='Email'
-                        register={register}
-                        error={errors.email?.message}
-                        icon={<CiUnlock />}
-                        onChange={handleEmailChange}
-                        id="input-email"
+            <Form id="form-restaurant-data" onSubmit={handleSubmit(handleSubmitForm)}>
+                <figure>
+                    <StepRegister
+                        lightSrc={step1Light}
+                        darkSrc={step1Dark}
+                        alt="Etapa 1"
                     />
-                </fieldset>
-                <fieldset>
-                    <Input
-                        name="cnpj"
-                        type="text"
-                        placeholder='CNPJ'
-                        register={register}
-                        error={errors.cnpj?.message}
-                        icon={<CiUnlock />}
-                        onChange={handleCNPJChange}
-                        id="input-cnpj"
-                    />
-                </fieldset>
-                <fieldset>
-                    <Input
-                        name="password"
-                        type="password"
-                        placeholder='Senha'
-                        register={register}
-                        error={errors.password?.message}
-                        icon={<CiUnlock />}
-                        onChange={handlePasswordChange}
-                        id="input-password"
-                    />
-                </fieldset>
+                </figure>
+                <InputsContainer>
+                    <fieldset>
+                        <Input
+                            name="email"
+                            type="email"
+                            placeholder='Email'
+                            register={register}
+                            error={errors.email?.message}
+                            icon={<MdOutlineEmail />}
+                            onChange={handleEmailChange}
+                            id="input-email"
+                        />
+                    </fieldset>
+                    <fieldset>
+                        <Input
+                            name="cnpj"
+                            type="text"
+                            placeholder='Cnpj'
+                            register={register}
+                            error={errors.cnpj?.message}
+                            icon={<IoMdCard />}
+                            onChange={handleCNPJChange}
+                            id="input-cnpj"
+                        />
+                    </fieldset>
+                    <fieldset>
+                        <Input
+                            name="password"
+                            type="password"
+                            placeholder='Senha'
+                            register={register}
+                            error={errors.password?.message}
+                            icon={<CiUnlock />}
+                            onChange={handlePasswordChange}
+                            id="input-password"
+                        />
+                    </fieldset>
 
-                <fieldset>
-                    <Input
-                        name="confirmPassword"
-                        type="password"
-                        placeholder='Confirme Senha'
-                        register={register}
-                        error={errors.confirmPassword?.message}
-                        icon={<CiUnlock />}
-                        id="input-confirm-password"
-                    />
-                </fieldset>
-            </InputsContainer>
+                    <fieldset>
+                        <Input
+                            name="confirmPassword"
+                            type="password"
+                            placeholder='Confirmar Senha'
+                            register={register}
+                            error={errors.confirmPassword?.message}
+                            icon={<IoMdCard />}
+                            id="input-confirm-password"
+                        />
+                    </fieldset>
+                </InputsContainer>
 
-            <FieldButton>
-                <Button id="input-submit-restaurant-data" type="submit">Concluir</Button>
-            </FieldButton>
-        </Form>
+                <FieldButton id="teste">
+                    <Button id="input-submit-restaurant-data" type="submit">Continuar</Button>
+                </FieldButton>
+            </Form>
+        </Container>
+
     )
 
 }

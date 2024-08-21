@@ -18,6 +18,7 @@ declare module "styled-components" {
             textCardColor: string;
             colorInputBorder: string;
             backgroundLogin: string
+            verifyCodeColor: string;
         }
     }
 }

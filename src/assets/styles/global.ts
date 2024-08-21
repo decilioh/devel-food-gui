@@ -16,7 +16,7 @@ body{
 
 body, input-security, textarea, button{
     font-family:'Roboto Condensed', sans-serif;
-    font-weight:500;
+    font-weight:400;
     font-size:1rem;
 }
 

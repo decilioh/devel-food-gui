@@ -77,7 +77,7 @@ export const ResetPassword = ({ onSubmit, navigate }: ResetPasswordProps) => {
 
             <FieldButton>
                 <Button id="return-page" onClick={navigate}>Voltar</Button>
-                <Button id="button-submit-reset-password" type="submit">Concluir</Button>
+                <Button id="button-submit-reset-password" type="submit">Continuar</Button>
             </FieldButton>
         </Form>
     )
