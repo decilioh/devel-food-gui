@@ -1,7 +1,7 @@
 import { ChangeEvent, InputHTMLAttributes, ReactNode, useState } from "react";
 import { RegisterOptions, UseFormRegister } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Container, ErrorMessage, IconWrapper, InputWrapper, StyledInput } from "./styles";
+import { Container, ErrorContainer, ErrorMessage, IconWrapper, InputWrapper, StyledInput } from "./styles";
 
 interface InputProps extends InputHTMLAttributes<HTMLElement> {
     type: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url';
@@ -42,7 +42,9 @@ export const Input = ({ icon, error, placeholder, register, type, rules, name, o
                     </IconWrapper>
                 )}
             </InputWrapper>
-            {error && <ErrorMessage>{error}</ErrorMessage>}
+            <ErrorContainer>
+                {error && <ErrorMessage>{error}</ErrorMessage>}
+            </ErrorContainer>
         </Container>
     );
 };

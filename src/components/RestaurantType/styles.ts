@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+export const Container = styled.main`
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+`
 
 export const Form = styled.form`
     display:flex;
@@ -12,8 +19,8 @@ export const Form = styled.form`
     padding:1rem;
 `
 
-export const LogoContainer = styled.div`
-    margin: 0 0 5rem 0;
+export const LogoView = styled.figure`
+    margin: 0px 0px 5rem 0px;
 `
 
 export const InputsContainer = styled.div`
@@ -21,7 +28,7 @@ export const InputsContainer = styled.div`
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    gap:14px;
+    gap:10px;
     width:100%;
     
     fieldset{

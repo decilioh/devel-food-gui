@@ -10,8 +10,10 @@ export const Main = styled.main<ImageProps>`
     overflow: hidden;
     background-color:${({ theme }) => theme.colors.backgroundLogin};
 
-    @media (max-width: 828px) {
+    @media (max-width: 900px) {
         background-image: url(${(props) => props.$image});
+        justify-content:center;
+        align-items:center;
     }
 `
 
@@ -21,7 +23,7 @@ export const FigureIMG = styled.div<ImageProps>`
     background-size: cover;
     background-position: center;
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
         display:none;
     }
 `
@@ -30,34 +32,27 @@ export const FormContainer = styled.section`
     display:flex;
     justify-content:center;
     align-items:center;
-    width:30%;
+    width:100%;
+    max-width:715px;
+    
 
-    @media (max-width: 1720px) {
-        width: 35%;
+    @media (max-width: 900px) {
+        height:100%;
     }
-
-    @media (max-width: 1280px) {
-        width: 45%;
-    }
-
-    @media (max-width: 828px) {
-        width: 100%;
-    }
-
 `
 
 export const Box = styled.div`
-    width:80%;
+    width:100%;
+    max-width:558px;
     height:90%;
     display:flex;
-    justify-content:center;
     align-items:center;
     flex-direction:column;
     border-radius:23px;
-    box-shadow: 2px 2px 20px 0px ${({ theme }) => theme.colors.blackColor};
+    box-shadow:4px 4px 20px 0px ${({ theme }) => theme.colors.darkGray};
     background-color:${({ theme }) => theme.colors.backgroundColor};
     figure{
-        margin-bottom:1rem;
+        margin-top:4.5rem;
     }
 
     a{
@@ -74,6 +69,10 @@ export const Box = styled.div`
     @media (max-width: 480px) {
         width: 90%;
     }
+
+    @media (max-width: 600px) {
+        width: 90%;
+    }
 `
 
 export const Form = styled.form`
@@ -81,14 +80,21 @@ export const Form = styled.form`
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    width:70%;
+    width:100%;
+    max-width:450px;
     gap:40px;
+    margin:1rem 0px 0px 0px;
 
     fieldset{
         display:flex;
         flex-direction:column;
         gap:20px;
         width:100%;
+
+        input{
+            width:100%;
+            max-width:450px;
+        }
     }
 
     button{
@@ -104,4 +110,12 @@ export const Form = styled.form`
         gap: 15px;
     }
 
+`
+
+export const LinkContainer = styled.div`
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+    gap:4px;
+    margin-top:1.75rem;
 `

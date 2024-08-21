@@ -7,11 +7,11 @@ export const Form = styled.form`
     flex-direction:column;
     width:100%;
     max-width:558px;
-    gap:20px;
+    gap:13px;
     padding:1.5rem;
 
     @media (max-width: 768px) {
-        padding: 1rem;
+        padding: 1.6rem;
     }
 
     @media (max-width: 480px) {
@@ -20,7 +20,23 @@ export const Form = styled.form`
 `
 
 export const LogoContainer = styled.div`
-    margin: -10px 0 1rem 0;
+    margin: 0px 0px 0.4rem 0px;
+    @media (max-height: 760px) {
+        margin-top:1rem;
+  }
+
+  @media (max-height: 720px) {
+        margin-top:2rem;
+  }
+`
+
+export const ContainerRestaurant = styled.div`
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    justify-content:center;
+    align-items:center;
+    padding:1.5rem;
 `
 
 export const InputsContainer = styled.div`
@@ -28,7 +44,7 @@ export const InputsContainer = styled.div`
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    gap:14px;
+    gap:10px;
     width:100%;
 
     
@@ -74,4 +90,5 @@ export const SpaceDivName = styled.div`
 export const SpaceNumberAdress = styled.div`
     width:30%;
     max-width:187px;
+    height:100%;
 `
