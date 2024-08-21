@@ -25,13 +25,25 @@ export const StyledInput = styled.input`
     outline: none;
     border-radius: 8px;
     flex: 1;
-    padding: .7rem;
+    padding: .6rem;
     width:100%;
     color:${({ theme }) => theme.colors.darkGray};
+
+    &::placeholder{
+        color:${({ theme }) => theme.colors.darkGray};
+    }
 `;
 
 export const IconWrapper = styled.div`
     margin-right: 8px;
+    color:${({ theme }) => theme.colors.darkGray};
+    width:22px;
+    height:22px;
+    svg {
+        width: 100%;
+        height: 100%;
+        color:${({ theme }) => theme.colors.darkGray};
+  }
 `;
 
 export const ErrorMessage = styled.div`
@@ -39,4 +51,16 @@ export const ErrorMessage = styled.div`
     font-size: .8rem;
     text-align:left;
     background-color:${({ theme }) => theme.colors.backgroundColor};
+    margin-top:6px;
 `;
+
+export const ErrorContainer = styled.div`
+    background-color:${({ theme }) => theme.colors.backgroundColor};;
+    display:flex;
+    justify-content:space-between;
+
+    p{
+        background-color:transparent;
+        color:red;
+    }
+`

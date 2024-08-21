@@ -7,12 +7,12 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { StepRegister } from "../common/StepRegister"
 import { restaurantTypeData, schema } from "./schema"
-import { FieldButton, Form, InputsContainer } from "./styles"
 import { maskPhone } from "../../utils/mask"
-import { IoPeopleSharp } from "react-icons/io5";
 import { FaPhoneAlt } from "react-icons/fa";
 import { RestaurantTypeDataProps } from '../../pages/RegisterRestaurant/interfaces'
 import { Dropdown } from '../common/DropDown'
+import { MdOutlineAccessibility } from 'react-icons/md'
+import { Container, FieldButton, Form, InputsContainer, LogoView } from "./styles"
 
 interface RestaurantTypeProps {
     onSubmit: (data: RestaurantTypeDataProps) => void;
@@ -50,61 +50,71 @@ export const RestaurantType = ({ onSubmit }: RestaurantTypeProps) => {
     }
 
     return (
-        <Form id="form-restaurant-type" onSubmit={handleSubmit(handleSubmitForm)}>
-            <LogoDevelFood />
-            <figure>
-                <StepRegister
-                    lightSrc={step2Light}
-                    darkSrc={step2Dark}
-                    alt="Etapa 1"
-                />
-            </figure>
-            <InputsContainer>
-                <fieldset>
-                    <Input
-                        name="name"
-                        type="text"
-                        placeholder='Nome'
-                        register={register}
-                        error={errors.name?.message}
-                        icon={<IoPeopleSharp />}
-                        onChange={handleNameChange}
-                        id="input-name"
+        <Container>
+            <LogoView>
+                <LogoDevelFood />
+            </LogoView>
+            <Form id="form-restaurant-type" onSubmit={handleSubmit(handleSubmitForm)}>
+                <figure>
+                    <StepRegister
+                        lightSrc={step2Light}
+                        darkSrc={step2Dark}
+                        alt="Etapa 1"
                     />
-                </fieldset>
-                <fieldset>
-                    <Input
-                        name="telefone"
-                        type="tel"
-                        placeholder='Telefone'
-                        register={register}
-                        error={errors.telefone?.message}
-                        icon={<FaPhoneAlt />}
-                        onChange={handlePhoneChange}
-                        id="input-telephone"
-                    />
-                </fieldset>
-                <fieldset>
-                    <Dropdown
-                        name="restaurantType"
-                        register={register}
-                        error={errors.restaurantType?.message}
-                        options={[
-                            { value: 'Brasileira', label: 'Brasileira' },
-                            { value: 'Vegetariano / vegano', label: 'Vegetariano / vegano' },
-                            { value: 'Mexicana', label: 'Mexicana' },
-                            { value: 'Japonesa', label: 'Japonesa' },
-                        ]}
-                        onChange={handleDropdownChange}
-                        value={[]}
-                    />
-                </fieldset>
-            </InputsContainer>
+                </figure>
+                <InputsContainer>
+                    <fieldset>
+                        <Input
+                            name="name"
+                            type="text"
+                            placeholder='Nome'
+                            register={register}
+                            error={errors.name?.message}
+                            icon={<MdOutlineAccessibility />}
+                            onChange={handleNameChange}
+                            id="input-name"
+                        />
+                    </fieldset>
+                    <fieldset>
+                        <Input
+                            name="telefone"
+                            type="tel"
+                            placeholder='Telefone'
+                            register={register}
+                            error={errors.telefone?.message}
+                            icon={<FaPhoneAlt />}
+                            onChange={handlePhoneChange}
+                            id="input-telephone"
+                        />
+                    </fieldset>
+                    <fieldset>
+                        <Dropdown
+                            name="restaurantType"
+                            register={register}
+                            error={errors.restaurantType?.message}
+                            options={[
+                                { value: 'Brasileira', label: 'Brasileira' },
+                                { value: 'Picante', label: 'Picante' },
+                                { value: 'Mexicana', label: 'Mexicana' },
+                                { value: 'Japonesa', label: 'Japonesa' },
+                                { value: 'Tailandesa', label: 'Tailandesa' },
+                                { value: 'Chinesa', label: 'Chinesa' },
+                                { value: 'Indiana', label: 'Indiana' },
+                                { value: 'Italiana', label: 'Italiana' },
 
-            <FieldButton>
-                <Button id="button-submit-restaurant-type" type="submit">Concluir</Button>
-            </FieldButton>
-        </Form>
+                            ]}
+                            onChange={handleDropdownChange}
+                            value={[]}
+                        />
+                    </fieldset>
+                </InputsContainer>
+
+                <FieldButton>
+                    <Button id="button-submit-restaurant-type" type="submit">Continuar</Button>
+                </FieldButton>
+            </Form>
+        </Container>
+
     )
 
 }
