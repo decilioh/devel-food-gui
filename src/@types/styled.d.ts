@@ -19,6 +19,7 @@ declare module "styled-components" {
             colorInputBorder: string;
             backgroundLogin: string
             verifyCodeColor: string;
+            verifyCodeSpanColor: string;
         }
     }
 }
