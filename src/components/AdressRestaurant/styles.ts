@@ -7,7 +7,7 @@ export const Form = styled.form`
     flex-direction:column;
     width:100%;
     max-width:558px;
-    gap:13px;
+    gap:26px;
     padding:1.5rem;
 
     @media (max-width: 768px) {
@@ -20,7 +20,7 @@ export const Form = styled.form`
 `
 
 export const LogoContainer = styled.div`
-    margin: 0px 0px 0.4rem 0px;
+    margin: 0px 0px 0.8rem 0px;
     @media (max-height: 760px) {
         margin-top:1rem;
   }
@@ -60,10 +60,13 @@ export const FieldButton = styled.fieldset`
     gap:20px;
     width:100%;
     max-width:456px;
-    margin-top:1.5rem;
+    margin-top:2.5rem;
+    height:100%;
+    max-height:77px;
     
     button{
         width:100%;
+        height:100%;
     }
 `
 

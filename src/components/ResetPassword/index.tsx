@@ -5,7 +5,7 @@ import { passwordData, schema } from "./schema"
 import { Button } from "../common/Button"
 import { LogoDevelFood } from "../common/Logo"
 import { FieldButton, Form, InputsContainer } from "./styles"
-import { TfiUnlock } from "react-icons/tfi";
+import { MdLockOpen } from "react-icons/md"
 
 
 interface ResetPasswordProps {
@@ -46,7 +46,7 @@ export const ResetPassword = ({ onSubmit, navigate }: ResetPasswordProps) => {
                         placeholder='Código de validação'
                         register={register}
                         error={errors.code?.message}
-                        icon={<TfiUnlock />}
+                        icon={<MdLockOpen />}
                         id="input-code-register"
                     />
                 </fieldset>
@@ -57,7 +57,7 @@ export const ResetPassword = ({ onSubmit, navigate }: ResetPasswordProps) => {
                         placeholder='Nova senha'
                         register={register}
                         error={errors.password?.message}
-                        icon={<TfiUnlock />}
+                        icon={<MdLockOpen />}
                         onChange={handlePasswordChange}
                         id="input-password"
                     />
@@ -70,15 +70,16 @@ export const ResetPassword = ({ onSubmit, navigate }: ResetPasswordProps) => {
                         placeholder='Confirmar senha'
                         register={register}
                         error={errors.confirmPassword?.message}
-                        icon={<TfiUnlock />}
+                        icon={<MdLockOpen />}
                         id="input-confirm-password"
+                        onChange={handlePasswordChange}
                     />
                 </fieldset>
             </InputsContainer>
 
             <FieldButton>
                 <Button id="return-page" onClick={navigate}>Voltar</Button>
-                <Button id="button-submit-reset-password" type="submit">Continuar</Button>
+                <Button id="button-submit-reset-password" type="submit">Concluir</Button>
             </FieldButton>
         </Form>
     )

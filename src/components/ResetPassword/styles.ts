@@ -30,6 +30,8 @@ export const FieldButton = styled.fieldset`
     align-items:center;
     gap:20px;
     width:100%;
+    height:100%;
+    max-height:62px;
     margin-top:1.5rem;
     
     button{

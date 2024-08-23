@@ -117,5 +117,9 @@ export const LinkContainer = styled.div`
     align-items:center;
     flex-direction:column;
     gap:4px;
-    margin-top:1.75rem;
+    margin-top:6.187rem;
+
+    @media (max-height:740px) {
+        margin-top:3rem;
+    }
 `

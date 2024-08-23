@@ -6,9 +6,8 @@ import { Input } from '../../components/common/Input'
 import { Box, FigureIMG, Form, FormContainer, LinkContainer, Main } from './styles'
 import { useForm } from 'react-hook-form'
 import { LoginData, schema } from './schema'
-import { MdOutlineEmail } from "react-icons/md";
+import { MdLockOpen, MdOutlineEmail } from "react-icons/md";
 import { LogoDevelFood } from "../../components/common/Logo";
-import { TfiUnlock } from "react-icons/tfi";
 
 
 export const Login = () => {
@@ -51,7 +50,7 @@ export const Login = () => {
                                 placeholder='Senha'
                                 register={register}
                                 error={errors.password?.message}
-                                icon={<TfiUnlock />}
+                                icon={<MdLockOpen />}
                                 id="input-password-login"
                             />
                         </fieldset>
