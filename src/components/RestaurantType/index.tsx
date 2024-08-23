@@ -13,7 +13,6 @@ import { RestaurantTypeDataProps } from '../../pages/RegisterRestaurant/interfac
 import { Dropdown } from '../common/DropDown'
 import { MdOutlineAccessibility } from 'react-icons/md'
 import { Container, FieldButton, Form, InputsContainer, LogoView } from "./styles"
-
 interface RestaurantTypeProps {
     onSubmit: (data: RestaurantTypeDataProps) => void;
 }
@@ -41,6 +40,7 @@ export const RestaurantType = ({ onSubmit }: RestaurantTypeProps) => {
         setValue('restaurantType', value);
         trigger('restaurantType');
     };
+
 
     const handleSubmitForm = (data: restaurantTypeData) => {
 

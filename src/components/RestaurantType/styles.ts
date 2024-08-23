@@ -15,12 +15,12 @@ export const Form = styled.form`
     flex-direction:column;
     width:100%;
     max-width:558px;
-    gap:20px;
+    gap:60px;
     padding:1rem;
 `
 
 export const LogoView = styled.figure`
-    margin: 0px 0px 5rem 0px;
+    margin: 0px 0px 1.2rem 0px;
 `
 
 export const InputsContainer = styled.div`
@@ -36,6 +36,7 @@ export const InputsContainer = styled.div`
     }
 `
 
+
 export const FieldButton = styled.fieldset`
     display:flex;
     justify-content:center;
@@ -43,8 +44,8 @@ export const FieldButton = styled.fieldset`
     gap:20px;
     width:100%;
     max-width:456px;
-    margin-top:1.5rem;
-    
+    margin-top:.6rem;
+
     button{
         width:100%;
     }

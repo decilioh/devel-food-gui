@@ -30,6 +30,10 @@ export const ActionContainer = styled.div`
     width:100%;
     max-width:361px;
 
+    span{
+        color:${({ theme }) => theme.colors.verifyCodeSpanColor};
+    }
+
     button{
         width:90%;
         max-width:361px;

@@ -40,7 +40,6 @@ export const ToggleDiv = styled.div<{ $hasError?: boolean }>`
 `;
 
 export const CheckboxContainer = styled.div`
-    position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
@@ -52,6 +51,7 @@ export const CheckboxContainer = styled.div`
     z-index: 1000;
     padding: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition:1s;
 
     &::-webkit-scrollbar {
         width: 5px;

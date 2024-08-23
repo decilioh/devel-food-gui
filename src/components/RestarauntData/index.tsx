@@ -10,11 +10,8 @@ import step1Light from '../../assets/images/step/light/step-1-light.svg'
 import step1Dark from '../../assets/images/step/dark/step-1-dark.svg'
 import { maskCNPJ } from "../../utils/mask"
 import { restaurantDataRegister } from "../../pages/RegisterRestaurant/interfaces"
-import { MdOutlineEmail } from "react-icons/md"
+import { MdLockOpen, MdOutlineEmail } from "react-icons/md"
 import { IoMdCard } from "react-icons/io";
-import { TfiUnlock } from "react-icons/tfi"
-
-
 
 interface RestaurantDataProps {
     onSubmit: (data: restaurantDataRegister) => void;
@@ -32,6 +29,7 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
         setValue(name as keyof restaurantData, value);
         await trigger(name as keyof restaurantData);
     };
+
 
     const handleCNPJChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
         const maskedValue = maskCNPJ(event.target.value);
@@ -101,7 +99,7 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
                             placeholder='Senha'
                             register={register}
                             error={errors.password?.message}
-                            icon={<TfiUnlock />}
+                            icon={<MdLockOpen />}
                             onChange={handlePasswordChange}
                             id="input-password"
                         />
@@ -116,6 +114,7 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
                             error={errors.confirmPassword?.message}
                             icon={<IoMdCard />}
                             id="input-confirm-password"
+                            onChange={handlePasswordChange}
                         />
                     </fieldset>
                 </InputsContainer>
