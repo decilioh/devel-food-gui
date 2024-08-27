@@ -4,9 +4,10 @@ import { ActionContainer, CheckContainer, Container, Message } from './styles'
 
 interface VerifyCodeProps {
     onSubmit: () => void;
+    navigate: () => void;
 }
 
-export const VerifyCode = ({ onSubmit }: VerifyCodeProps) => {
+export const VerifyCode = ({ onSubmit, navigate }: VerifyCodeProps) => {
 
     return (
         <Container>
@@ -31,7 +32,10 @@ export const VerifyCode = ({ onSubmit }: VerifyCodeProps) => {
                     AUIhuiaasa56d4as56-AUIhuiaasa56d4as56<br />
                     56das465fa4d56-5fsd4fgsd65f4sa
                 </span>
-                <Button id="button-submit-verify-code" onClick={onSubmit}>Continuar</Button>
+                <div>
+                    <Button id="button-return-" onClick={navigate}>Voltar</Button>
+                    <Button id="button-submit-verify-code" onClick={onSubmit}>Continuar</Button>
+                </div>
             </ActionContainer>
         </Container>
     )

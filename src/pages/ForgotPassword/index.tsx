@@ -14,7 +14,7 @@ export const ForgotPassword = () => {
     };
 
     const returnNavigate = () => {
-        setStep(2);
+        setStep(prevStep => Math.max(prevStep - 1, 1));
     }
 
     const handleCodeSubmit = () => {
@@ -28,7 +28,7 @@ export const ForgotPassword = () => {
     return (
         <Main>
             {step === 1 && <RequestEmail onSubmit={handleEmailSubmit} />}
-            {step === 2 && <VerifyCode onSubmit={handleCodeSubmit} />}
+            {step === 2 && <VerifyCode onSubmit={handleCodeSubmit} navigate={returnNavigate} />}
             {step === 3 && <ResetPassword onSubmit={handlePassWordReset} navigate={returnNavigate} />}
         </Main>
     )
