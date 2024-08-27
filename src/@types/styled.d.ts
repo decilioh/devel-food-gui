@@ -21,6 +21,8 @@ declare module "styled-components" {
             verifyCodeColor: string;
             verifyCodeSpanColor: string;
             textColorModal: string;
+            textColorSideBar: string;
+            textColorSideBarHover: string;
         }
     }
 }

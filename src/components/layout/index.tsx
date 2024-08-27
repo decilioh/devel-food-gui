@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom"
 import styled from "styled-components"
 import { Header } from "../Header"
+import { Sidebar } from "../common/SideBar"
 
 
 const ContentWrapper = styled.div`
@@ -11,13 +12,20 @@ const ContentWrapper = styled.div`
   padding: 16px;
 `
 
+const ContentFlexWrapper = styled.div`
+    display:flex;
+`
+
 export const LayoutLogged = () => {
     return (
         <>
             <Header />
-            <ContentWrapper>
-                <Outlet />
-            </ContentWrapper>
+            <ContentFlexWrapper>
+                <Sidebar />
+                <ContentWrapper>
+                    <Outlet />
+                </ContentWrapper>
+            </ContentFlexWrapper>
         </>
     )
 }
