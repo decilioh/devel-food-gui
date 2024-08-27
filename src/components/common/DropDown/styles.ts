@@ -88,6 +88,7 @@ export const CheckboxItem = styled.div`
         background:#d9d9d9;
         cursor: pointer;
         position:relative;
+        padding:.6rem;
 
         &:checked{
             background: ${({ theme }) => theme.colors.redColor};

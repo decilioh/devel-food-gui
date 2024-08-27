@@ -1,7 +1,7 @@
 import { Button } from "../common/Button"
 import { Input } from "../common/Input"
 import { LogoDevelFood } from "../common/Logo"
-import { Container, FieldButton, Form, InputsContainer } from "./styles"
+import { Container, FieldButton, Form, InputFieldset, InputsContainer } from "./styles"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { restaurantData, schema } from "./schema"
@@ -12,12 +12,14 @@ import { maskCNPJ } from "../../utils/mask"
 import { restaurantDataRegister } from "../../pages/RegisterRestaurant/interfaces"
 import { MdLockOpen, MdOutlineEmail } from "react-icons/md"
 import { IoMdCard } from "react-icons/io";
+import { useNavigate } from "react-router-dom"
 
 interface RestaurantDataProps {
     onSubmit: (data: restaurantDataRegister) => void;
 }
 
 export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
+    const navigate = useNavigate()
 
     const { register, handleSubmit, setValue, trigger, formState: { errors } } = useForm<restaurantData>({
         resolver: zodResolver(schema),
@@ -68,7 +70,7 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
                     />
                 </figure>
                 <InputsContainer>
-                    <fieldset>
+                    <InputFieldset>
                         <Input
                             name="email"
                             type="email"
@@ -79,8 +81,8 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
                             onChange={handleEmailChange}
                             id="input-email"
                         />
-                    </fieldset>
-                    <fieldset>
+                    </InputFieldset>
+                    <InputFieldset>
                         <Input
                             name="cnpj"
                             type="text"
@@ -91,8 +93,8 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
                             onChange={handleCNPJChange}
                             id="input-cnpj"
                         />
-                    </fieldset>
-                    <fieldset>
+                    </InputFieldset>
+                    <InputFieldset>
                         <Input
                             name="password"
                             type="password"
@@ -103,9 +105,9 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
                             onChange={handlePasswordChange}
                             id="input-password"
                         />
-                    </fieldset>
+                    </InputFieldset>
 
-                    <fieldset>
+                    <InputFieldset>
                         <Input
                             name="confirmPassword"
                             type="password"
@@ -116,11 +118,12 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
                             id="input-confirm-password"
                             onChange={handlePasswordChange}
                         />
-                    </fieldset>
+                    </InputFieldset>
                 </InputsContainer>
 
-                <FieldButton id="teste">
-                    <Button id="input-submit-restaurant-data" type="submit">Continuar</Button>
+                <FieldButton id="button-container">
+                    <Button id="button-return-page" onClick={() => navigate('/')}>Voltar</Button>
+                    <Button id="button-submit-restaurant-data" type="submit">Continuar</Button>
                 </FieldButton>
             </Form>
         </Container>
