@@ -12,12 +12,13 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { RestaurantTypeDataProps } from '../../pages/RegisterRestaurant/interfaces'
 import { Dropdown } from '../common/DropDown'
 import { MdOutlineAccessibility } from 'react-icons/md'
-import { Container, FieldButton, Form, InputsContainer, LogoView } from "./styles"
+import { Container, FieldButton, Form, InputFieldset, InputsContainer, LogoView } from "./styles"
 interface RestaurantTypeProps {
     onSubmit: (data: RestaurantTypeDataProps) => void;
+    navigate: () => void;
 }
 
-export const RestaurantType = ({ onSubmit }: RestaurantTypeProps) => {
+export const RestaurantType = ({ onSubmit, navigate }: RestaurantTypeProps) => {
 
     const { register, handleSubmit, setValue, trigger, formState: { errors } } = useForm<restaurantTypeData>({
         resolver: zodResolver(schema),
@@ -63,7 +64,7 @@ export const RestaurantType = ({ onSubmit }: RestaurantTypeProps) => {
                     />
                 </figure>
                 <InputsContainer>
-                    <fieldset>
+                    <InputFieldset>
                         <Input
                             name="name"
                             type="text"
@@ -74,8 +75,8 @@ export const RestaurantType = ({ onSubmit }: RestaurantTypeProps) => {
                             onChange={handleNameChange}
                             id="input-name"
                         />
-                    </fieldset>
-                    <fieldset>
+                    </InputFieldset>
+                    <InputFieldset>
                         <Input
                             name="telefone"
                             type="tel"
@@ -86,8 +87,8 @@ export const RestaurantType = ({ onSubmit }: RestaurantTypeProps) => {
                             onChange={handlePhoneChange}
                             id="input-telephone"
                         />
-                    </fieldset>
-                    <fieldset>
+                    </InputFieldset>
+                    <InputFieldset>
                         <Dropdown
                             name="restaurantType"
                             register={register}
@@ -106,10 +107,11 @@ export const RestaurantType = ({ onSubmit }: RestaurantTypeProps) => {
                             onChange={handleDropdownChange}
                             value={[]}
                         />
-                    </fieldset>
+                    </InputFieldset>
                 </InputsContainer>
 
                 <FieldButton>
+                    <Button id="button-return-page" onClick={navigate}>Voltar</Button>
                     <Button id="button-submit-restaurant-type" type="submit">Continuar</Button>
                 </FieldButton>
             </Form>

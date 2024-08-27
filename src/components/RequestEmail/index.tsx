@@ -5,13 +5,15 @@ import { MdOutlineEmail } from 'react-icons/md';
 import { RequestEmailData, schema } from './schema';
 import { Button } from '../common/Button';
 import { LogoDevelFood } from '../common/Logo';
-import { FieldsetButton, Form } from './styles';
+import { FieldsetButton, FieldsetInput, Form } from './styles';
+import { useNavigate } from 'react-router-dom';
 
 interface RequestEmailProps {
     onSubmit: (email: string) => void
 }
 
 export const RequestEmail = ({ onSubmit }: RequestEmailProps) => {
+    const Navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm<RequestEmailData>({
         resolver: zodResolver(schema),
     });
@@ -24,7 +26,7 @@ export const RequestEmail = ({ onSubmit }: RequestEmailProps) => {
     return (
         <Form id="form-recover-password" onSubmit={handleSubmit(handleSubmitEmail)}>
             <LogoDevelFood />
-            <fieldset>
+            <FieldsetInput>
                 <Input
                     name="email"
                     type='email'
@@ -34,8 +36,9 @@ export const RequestEmail = ({ onSubmit }: RequestEmailProps) => {
                     error={errors.email?.message}
                     id="input-email"
                 />
-            </fieldset>
+            </FieldsetInput>
             <FieldsetButton>
+                <Button id="button-return" onClick={() => Navigate('/')}>Voltar</Button>
                 <Button id="button-submit" type="submit">Continuar</Button>
             </FieldsetButton>
         </Form>

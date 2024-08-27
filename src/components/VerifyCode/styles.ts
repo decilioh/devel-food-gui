@@ -8,6 +8,7 @@ export const Container = styled.div`
     gap:40px;
     padding:1rem;
     text-align:center;
+    width:100%;
 `
 
 export const CheckContainer = styled.div`
@@ -26,17 +27,33 @@ export const ActionContainer = styled.div`
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    gap:20px;
+    gap:61px;
     width:100%;
-    max-width:361px;
+    max-width:1018px;
 
     span{
         color:${({ theme }) => theme.colors.verifyCodeSpanColor};
     }
 
+    div{
+        display:flex;
+        justify-content:center;
+        width:100%;
+        max-width:1018px;
+        gap:40px;
+        
+    }
+
     button{
-        width:90%;
-        max-width:361px;
+        width:100%;
+        max-width:259px;
+        height:100%;
+        max-height:62px;
+        border-radius:10px;
+
+        display:flex;
+        justify-content:center;
+        align-items:center;
     }
 `
 

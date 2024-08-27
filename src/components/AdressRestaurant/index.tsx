@@ -16,9 +16,10 @@ import { fetchAddressByCep } from '../../services/fetchCEP';
 
 interface RestaurantAdressProps {
     onSubmit: (data: RestaurantAdreesDataProps) => void;
+    navigate: () => void;
 }
 
-export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
+export const RestaurantAdress = ({ onSubmit, navigate }: RestaurantAdressProps) => {
 
     const { register, handleSubmit, setValue, trigger, formState: { errors } } = useForm<RestaurantAdressData>({
         resolver: zodResolver(schema),
@@ -193,6 +194,7 @@ export const RestaurantAdress = ({ onSubmit }: RestaurantAdressProps) => {
                 </InputsContainer>
 
                 <FieldButton>
+                    <Button id="button-return-page" onClick={navigate}>Voltar</Button>
                     <Button id="button-submit-adress-restaurant" type="submit">Continuar</Button>
                 </FieldButton>
             </Form>

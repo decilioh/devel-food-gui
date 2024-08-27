@@ -14,7 +14,7 @@ export const Form = styled.form`
     align-items:center;
     flex-direction:column;
     width:100%;
-    max-width:558px;
+    max-width:590px;
     gap:60px;
     padding:1rem;
 `
@@ -30,10 +30,14 @@ export const InputsContainer = styled.div`
     flex-direction:column;
     gap:10px;
     width:100%;
-    
-    fieldset{
-        width:100%;
-    }
+`
+
+export const InputFieldset = styled.fieldset`
+    width:100%;
+
+        input{
+            padding:.7rem;
+        }
 `
 
 
@@ -41,12 +45,21 @@ export const FieldButton = styled.fieldset`
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:20px;
+    gap:40px;
     width:100%;
-    max-width:456px;
+    max-width:558px;
     margin-top:.6rem;
 
     button{
         width:100%;
+        height:100%;
+        max-height:62px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
     }
+
+    @media(max-width:380px){
+            gap:20px
+        }
 `
