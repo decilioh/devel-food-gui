@@ -6,7 +6,7 @@ export const Form = styled.form`
     align-items:center;
     flex-direction:column;
     width:100%;
-    max-width:558px;
+    max-width:1018px;
     gap:20px;
     padding:1rem;
     margin-top:3.4rem;
@@ -17,15 +17,25 @@ export const Form = styled.form`
 `
 
 export const InputsContainer = styled.div`
+    width:100%;
     display:flex;
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    gap:6px;
-    width:100%;
+    gap:8px;
     
     fieldset{
         width:100%;
+        max-width:558px;
+    }
+`
+
+export const InputFieldset = styled.fieldset`
+    width:100%;
+    max-width:558px;
+
+    input{
+        padding: .8rem;
     }
 `
 
@@ -33,13 +43,20 @@ export const FieldButton = styled.fieldset`
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:20px;
-    max-width:456px;
+    gap:40px;
+    max-width:578px;
     width:100%;
-    margin-top:2rem;
+    margin-top:3.7rem;
     
     button{
         width:100%;
+        max-width:259px;
+        height:100%;
+        max-height:62px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        border-radius:10px;
     }
 `
 
@@ -49,5 +66,5 @@ export const Container = styled.div`
     align-items:center;
     justify-content:center;
     width:100%;
-    max-width:558px;
+    max-width:1080px;
 `

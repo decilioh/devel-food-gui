@@ -30,11 +30,15 @@ export const RegisterRestaurant = () => {
         setStep(5)
     }
 
+    const returnNavigate = () => {
+        setStep(prevStep => Math.max(prevStep - 1, 1));
+    }
+
     return (
         <Main>
             {step === 1 && <RestaurantData onSubmit={handleRestaurantDataSubmit} />}
-            {step === 2 && <RestaurantType onSubmit={handleRestaurantTypeSubmit} />}
-            {step === 3 && <RestaurantAdress onSubmit={handleRestaurantDataAdress} />}
+            {step === 2 && <RestaurantType onSubmit={handleRestaurantTypeSubmit} navigate={returnNavigate} />}
+            {step === 3 && <RestaurantAdress onSubmit={handleRestaurantDataAdress} navigate={returnNavigate} />}
             {step === 4 && <RegisterSucess onSubmit={handleRegisterSucess} />}
             {step === 5 && <RegisterError />}
         </Main>

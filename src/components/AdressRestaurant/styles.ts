@@ -6,9 +6,13 @@ export const Form = styled.form`
     align-items:center;
     flex-direction:column;
     width:100%;
-    max-width:558px;
+    max-width:606px;
     gap:26px;
     padding:1.5rem;
+
+    input{
+        padding:.72rem;
+    }
 
     @media (max-width: 768px) {
         padding: 1.6rem;
@@ -59,14 +63,22 @@ export const FieldButton = styled.fieldset`
     align-items:center;
     gap:20px;
     width:100%;
-    max-width:456px;
+    max-width:558px;
     margin-top:2.5rem;
     height:100%;
     max-height:77px;
     
     button{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        border-radius:10px;
+
         width:100%;
+        max-width:259px;
+
         height:100%;
+        max-height:62px;
     }
 `
 
