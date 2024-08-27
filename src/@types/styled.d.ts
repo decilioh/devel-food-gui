@@ -20,6 +20,7 @@ declare module "styled-components" {
             backgroundLogin: string
             verifyCodeColor: string;
             verifyCodeSpanColor: string;
+            textColorModal: string;
         }
     }
 }

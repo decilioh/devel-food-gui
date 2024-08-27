@@ -17,7 +17,8 @@ export const lightTheme = {
     colorInputBorder: '#DDDDDD',
     backgroundLogin: '#F2F2F2',
     verifyCodeColor: '#BFBABA',
-    verifyCodeSpanColor: '#000000'
+    verifyCodeSpanColor: '#000000',
+    textColorModal: '#031626',
   }
 };
 
@@ -40,6 +41,7 @@ export const darkTheme = {
     colorInputBorder: '#DDDDDD',
     backgroundLogin: '#F2F2F2',
     verifyCodeColor: '#FFFFFF',
-    verifyCodeSpanColor: '#FFFFFF'
+    verifyCodeSpanColor: '#FFFFFF',
+    textColorModal: '#031626',
   }
 };
