@@ -20,6 +20,10 @@ export const CheckContainer = styled.div`
     span{
         color:${({ theme }) => theme.colors.verifyCodeColor}
     }
+
+    p{
+        font-size:18px;
+    }
 `
 
 export const ActionContainer = styled.div`
@@ -33,6 +37,7 @@ export const ActionContainer = styled.div`
 
     span{
         color:${({ theme }) => theme.colors.verifyCodeSpanColor};
+        font-size:18px;
     }
 
     div{
@@ -47,17 +52,11 @@ export const ActionContainer = styled.div`
     button{
         width:100%;
         max-width:259px;
-        height:100%;
-        max-height:62px;
-        border-radius:10px;
-
-        display:flex;
-        justify-content:center;
-        align-items:center;
     }
 `
 
 export const Message = styled.p`
     color:${({ theme }) => theme.colors.verifyCodeColor};
     text-align:left;
+    font-size:18px;
 `

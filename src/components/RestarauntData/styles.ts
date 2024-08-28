@@ -9,7 +9,7 @@ export const Form = styled.form`
     max-width:1018px;
     gap:20px;
     padding:1rem;
-    margin-top:3.4rem;
+    margin-top:1.7rem;
 
     @media(max-width:400px){
         margin-top:1.3rem;
@@ -33,10 +33,6 @@ export const InputsContainer = styled.div`
 export const InputFieldset = styled.fieldset`
     width:100%;
     max-width:558px;
-
-    input{
-        padding: .8rem;
-    }
 `
 
 export const FieldButton = styled.fieldset`
@@ -51,12 +47,6 @@ export const FieldButton = styled.fieldset`
     button{
         width:100%;
         max-width:259px;
-        height:100%;
-        max-height:62px;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        border-radius:10px;
     }
 `
 

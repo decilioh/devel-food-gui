@@ -7,7 +7,7 @@ export const Form = styled.form`
     flex-direction:column;
     width:100%;
     max-width:606px;
-    gap:26px;
+    gap:18px;
     padding:1.5rem;
 
     input{
@@ -24,7 +24,7 @@ export const Form = styled.form`
 `
 
 export const LogoContainer = styled.div`
-    margin: 0px 0px 0.8rem 0px;
+    margin: 0px 0px 0.2rem 0px;
     @media (max-height: 760px) {
         margin-top:1rem;
   }
@@ -61,24 +61,14 @@ export const FieldButton = styled.fieldset`
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:20px;
+    gap:40px;
     width:100%;
     max-width:558px;
-    margin-top:2.5rem;
-    height:100%;
-    max-height:77px;
+    margin-top:2.9rem;
     
     button{
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        border-radius:10px;
-
         width:100%;
         max-width:259px;
-
-        height:100%;
-        max-height:62px;
     }
 `
 

@@ -22,6 +22,10 @@ export const CheckContainer = styled.div`
         flex-direction:column;
         gap:10px;
     }
+    
+    p, span{
+        font-size:18px;
+    }
 `
 
 export const ActionContainer = styled.div`
@@ -35,7 +39,7 @@ export const ActionContainer = styled.div`
 
     button{
         width:100%;
-        max-width:376px;
+        max-width:456px;
     }
 `
 

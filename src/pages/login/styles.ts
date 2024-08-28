@@ -32,18 +32,17 @@ export const FormContainer = styled.section`
     display:flex;
     justify-content:center;
     align-items:center;
-    width:100%;
-    max-width:715px;
+    width:37.24vw;
     
 
     @media (max-width: 900px) {
         height:100%;
+        width:70%;
     }
 `
 
 export const Box = styled.div`
-    width:100%;
-    max-width:558px;
+    width:82.24%;
     height:90%;
     display:flex;
     align-items:center;
@@ -62,12 +61,16 @@ export const Box = styled.div`
         color:${({ theme }) => theme.colors.primary}
     }
 
+    @media (max-width: 900px) {
+        width:100%;
+    }
+
     @media (max-width: 768px) {
         padding: 1rem;
     }
 
     @media (max-width: 480px) {
-        width: 90%;
+        width: 100%;
     }
 
     @media (max-width: 600px) {
@@ -80,9 +83,8 @@ export const Form = styled.form`
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    width:100%;
-    max-width:450px;
-    gap:40px;
+    width:76.53%;
+    gap:56px;
     margin:1rem 0px 0px 0px;
 
     fieldset{
@@ -93,7 +95,6 @@ export const Form = styled.form`
 
         input{
             width:100%;
-            max-width:450px;
         }
     }
 
@@ -117,9 +118,23 @@ export const LinkContainer = styled.div`
     align-items:center;
     flex-direction:column;
     gap:4px;
-    margin-top:6.187rem;
+    margin-top:3.75rem;
+
+    a{
+        font-size:18px;
+    }
 
     @media (max-height:740px) {
         margin-top:3rem;
+    }
+
+    @media (max-height:670px) {
+        margin-top:.8rem;
+    }
+
+    @media (max-height:620px) {
+        margin-top:.5rem;
+        flex-direction:row;
+        gap:40px;
     }
 `

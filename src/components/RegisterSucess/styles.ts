@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.main`
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -16,6 +16,11 @@ export const CheckContainer = styled.div`
     justify-content:center;
     align-items:center;
     gap:20px;
+    
+
+    span, p{
+        font-size:18px;
+    }
 `
 
 export const ActionContainer = styled.div`
@@ -25,10 +30,11 @@ export const ActionContainer = styled.div`
     align-items:center;
     gap:20px;
     width:100%;
+    font-size:18px;
     width:456px;
 
     button{
-        width:90%;
+        width:100%;
     }
 `
 

@@ -15,7 +15,7 @@ export const Form = styled.form`
     flex-direction:column;
     width:100%;
     max-width:590px;
-    gap:60px;
+    gap:20px;
     padding:1rem;
 `
 
@@ -34,10 +34,6 @@ export const InputsContainer = styled.div`
 
 export const InputFieldset = styled.fieldset`
     width:100%;
-
-        input{
-            padding:.7rem;
-        }
 `
 
 
@@ -48,15 +44,10 @@ export const FieldButton = styled.fieldset`
     gap:40px;
     width:100%;
     max-width:558px;
-    margin-top:.6rem;
+    margin-top:3rem;
 
     button{
         width:100%;
-        height:100%;
-        max-height:62px;
-        display:flex;
-        justify-content:center;
-        align-items:center;
     }
 
     @media(max-width:380px){
