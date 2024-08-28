@@ -4,16 +4,16 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 interface SidebarProps {
-    $isOpen: boolean;
+  $isOpen: boolean;
 }
 
 interface TextProps {
-    $isOpen: boolean;
+  $isOpen: boolean;
 }
 
 export const SidebarContainer = styled.div<SidebarProps>`
-  width: ${({ $isOpen }) => ($isOpen ? '269px' : '60px')};
-  height: calc(100vh - 70px);
+  width: ${({ $isOpen }) => ($isOpen ? '270px' : '60px')};
+  height: calc(100vh - 84px);
   background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.whiteColor};
   display: flex;
@@ -80,6 +80,29 @@ export const NavMenu = styled.ul`
 `;
 
 export const NavItem = styled(Link)`
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration:none;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.backgroundColor};
+    transform: translateY(-2px);
+    border-radius:14px 0px 0px 14px;
+    margin-left:10px;
+
+
+    div, li{
+        color:${({ theme }) => theme.colors.textColorSideBarHover};
+    }
+  }
+
+`;
+
+export const SideItem = styled.div`
   width: 100%;
   padding: 10px 20px;
   display: flex;

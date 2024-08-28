@@ -8,7 +8,7 @@ const HeaderStyle = styled.header`
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:.5rem;
+    padding:.813rem;
 `
 
 
