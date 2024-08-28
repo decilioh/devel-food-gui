@@ -18,7 +18,7 @@ export const Sidebar = () => {
         <SidebarContainer $isOpen={isOpen} id="sidebar-container">
             <SidebarHeader>
                 <h3>{isOpen ? 'DEVELFOOD' : ''}</h3>
-                <IconContainer>
+                <IconContainer id="open-side-bar">
                     {isOpen ? <MenuArrow onClick={() => setIsOpen(!isOpen)} />
                         : <MenuIcon onClick={() => setIsOpen(!isOpen)} />}
                 </IconContainer>
