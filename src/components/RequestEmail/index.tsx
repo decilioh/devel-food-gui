@@ -30,7 +30,7 @@ export const RequestEmail = ({ onSubmit }: RequestEmailProps) => {
                 <Input
                     name="email"
                     type='email'
-                    placeholder="Email"
+                    placeholder="E-mail"
                     icon={<MdOutlineEmail />}
                     register={register}
                     error={errors.email?.message}

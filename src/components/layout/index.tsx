@@ -10,6 +10,10 @@ const ContentWrapper = styled.div`
   max-width: 1540px;
   margin: 0 auto;
   padding: 16px;
+
+  @media(max-width:630px){
+    margin-top:84px;
+  }
 `
 
 const ContentFlexWrapper = styled.div`

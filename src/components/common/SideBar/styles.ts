@@ -1,10 +1,11 @@
 import { FaBars } from "react-icons/fa";
-import { MdKeyboardArrowLeft } from "react-icons/md";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 interface SidebarProps {
-  $isOpen: boolean;
+  $isOpen?: boolean;
+  $visible?: boolean
 }
 
 interface TextProps {
@@ -22,8 +23,19 @@ export const SidebarContainer = styled.div<SidebarProps>`
   align-items: center;
   transition: max-width 0.4s;
   margin-top:-1px;
+
   @media(max-width:1160px){
     height:auto;
+  }
+
+  @media(max-width:630px){
+    transform: ${({ $visible }) => ($visible ? "translateX(-100%)" : "translateX(0%)")};
+    transition: transform 1s ease-in-out;
+    width:180px;
+    position:fixed;
+    z-index:9999;
+    height:100%;
+    margin-top:79px;
   }
 `;
 
@@ -39,6 +51,9 @@ export const SidebarHeader = styled.div`
     font-weight:400;
     color:${({ theme }) => theme.colors.textColorSideBar};
   }
+  /* @media(max-width:630px){
+    display:none;
+  } */
 `;
 
 export const LineDivisor = styled.div<SidebarProps>`
@@ -69,6 +84,12 @@ export const MenuIcon = styled(FaBars)`
 `;
 
 export const MenuArrow = styled(MdKeyboardArrowLeft)`
+  font-size: 24px;
+  cursor: pointer;
+  color:${({ theme }) => theme.colors.textColorSideBar};
+`
+
+export const MenuArrowRight = styled(MdKeyboardArrowRight)`
   font-size: 24px;
   cursor: pointer;
   color:${({ theme }) => theme.colors.textColorSideBar};
