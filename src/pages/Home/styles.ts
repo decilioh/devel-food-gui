@@ -4,7 +4,6 @@ export const MainContainer = styled.main`
     display:flex;
     height:calc(100vh - 84px);
     width:100%;
-    margin-left:-4.58rem;
     padding:1rem;
     gap:120px;
 
@@ -38,7 +37,8 @@ export const MainContainer = styled.main`
 `
 
 export const SectionReviewsAndPromotions = styled.section`
-    width:49.34%;
+    width:100%;
+    max-width:845px;
 
     display:flex;
     flex-direction:column;
@@ -49,7 +49,7 @@ export const SectionReviewsAndPromotions = styled.section`
 
     hr{
         width:100%;
-        max-width:801px;
+        max-width:981px;
         font-size:1px;
         color:${({ theme }) => theme.colors.darkGray}
     }

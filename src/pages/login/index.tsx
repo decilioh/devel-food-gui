@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import foodImage from '../../assets/images/backlogin.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Button } from '../../components/common/Button'
 import { Input } from '../../components/common/Input'
 import { Box, FigureIMG, Form, FormContainer, LinkContainer, Main } from './styles'
@@ -8,19 +8,27 @@ import { useForm } from 'react-hook-form'
 import { LoginData, schema } from './schema'
 import { MdLockOpen, MdOutlineEmail } from "react-icons/md";
 import { LogoDevelFood } from "../../components/common/Logo";
+import { toast } from "react-toastify";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 
 export const Login = () => {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm<LoginData>({
+    const navigate = useNavigate()
+
+    const { SignIn } = useContext(AuthContext);
+    const { register, handleSubmit, formState: { errors } } = useForm<LoginData>({
         resolver: zodResolver(schema),
         mode: "onChange"
     })
 
-    const onSubmitLogin = (data: LoginData) => {
-        console.log(data);
+    const handleSubmitSign = async (data: LoginData) => {
+        try {
+            await SignIn(data)
+            navigate('/admin/home')
 
-        if (data) {
-            reset()
+        } catch (error) {
+            toast.error("ocorreu um erro, tente novamente")
         }
     };
 
@@ -32,7 +40,7 @@ export const Login = () => {
             <FormContainer id="form-container">
                 <Box>
                     <LogoDevelFood />
-                    <Form id="form-login" onSubmit={handleSubmit(onSubmitLogin)}>
+                    <Form id="form-login" onSubmit={handleSubmit(handleSubmitSign)}>
                         <fieldset>
                             <Input
                                 type="email"

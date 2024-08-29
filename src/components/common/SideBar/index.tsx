@@ -7,6 +7,7 @@ import { TbLogout2 } from "react-icons/tb";
 import { Icon, IconContainer, LineDivisor, MenuArrow, MenuArrowRight, MenuIcon, NavItem, NavMenu, SidebarContainer, SidebarHeader, SideItem, Text } from "./styles";
 import { SidebarContext } from "../../../context/SiderbarContext";
 import { useWindowSize } from "../../../hooks/useWindowSize";
+import { AuthContext } from "../../../context/AuthContext";
 
 
 
@@ -14,6 +15,7 @@ export const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { theme, toggleTheme } = useTheme();
     const { width } = useWindowSize();
+    const { SignOut } = useContext(AuthContext);
     const { sideBarVisible } = useContext(SidebarContext);
 
     const sizeIcon = width < 680;
@@ -40,7 +42,7 @@ export const Sidebar = () => {
                 <hr />
             </LineDivisor>
             <NavMenu id="sidebar-itens-container">
-                <NavItem to='/admin/teste' id="sidebar-home">
+                <NavItem to='/admin/home' id="sidebar-home">
                     <Icon><AiFillHome /></Icon>
                     <Text $isOpen={isOpen}>Home</Text>
                 </NavItem>
@@ -64,7 +66,7 @@ export const Sidebar = () => {
                     <Icon>{icon ? <MdDarkMode /> : <MdLightMode />}</Icon>
                     <Text $isOpen={isOpen}>Tema</Text>
                 </SideItem>
-                <SideItem id="sidebar-logout">
+                <SideItem id="sidebar-logout" onClick={() => SignOut()}>
                     <Icon><TbLogout2 /></Icon>
                     <Text $isOpen={isOpen}>Sair</Text>
                 </SideItem>

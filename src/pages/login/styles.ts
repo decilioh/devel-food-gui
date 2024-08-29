@@ -40,6 +40,10 @@ export const FormContainer = styled.section`
     align-items:center;
     width:37.24vw;
     
+    @media (max-width: 1178px) {
+        height:100%;
+        width:50%;
+    }
 
     @media (max-width: 900px) {
         height:100%;

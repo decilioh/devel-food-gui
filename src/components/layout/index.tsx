@@ -7,7 +7,7 @@ import { Sidebar } from "../common/SideBar"
 const ContentWrapper = styled.div`
   margin-left: 250px;
   width: 100%;
-  max-width: 1540px;
+  max-width: 1740px;
   margin: 0 auto;
   padding: 16px;
 
