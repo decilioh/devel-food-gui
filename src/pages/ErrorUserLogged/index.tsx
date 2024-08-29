@@ -1,26 +1,30 @@
-import { useNavigate } from "react-router-dom"
-import { LogoDevelFood } from "../../components/common/Logo"
-import styled from "styled-components"
-import { Button } from "../../components/common/Button"
+import { TbMoodSadDizzy } from 'react-icons/tb'
+import { Button } from '../../components/common/Button'
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import { useTheme } from '../../hooks/useTheme';
 
 const MainContainer = styled.main`
     display:flex;
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    height:100vh;
     padding:1rem;
+    margin-top:70px;
+    margin-right:16.5rem;
 
     button{
         width:100%;
         max-width:361px;
+        height:100%;
+        max-height:73px;
         a{
             color:${({ theme }) => theme.colors.textCardColor}
         }
     }
 `
 export const LogoContainer = styled.div`
-    margin-bottom:72px;
+    margin-bottom:13px;
 `
 
 const MessageError = styled.div`
@@ -30,7 +34,7 @@ const MessageError = styled.div`
     align-items:center;
     justify-content:center;
     flex-direction:column;
-    margin-bottom:66px;
+    margin-bottom:26px;
     span{
         font-size:128px;
         line-height:150px;
@@ -44,23 +48,28 @@ const MessageError = styled.div`
     }
 `
 
-export const Error404WithoutUser = () => {
-    const navigate = useNavigate()
+
+
+export const ErrorUserLogged = () => {
+    const navigate = useNavigate();
+    const { theme } = useTheme();
+
+    const colorIcon = theme.title === 'light' ? '#071A40' : '#07D9D9';
     return (
         <MainContainer>
             <LogoContainer>
-                <LogoDevelFood />
+                <TbMoodSadDizzy size={230} color={colorIcon} id="icon-error" />
             </LogoContainer>
 
             <MessageError>
-                <span>404</span>
-                <p>
+                <span id="error-404">404</span>
+                <p id="message-error">
                     Você entrou em alguma página não existente ou ocorreu algum
                     erro por parte do nosso sistema, retorne para a página inicial
                 </p>
             </MessageError>
 
-            <Button onClick={() => navigate('/')}>
+            <Button onClick={() => navigate('/admin/home')} id="button-link-home">
                 Home
             </Button>
         </MainContainer>
