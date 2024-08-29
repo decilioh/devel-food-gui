@@ -49,7 +49,7 @@ export const Home = () => {
             <Divider id="divider-item" />
 
             <SectionFeedback>
-                <h4>O que os clientes <br />estão achando?</h4>
+                <h4>O que os clientes estão <br />achando?</h4>
                 <div>
                     <Feedback
                         date="01/01/2022"
