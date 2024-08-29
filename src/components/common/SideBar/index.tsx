@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Icon, IconContainer, LineDivisor, MenuArrow, MenuIcon, NavItem, NavMenu, SidebarContainer, SidebarHeader, SideItem, Text, UserContainer, UserImage, UserName } from "./styles";
 import { FaDollarSign, FaPhoneAlt, FaUser, FaUtensils } from "react-icons/fa";
 import { AiFillHome } from "react-icons/ai";
 import { useTheme } from "../../../hooks/useTheme";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { TbLogout2 } from "react-icons/tb";
+import { Icon, IconContainer, LineDivisor, MenuArrow, MenuIcon, NavItem, NavMenu, SidebarContainer, SidebarHeader, SideItem, Text } from "./styles";
 
 
 
@@ -31,19 +31,19 @@ export const Sidebar = () => {
                     <Icon><AiFillHome /></Icon>
                     <Text $isOpen={isOpen}>Home</Text>
                 </NavItem>
-                <NavItem to='/admin/teste' id="sidebar-profile">
+                <NavItem to='/admin/perfil' id="sidebar-profile">
                     <Icon><FaUser /></Icon>
                     <Text $isOpen={isOpen}>Perfil</Text>
                 </NavItem>
-                <NavItem to='/admin/teste' id="sidebar-menu">
+                <NavItem to='/admin/menu' id="sidebar-menu">
                     <Icon><FaUtensils /></Icon>
                     <Text $isOpen={isOpen}>Menu</Text>
                 </NavItem>
-                <NavItem to='/admin/teste' id="sidebar-orders">
+                <NavItem to='/admin/pedidos' id="sidebar-orders">
                     <Icon><FaPhoneAlt /></Icon>
                     <Text $isOpen={isOpen}>Pedidos</Text>
                 </NavItem>
-                <NavItem to='/admin/teste' id="sidebar-promotions">
+                <NavItem to='/admin/promocoes' id="sidebar-promotions">
                     <Icon><FaDollarSign /></Icon>
                     <Text $isOpen={isOpen}>Promoções</Text>
                 </NavItem>

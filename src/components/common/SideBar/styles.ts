@@ -12,14 +12,19 @@ interface TextProps {
 }
 
 export const SidebarContainer = styled.div<SidebarProps>`
-  width: ${({ $isOpen }) => ($isOpen ? '270px' : '60px')};
-  height: calc(100vh - 84px);
+  width: 100%;
+  max-width: ${({ $isOpen }) => ($isOpen ? '270px' : '60px')};
+  height: 100vh;
   background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.whiteColor};
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: width 0.4s;
+  transition: max-width 0.4s;
+  margin-top:-1px;
+  @media(max-width:1160px){
+    height:auto;
+  }
 `;
 
 export const SidebarHeader = styled.div`
