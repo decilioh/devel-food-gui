@@ -48,7 +48,7 @@ export const Login = () => {
                                 placeholder='E-mail'
                                 register={register}
                                 error={errors.email?.message}
-                                icon={<MdOutlineEmail />}
+                                icon={<MdOutlineEmail tabIndex={-1} />}
                                 id="input-email-login"
                             />
 
@@ -58,7 +58,7 @@ export const Login = () => {
                                 placeholder='Senha'
                                 register={register}
                                 error={errors.password?.message}
-                                icon={<MdLockOpen />}
+                                icon={<MdLockOpen tabIndex={-1} />}
                                 id="input-password-login"
                             />
                         </fieldset>

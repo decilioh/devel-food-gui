@@ -32,7 +32,6 @@ export const AuthProvider = ({ children }: ContextProvider) => {
 
     const isAuthenticated = !!user
 
-    console.log(isAuthenticated)
 
     useEffect(() => {
         const token = Cookies.get('authToken');

@@ -46,6 +46,8 @@ export const FieldButton = styled.fieldset`
     max-width:558px;
     margin-top:3rem;
 
+    flex-direction: row-reverse;
+
     button{
         width:100%;
     }

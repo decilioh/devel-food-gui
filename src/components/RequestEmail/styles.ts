@@ -20,13 +20,14 @@ export const Form = styled.form`
     }
 `
 
-export const FieldsetButton = styled.fieldset`
+export const FieldsetButton = styled.div`
     display:flex;
     align-items:center;
     justify-content:center;
     gap:40px;
     width:100%;
     max-width:1028px;
+    flex-direction: row-reverse;
 
     button{
         width:100%;
