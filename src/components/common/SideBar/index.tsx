@@ -27,23 +27,23 @@ export const Sidebar = () => {
                 <hr />
             </LineDivisor>
             <NavMenu id="sidebar-itens-container">
-                <NavItem to='/home' id="sidebar-home">
+                <NavItem to='/admin/teste' id="sidebar-home">
                     <Icon><AiFillHome /></Icon>
                     <Text $isOpen={isOpen}>Home</Text>
                 </NavItem>
-                <NavItem to='/as' id="sidebar-profile">
+                <NavItem to='/admin/teste' id="sidebar-profile">
                     <Icon><FaUser /></Icon>
                     <Text $isOpen={isOpen}>Perfil</Text>
                 </NavItem>
-                <NavItem to='/sa' id="sidebar-menu">
+                <NavItem to='/admin/teste' id="sidebar-menu">
                     <Icon><FaUtensils /></Icon>
                     <Text $isOpen={isOpen}>Menu</Text>
                 </NavItem>
-                <NavItem to='/as' id="sidebar-orders">
+                <NavItem to='/admin/teste' id="sidebar-orders">
                     <Icon><FaPhoneAlt /></Icon>
                     <Text $isOpen={isOpen}>Pedidos</Text>
                 </NavItem>
-                <NavItem to='/sa' id="sidebar-promotions">
+                <NavItem to='/admin/teste' id="sidebar-promotions">
                     <Icon><FaDollarSign /></Icon>
                     <Text $isOpen={isOpen}>Promoções</Text>
                 </NavItem>
