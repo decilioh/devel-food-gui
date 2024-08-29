@@ -3,6 +3,8 @@ import { Login } from "../pages/login";
 import { ForgotPassword } from "../pages/ForgotPassword";
 import { RegisterRestaurant } from "../pages/RegisterRestaurant";
 import { Error404WithoutUser } from "../pages/ErrorWithoutUser";
+import { Home } from "../pages/Home";
+import { LayoutLogged } from "../components/layout";
 
 
 
@@ -22,6 +24,15 @@ export const Router = createBrowserRouter([
             {
                 path: "/cadastrar",
                 element: <RegisterRestaurant />
+            }
+        ]
+    },
+    {
+        element: <LayoutLogged />,
+        children: [
+            {
+                path: "/home",
+                element: <Home />
             }
         ]
     }

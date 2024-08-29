@@ -16,7 +16,7 @@ export const InputsContainer = styled.div`
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    margin-top:10px;
+    margin-top:20px;
     gap:14px;
     width:100%;
     
@@ -33,16 +33,10 @@ export const FieldButton = styled.fieldset`
     align-items:center;
     gap:40px;
     width:100%;
-    margin-top:2.75rem;
+    margin-top:1rem;
     
     button{
         width:100%;
         max-width:259px;
-        height:100%;
-        max-height:62px;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        border-radius:10px;
     }
 `

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { LogoDevelFood } from "../../components/common/Logo"
 import styled from "styled-components"
 import { Button } from "../../components/common/Button"
@@ -14,8 +14,6 @@ const MainContainer = styled.main`
     button{
         width:100%;
         max-width:361px;
-        height:100%;
-        max-height:73px;
         a{
             color:${({ theme }) => theme.colors.textCardColor}
         }
@@ -47,7 +45,7 @@ const MessageError = styled.div`
 `
 
 export const Error404WithoutUser = () => {
-
+    const navigate = useNavigate()
     return (
         <MainContainer>
             <LogoContainer>
@@ -62,8 +60,8 @@ export const Error404WithoutUser = () => {
                 </p>
             </MessageError>
 
-            <Button>
-                <Link to="/login">Home</Link>
+            <Button onClick={() => navigate('/')}>
+                Home
             </Button>
         </MainContainer>
     )

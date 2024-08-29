@@ -25,7 +25,7 @@ export const StyledInput = styled.input`
     outline: none;
     border-radius: 8px;
     flex: 1;
-    padding: .6rem;
+    padding: .719rem;
     width:100%;
     color:${({ theme }) => theme.colors.darkGray};
 
@@ -39,6 +39,7 @@ export const IconWrapper = styled.div`
     color:${({ theme }) => theme.colors.darkGray};
     width:22px;
     height:22px;
+    margin-left:10px;
     svg {
         width: 100%;
         height: 100%;

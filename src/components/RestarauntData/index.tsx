@@ -122,8 +122,12 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
                 </InputsContainer>
 
                 <FieldButton id="button-container">
-                    <Button id="button-return-page" onClick={() => navigate('/')}>Voltar</Button>
-                    <Button id="button-submit-restaurant-data" type="submit">Continuar</Button>
+                    <Button id="button-return-page" onClick={() => navigate('/')} >
+                        Voltar
+                    </Button>
+                    <Button id="button-submit-restaurant-data" type="submit" >
+                        Continuar
+                    </Button>
                 </FieldButton>
             </Form>
         </Container>
