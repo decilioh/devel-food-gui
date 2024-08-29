@@ -16,7 +16,6 @@ export const SidebarProvider = ({ children }: SidebarProviderProps) => {
 
     const [sideBarVisible, setSideBarVisible] = useState(false);
 
-    console.log(sideBarVisible)
 
     const contextValue = useMemo(() => ({
         sideBarVisible,
