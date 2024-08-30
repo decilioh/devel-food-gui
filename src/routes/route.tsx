@@ -11,6 +11,7 @@ import { PrivateRoute } from "./private";
 
 export const Router = createBrowserRouter([
     {
+        path: "/",
         errorElement: <Error404WithoutUser />,
         children: [
             {
@@ -24,6 +25,10 @@ export const Router = createBrowserRouter([
             {
                 path: "/cadastrar",
                 element: <RegisterRestaurant />
+            },
+            {
+                path: '*',
+                element: <Error404WithoutUser />
             }
         ]
     },
