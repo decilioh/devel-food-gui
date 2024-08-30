@@ -27,15 +27,16 @@ export const StyledInput = styled.input`
     flex: 1;
     padding: .719rem;
     width:100%;
-    color:${({ theme }) => theme.colors.darkGray};
-
+    color:${({ theme }) => theme.colors.inputTextColor};
+    letter-spacing:.04rem;
+    font-size:1.13rem;
     &::placeholder{
         color:${({ theme }) => theme.colors.darkGray};
+        letter-spacing:0.04rem;
     }
 
     @media(max-width:600px){
         &::placeholder{
-        letter-spacing:0.05rem;
     }
     }
 `;
