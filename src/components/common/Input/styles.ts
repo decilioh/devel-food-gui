@@ -25,7 +25,7 @@ export const StyledInput = styled.input`
     outline: none;
     border-radius: 8px;
     flex: 1;
-    padding: .719rem;
+    padding: .532rem;
     width:100%;
     color:${({ theme }) => theme.colors.inputTextColor};
     letter-spacing:.04rem;
