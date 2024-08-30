@@ -38,8 +38,8 @@ export const RequestEmail = ({ onSubmit }: RequestEmailProps) => {
                 />
             </FieldsetInput>
             <FieldsetButton>
+                <Button id="button-submit" type='submit'>Continuar</Button>
                 <Button id="button-return" onClick={() => Navigate('/')}>Voltar</Button>
-                <Button id="button-submit" type="submit">Continuar</Button>
             </FieldsetButton>
         </Form>
     );

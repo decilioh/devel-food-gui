@@ -194,8 +194,8 @@ export const RestaurantAdress = ({ onSubmit, navigate }: RestaurantAdressProps) 
                 </InputsContainer>
 
                 <FieldButton>
-                    <Button id="button-return-page" onClick={navigate}>Voltar</Button>
                     <Button id="button-submit-adress-restaurant" type="submit">Continuar</Button>
+                    <Button id="button-return-page" onClick={navigate}>Voltar</Button>
                 </FieldButton>
             </Form>
         </ContainerRestaurant>
