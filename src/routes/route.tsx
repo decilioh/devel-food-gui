@@ -46,5 +46,9 @@ export const Router = createBrowserRouter([
                 element: <PrivateRoute><ErrorUserLogged /></PrivateRoute>
             }
         ]
-    }
+    },
+    {
+        path: "*",
+        errorElement: <Error404WithoutUser />,
+    },
 ])
