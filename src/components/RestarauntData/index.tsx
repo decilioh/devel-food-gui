@@ -74,7 +74,7 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
                         <Input
                             name="email"
                             type="email"
-                            placeholder='Email'
+                            placeholder='E-mail'
                             register={register}
                             error={errors.email?.message}
                             icon={<MdOutlineEmail />}
@@ -122,11 +122,11 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
                 </InputsContainer>
 
                 <FieldButton id="button-container">
-                    <Button id="button-return-page" onClick={() => navigate('/')} >
-                        Voltar
-                    </Button>
                     <Button id="button-submit-restaurant-data" type="submit" >
                         Continuar
+                    </Button>
+                    <Button id="button-return-page" onClick={() => navigate('/')} >
+                        Voltar
                     </Button>
                 </FieldButton>
             </Form>

@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import foodImage from '../../assets/images/backlogin.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Button } from '../../components/common/Button'
 import { Input } from '../../components/common/Input'
 import { Box, FigureIMG, Form, FormContainer, LinkContainer, Main } from './styles'
@@ -8,19 +8,34 @@ import { useForm } from 'react-hook-form'
 import { LoginData, schema } from './schema'
 import { MdLockOpen, MdOutlineEmail } from "react-icons/md";
 import { LogoDevelFood } from "../../components/common/Logo";
+import { toast } from "react-toastify";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import { mockUsers } from "../../mocks/UserMock";
 
 
 export const Login = () => {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm<LoginData>({
+    const navigate = useNavigate()
+
+    const { SignIn } = useContext(AuthContext);
+    const { register, handleSubmit, formState: { errors } } = useForm<LoginData>({
         resolver: zodResolver(schema),
         mode: "onChange"
     })
 
-    const onSubmitLogin = (data: LoginData) => {
-        console.log(data);
+    const handleSubmitSign = async (data: LoginData) => {
+        const user = mockUsers.find(user => user.email === data.email && user.password === data.password);
+        try {
+            if (!user) {
+                toast.error('Email ou senha inválidos!');
+                return;
+            }
+            await SignIn(data)
+            navigate('/admin/home')
 
-        if (data) {
-            reset()
+        } catch (error) {
+            toast.error("ocorreu um erro, tente novamente")
+            return
         }
     };
 
@@ -32,7 +47,7 @@ export const Login = () => {
             <FormContainer id="form-container">
                 <Box>
                     <LogoDevelFood />
-                    <Form id="form-login" onSubmit={handleSubmit(onSubmitLogin)}>
+                    <Form id="form-login" onSubmit={handleSubmit(handleSubmitSign)}>
                         <fieldset>
                             <Input
                                 type="email"
@@ -40,7 +55,7 @@ export const Login = () => {
                                 placeholder='E-mail'
                                 register={register}
                                 error={errors.email?.message}
-                                icon={<MdOutlineEmail />}
+                                icon={<MdOutlineEmail tabIndex={-1} />}
                                 id="input-email-login"
                             />
 
@@ -50,7 +65,7 @@ export const Login = () => {
                                 placeholder='Senha'
                                 register={register}
                                 error={errors.password?.message}
-                                icon={<MdLockOpen />}
+                                icon={<MdLockOpen tabIndex={-1} />}
                                 id="input-password-login"
                             />
                         </fieldset>

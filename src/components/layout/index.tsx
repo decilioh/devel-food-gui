@@ -7,9 +7,13 @@ import { Sidebar } from "../common/SideBar"
 const ContentWrapper = styled.div`
   margin-left: 250px;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1740px;
   margin: 0 auto;
   padding: 16px;
+
+  @media(max-width:630px){
+    margin-top:84px;
+  }
 `
 
 const ContentFlexWrapper = styled.div`

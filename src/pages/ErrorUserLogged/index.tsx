@@ -22,6 +22,13 @@ const MainContainer = styled.main`
             color:${({ theme }) => theme.colors.textCardColor}
         }
     }
+
+    @media(max-width:1163px){
+        height:calc(100vh - 24px);
+        margin-top:-4rem;
+        align-items:none;
+        margin-right:.5rem;
+    }
 `
 export const LogoContainer = styled.div`
     margin-bottom:13px;

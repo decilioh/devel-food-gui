@@ -30,7 +30,7 @@ export const RequestEmail = ({ onSubmit }: RequestEmailProps) => {
                 <Input
                     name="email"
                     type='email'
-                    placeholder="Email"
+                    placeholder="E-mail"
                     icon={<MdOutlineEmail />}
                     register={register}
                     error={errors.email?.message}
@@ -38,8 +38,8 @@ export const RequestEmail = ({ onSubmit }: RequestEmailProps) => {
                 />
             </FieldsetInput>
             <FieldsetButton>
+                <Button id="button-submit" type='submit'>Continuar</Button>
                 <Button id="button-return" onClick={() => Navigate('/')}>Voltar</Button>
-                <Button id="button-submit" type="submit">Continuar</Button>
             </FieldsetButton>
         </Form>
     );

@@ -111,11 +111,11 @@ export const RestaurantType = ({ onSubmit, navigate }: RestaurantTypeProps) => {
                 </InputsContainer>
 
                 <FieldButton>
-                    <Button id="button-return-page" onClick={navigate}>
-                        Voltar
-                    </Button>
                     <Button id="button-submit-restaurant-type" type="submit">
                         Continuar
+                    </Button>
+                    <Button id="button-return-page" onClick={navigate}>
+                        Voltar
                     </Button>
                 </FieldButton>
             </Form>

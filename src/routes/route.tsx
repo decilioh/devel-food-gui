@@ -6,6 +6,7 @@ import { Error404WithoutUser } from "../pages/ErrorWithoutUser";
 import { Home } from "../pages/Home";
 import { LayoutLogged } from "../components/layout";
 import { ErrorUserLogged } from "../pages/ErrorUserLogged";
+import { PrivateRoute } from "./private";
 
 
 export const Router = createBrowserRouter([
@@ -28,16 +29,16 @@ export const Router = createBrowserRouter([
     },
     {
         path: '/admin',
-        element: <LayoutLogged />,
+        element: <PrivateRoute><LayoutLogged /></PrivateRoute>,
         errorElement: <ErrorUserLogged />,
         children: [
             {
                 path: "home",
-                element: <Home />
+                element: <PrivateRoute><Home /></PrivateRoute>
             },
             {
                 path: "*",
-                element: <ErrorUserLogged />
+                element: <PrivateRoute><ErrorUserLogged /></PrivateRoute>
             }
         ]
     }

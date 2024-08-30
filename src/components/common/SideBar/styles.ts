@@ -1,10 +1,11 @@
 import { FaBars } from "react-icons/fa";
-import { MdKeyboardArrowLeft } from "react-icons/md";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 interface SidebarProps {
-  $isOpen: boolean;
+  $isOpen?: boolean;
+  $visible?: boolean
 }
 
 interface TextProps {
@@ -12,14 +13,30 @@ interface TextProps {
 }
 
 export const SidebarContainer = styled.div<SidebarProps>`
-  width: ${({ $isOpen }) => ($isOpen ? '270px' : '60px')};
-  height: calc(100vh - 84px);
+  width: 100%;
+  max-width: ${({ $isOpen }) => ($isOpen ? '270px' : '60px')};
+  height: 100vh;
   background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.whiteColor};
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: width 0.4s;
+  transition: max-width 0.4s;
+  margin-top:-1px;
+
+  @media(max-width:1160px){
+    height:auto;
+  }
+
+  @media(max-width:630px){
+    transform: ${({ $visible }) => ($visible ? "translateX(-100%)" : "translateX(0%)")};
+    transition: transform 1s ease-in-out;
+    width:180px;
+    position:fixed;
+    z-index:9999;
+    height:100%;
+    margin-top:79px;
+  }
 `;
 
 export const SidebarHeader = styled.div`
@@ -34,6 +51,9 @@ export const SidebarHeader = styled.div`
     font-weight:400;
     color:${({ theme }) => theme.colors.textColorSideBar};
   }
+  /* @media(max-width:630px){
+    display:none;
+  } */
 `;
 
 export const LineDivisor = styled.div<SidebarProps>`
@@ -64,6 +84,12 @@ export const MenuIcon = styled(FaBars)`
 `;
 
 export const MenuArrow = styled(MdKeyboardArrowLeft)`
+  font-size: 24px;
+  cursor: pointer;
+  color:${({ theme }) => theme.colors.textColorSideBar};
+`
+
+export const MenuArrowRight = styled(MdKeyboardArrowRight)`
   font-size: 24px;
   cursor: pointer;
   color:${({ theme }) => theme.colors.textColorSideBar};
