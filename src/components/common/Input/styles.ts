@@ -32,6 +32,12 @@ export const StyledInput = styled.input`
     &::placeholder{
         color:${({ theme }) => theme.colors.darkGray};
     }
+
+    @media(max-width:600px){
+        &::placeholder{
+        letter-spacing:0.05rem;
+    }
+    }
 `;
 
 export const IconWrapper = styled.div`

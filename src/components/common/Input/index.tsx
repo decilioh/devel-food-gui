@@ -1,6 +1,5 @@
 import { ChangeEvent, InputHTMLAttributes, ReactNode, useState } from "react";
 import { RegisterOptions, UseFormRegister } from "react-hook-form";
-import { FaEye } from "react-icons/fa";
 import { HiEye, HiEyeOff } from "react-icons/hi";
 import { Container, ErrorContainer, ErrorMessage, IconWrapper, InputWrapper, StyledInput } from "./styles";
 

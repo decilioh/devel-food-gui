@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useEffect, useState } from 'react';
+import { createContext, ReactNode, useEffect, useMemo, useState } from 'react';
 import { DefaultTheme, ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from '../assets/styles/theme';
 import { ToastContainer } from 'react-toastify';
@@ -63,6 +63,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
       setToastTheme(savedToastTheme as 'light' | 'dark');
     }
   }, []);
+
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

@@ -74,7 +74,7 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
                         <Input
                             name="email"
                             type="email"
-                            placeholder='Email'
+                            placeholder='E-mail'
                             register={register}
                             error={errors.email?.message}
                             icon={<MdOutlineEmail />}

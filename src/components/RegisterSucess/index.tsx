@@ -12,7 +12,6 @@ export const RegisterSucess = ({ onSubmit }: RegisterSucessProps) => {
     return (
         <Container>
             <LogoContainer>
-
                 <LogoDevelFood />
             </LogoContainer>
 

@@ -15,6 +15,12 @@ export const Main = styled.main<ImageProps>`
         justify-content:center;
         align-items:center;
     }
+
+    @media (max-width: 600px) {
+        background-image: none;
+    }
+
+
 `
 
 export const FigureIMG = styled.div<ImageProps>`
@@ -38,6 +44,10 @@ export const FormContainer = styled.section`
     @media (max-width: 900px) {
         height:100%;
         width:70%;
+    }
+
+    @media (max-width: 600px) {
+        width: 100%;   
     }
 `
 
@@ -74,7 +84,10 @@ export const Box = styled.div`
     }
 
     @media (max-width: 600px) {
-        width: 90%;
+        width: 100%;
+        height:100%;
+        justify-content:center;
+        gap:4rem;
     }
 `
 
@@ -111,6 +124,12 @@ export const Form = styled.form`
         gap: 15px;
     }
 
+    @media (max-width: 600px) {
+        width:90%;
+    }
+
+    
+
 `
 
 export const LinkContainer = styled.div`
@@ -122,6 +141,7 @@ export const LinkContainer = styled.div`
 
     a{
         font-size:18px;
+        letter-spacing:0.04rem;
     }
 
     @media (max-height:740px) {
@@ -136,5 +156,9 @@ export const LinkContainer = styled.div`
         margin-top:.5rem;
         flex-direction:row;
         gap:40px;
+    }
+
+    @media (max-height:668px) {
+        margin-top:-3rem;
     }
 `
