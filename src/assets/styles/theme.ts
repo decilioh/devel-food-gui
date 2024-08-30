@@ -20,7 +20,8 @@ export const lightTheme = {
     verifyCodeSpanColor: '#000000',
     textColorModal: '#031626',
     textColorSideBar: '#FFF',
-    textColorSideBarHover: '#071A40'
+    textColorSideBarHover: '#071A40',
+    inputTextColor: '#525252',
   }
 };
 
@@ -46,6 +47,7 @@ export const darkTheme = {
     verifyCodeSpanColor: '#FFFFFF',
     textColorModal: '#031626',
     textColorSideBar: '#071A40',
-    textColorSideBarHover: '#07D9D9'
+    textColorSideBarHover: '#07D9D9',
+    inputTextColor: '#525252',
   }
 };

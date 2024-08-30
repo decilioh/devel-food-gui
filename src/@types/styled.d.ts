@@ -23,6 +23,7 @@ declare module "styled-components" {
             textColorModal: string;
             textColorSideBar: string;
             textColorSideBarHover: string;
+            inputTextColor: string;
         }
     }
 }
