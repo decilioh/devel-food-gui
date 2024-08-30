@@ -31,7 +31,7 @@ export const ActionContainer = styled.div`
     gap:20px;
     width:100%;
     font-size:18px;
-    width:456px;
+    max-width:456px;
 
     button{
         width:100%;

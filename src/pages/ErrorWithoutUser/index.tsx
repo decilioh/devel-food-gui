@@ -61,7 +61,7 @@ export const Error404WithoutUser = () => {
             </MessageError>
 
             <Button onClick={() => navigate('/')}>
-                Home
+                Login
             </Button>
         </MainContainer>
     )

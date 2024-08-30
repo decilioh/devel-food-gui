@@ -27,7 +27,7 @@ export const StyledInput = styled.input`
     flex: 1;
     padding: .719rem;
     width:100%;
-    color:${({ theme }) => theme.colors.darkGray};
+    color:${({ theme }) => theme.colors.inputTextColor};
 
     &::placeholder{
         color:${({ theme }) => theme.colors.darkGray};

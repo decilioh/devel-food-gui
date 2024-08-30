@@ -71,6 +71,10 @@ export const FieldButton = styled.fieldset`
     button{
         width:100%;
         max-width:259px;
+
+        @media(max-width:521px){
+            font-size:24px;
+        }
     }
 `
 
@@ -98,4 +102,8 @@ export const SpaceNumberAdress = styled.div`
     width:30%;
     max-width:187px;
     height:100%;
+
+    @media(max-width:521px){
+        width:50%;
+    }
 `
