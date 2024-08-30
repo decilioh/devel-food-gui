@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useEffect, useMemo, useState } from "react";
 import Cookies from 'js-cookie';
 import { mockUsers } from "../mocks/UserMock";
+import { toast } from "react-toastify";
 
 export interface AuthContextProps {
     SignIn: ({ email, password }: SignInCredentials) => Promise<void>;
@@ -57,8 +58,10 @@ export const AuthProvider = ({ children }: ContextProvider) => {
         if (user) {
             setUser({ email: user.email });
             Cookies.set('authToken', user.token);
+            toast.success('Login realizado com sucesso!');
         } else {
             console.log('Invalid credentials');
+            toast.error('Email ou senha inválidos!');
         }
     }
 

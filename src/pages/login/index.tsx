@@ -11,6 +11,7 @@ import { LogoDevelFood } from "../../components/common/Logo";
 import { toast } from "react-toastify";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { mockUsers } from "../../mocks/UserMock";
 
 
 export const Login = () => {
@@ -23,12 +24,18 @@ export const Login = () => {
     })
 
     const handleSubmitSign = async (data: LoginData) => {
+        const user = mockUsers.find(user => user.email === data.email && user.password === data.password);
         try {
+            if (!user) {
+                toast.error('Email ou senha inválidos!');
+                return;
+            }
             await SignIn(data)
             navigate('/admin/home')
 
         } catch (error) {
             toast.error("ocorreu um erro, tente novamente")
+            return
         }
     };
 
