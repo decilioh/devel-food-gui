@@ -9,7 +9,7 @@ interface SidebarProps {
 }
 
 interface TextProps {
-  $isOpen: boolean;
+  $isOpen?: boolean;
 }
 
 export const SidebarContainer = styled.div<SidebarProps>`

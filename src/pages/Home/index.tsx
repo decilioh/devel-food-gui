@@ -1,6 +1,6 @@
 import { Reviews } from "./components/Review"
-import promotionsIMG from '../../assets/images/promotions.svg'
 import { Feedback } from "./components/Feedback"
+import promotion from '../../assets/images/promotion.png'
 import {
     Divider,
     DividerBottom,
@@ -30,14 +30,14 @@ export const Home = () => {
                 <hr />
 
                 <PromotionsContainer>
-                    <h3 id="promotions-active">Promoções Ativas</h3>
+                    <h3 id="promotions-active">Promoções ativas</h3>
 
                     <PromotionsImages id="promotion-images">
                         <figure>
-                            <img src={promotionsIMG} alt="" />
+                            <img src={promotion} alt="" />
                         </figure>
                         <figure>
-                            <img src={promotionsIMG} alt="" />
+                            <img src={promotion} alt="" />
                         </figure>
                     </PromotionsImages>
                 </PromotionsContainer>

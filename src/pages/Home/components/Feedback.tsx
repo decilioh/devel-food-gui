@@ -46,7 +46,7 @@ export const Feedback = ({ message, ratingValue, date }: FeedBackProps) => {
                 <Rating
                     initialValue={ratingValue}
                     allowFraction
-                    fillColor="#FFD700"
+                    fillColor="#DFCC1B"
                     emptyColor="#E0E0E0"
                     size={30}
                     readonly
