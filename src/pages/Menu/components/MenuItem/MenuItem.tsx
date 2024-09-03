@@ -17,16 +17,16 @@ export const MenuItem = ({ title }: MenuItemProps) => {
     console.log('excluindo...')
   }
   return (
-    <MenuItemContainer id={`menu-container-food`}>
+    <MenuItemContainer>
       <ImageContainer>
         <Image src={thumbnail} alt={title} />
         <Overlay>
           <OverlayContent>
-            <Button id={`button-edit-food`}>
+            <Button>
               <LuPencilLine size={30} color="006307" />
             </Button>
 
-            <Button onClick={openModal} id={`button-remove-food`}>
+            <Button onClick={openModal}>
               <IoTrashSharp size={30} color="B70000" />
             </Button>
           </OverlayContent>
