@@ -168,6 +168,7 @@ export const Text = styled.li<TextProps>`
   display: ${({ $isOpen }) => ($isOpen ? 'inline' : 'none')};
   color:${({ theme }) => theme.colors.textColorSideBar};
   font-size:1.2rem;
+  letter-spacing:0.04rem;
 
   &:hover {
     color:${({ theme }) => theme.colors.textColorSideBarHover};
