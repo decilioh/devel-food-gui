@@ -6,7 +6,6 @@ import styled from "styled-components";
 interface SidebarProps {
   $isOpen?: boolean;
   $visible?: boolean;
-  $locationError?: boolean;
 }
 
 interface TextProps {
@@ -16,7 +15,7 @@ interface TextProps {
 export const SidebarContainer = styled.div<SidebarProps>`
   width: 100%;
   max-width: ${({ $isOpen }) => ($isOpen ? '270px' : '60px')};
-  height: ${({ $locationError }) => ($locationError ? '100vh' : 'auto')};;
+  height: auto;
   background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.whiteColor};
   display: flex;
@@ -28,11 +27,6 @@ export const SidebarContainer = styled.div<SidebarProps>`
     height:auto;
     margin-bottom:-5rem;
   }
-
-  /* @media(max-width:1556px){
-    height:auto;
-    margin-bottom:-5rem;
-  } */
 
   @media(max-width:1160px){
     height:auto;

@@ -38,6 +38,7 @@ export const Dropdown = ({
         if (onChange) onChange(updatedValues);
     };
 
+
     useEffect(() => {
         register(name, { ...rules, value: selectedValues });
     }, [register, name, rules, selectedValues]);
@@ -58,7 +59,7 @@ export const Dropdown = ({
             <ToggleDiv onClick={handleToggle} $hasError={!!error}>
                 <div>
                     <MdFastfood />
-                    <span>{selectedValues.length > 0 ? `Selecionados: ${selectedValues.join(', ')}` : 'Tipos de comida'}</span>
+                    <p>{selectedValues.length > 0 ? `Selecionados: ${selectedValues.join(', ')}` : <span>Tipos de comida</span>}</p>
                 </div>
                 {isOpen ? <FaChevronUp /> : <FaChevronDown />}
             </ToggleDiv>

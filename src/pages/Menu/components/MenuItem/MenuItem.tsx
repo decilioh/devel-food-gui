@@ -8,39 +8,43 @@ import { useModal } from "../../../../hooks/useModal";
 
 interface MenuItemProps {
   title: string;
+  id: string;
 }
 
-export const MenuItem = ({ title }: MenuItemProps) => {
+export const MenuItem = ({ title, id }: MenuItemProps) => {
   const { isOpen, openModal, closeModal } = useModal();
 
   function handleConfirm() {
     console.log('excluindo...')
   }
   return (
-    <MenuItemContainer>
-      <ImageContainer>
-        <Image src={thumbnail} alt={title} />
-        <Overlay>
-          <OverlayContent>
-            <Button>
-              <LuPencilLine size={30} color="006307" />
-            </Button>
+    <>
+      <MenuItemContainer id={`food-${title}-${id}`}>
+        <ImageContainer>
+          <Image src={thumbnail} alt={title} />
+          <Overlay>
+            <OverlayContent>
+              <Button id={`button-edit-${title}-${id}`}>
+                <LuPencilLine size={30} color="006307" />
+              </Button>
 
-            <Button onClick={openModal}>
-              <IoTrashSharp size={30} color="B70000" />
-            </Button>
-          </OverlayContent>
-        </Overlay>
-      </ImageContainer>
-      <Title>{title}</Title>
-
+              <Button onClick={openModal} id={`button-remove-${title}-${id}`}>
+                <IoTrashSharp size={30} color="B70000" />
+              </Button>
+            </OverlayContent>
+          </Overlay>
+        </ImageContainer>
+        <Title>{title}</Title>
+      </MenuItemContainer>
       <Modal
         $isOpen={isOpen}
         $onClose={closeModal}
         $onConfirm={handleConfirm}
         $description="Você tem certeza que deseja realizar esta ação?"
       />
+    </>
 
-    </MenuItemContainer>
+
+
   )
 }

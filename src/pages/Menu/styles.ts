@@ -5,10 +5,8 @@ export const Container = styled.main`
     justify-content:center;
     align-items:center;
     flex-direction:column;
+    height:calc(100vh - 84px);
     margin-left:5.2rem;
-
-    margin-top:4rem;
-
 
     h1{
         font-size:3.3rem;
@@ -25,9 +23,12 @@ export const Container = styled.main`
   
     }
 
-    @media(max-width:1554px){
-          height:100%;
+    @media(max-width:1693px){
+          height:auto
     }
+    /* @media(max-width:1479px){
+          height:auto;
+    } */
 `
 
 export const ButtonContainer = styled.div`
@@ -92,7 +93,7 @@ export const HeaderContent = styled.div`
           width:100%;
         }
 
-        @media(max-width:1474px){
+        @media(max-width:1694px){
           flex-direction:column;
           gap:30px;
           justify-content:center;

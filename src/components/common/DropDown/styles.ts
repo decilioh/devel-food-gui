@@ -31,9 +31,12 @@ export const ToggleDiv = styled.div<{ $hasError?: boolean }>`
             height:22px;
         }
 
-        span{
+        p{
             font-size:.9rem;
             font-weight:400;
+            color:${({ theme }) => theme.colors.inputTextColor};
+        }
+        span{
             color:${({ theme }) => theme.colors.darkGray};
         }
     }
@@ -123,4 +126,5 @@ export const ErrorMessage = styled.span`
     color:${({ theme }) => theme.colors.redColor};
     margin-top: 5px;
     display: block;
+    font-size:.8rem;
 `;
