@@ -9,11 +9,8 @@ import { SidebarContext } from "../../../context/SiderbarContext";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 import { AuthContext } from "../../../context/AuthContext";
 
-interface SidebarProps {
-    $locationError: boolean;
-}
 
-export const Sidebar = ({ $locationError }: SidebarProps) => {
+export const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { theme, toggleTheme } = useTheme();
     const { width } = useWindowSize();
@@ -25,7 +22,7 @@ export const Sidebar = ({ $locationError }: SidebarProps) => {
     const icon = theme.title === 'light'
 
     return (
-        <SidebarContainer $isOpen={isOpen} $visible={sideBarVisible} $locationError={$locationError} id="sidebar-container">
+        <SidebarContainer $isOpen={isOpen} $visible={sideBarVisible} id="sidebar-container">
             <SidebarHeader>
                 <h3>{isOpen ? 'DEVELFOOD' : ''}</h3>
                 <IconContainer id="open-side-bar">

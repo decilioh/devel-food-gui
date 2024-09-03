@@ -25,6 +25,7 @@ declare module "styled-components" {
             textColorSideBarHover: string;
             inputTextColor: string;
             borderSearchButton: string;
+            backgroundFile: string;
         }
     }
 }
