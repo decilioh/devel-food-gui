@@ -32,8 +32,6 @@ export const MainContainer = styled.main`
         gap:0x;
         height:auto;
     }
-
-    
 `
 
 export const SectionReviewsAndPromotions = styled.section`

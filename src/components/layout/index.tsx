@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom"
+import { Outlet, useLocation } from "react-router-dom"
 import styled from "styled-components"
 import { Header } from "../Header"
 import { Sidebar } from "../common/SideBar"
@@ -21,11 +21,16 @@ const ContentFlexWrapper = styled.div`
 `
 
 export const LayoutLogged = () => {
+
+    const { pathname } = useLocation();
+
+    pathname === '*'
+
     return (
         <>
             <Header />
             <ContentFlexWrapper>
-                <Sidebar />
+                <Sidebar $locationError={pathname ? true : false} />
                 <ContentWrapper>
                     <Outlet />
                 </ContentWrapper>
