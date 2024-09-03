@@ -18,9 +18,11 @@ const ContentWrapper = styled.div`
 
 const ContentFlexWrapper = styled.div`
     display:flex;
+    height:auto;
 `
 
 export const LayoutLogged = () => {
+
     return (
         <>
             <Header />

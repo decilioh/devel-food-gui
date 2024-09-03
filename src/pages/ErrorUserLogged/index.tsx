@@ -6,12 +6,12 @@ import { useTheme } from '../../hooks/useTheme';
 
 const MainContainer = styled.main`
     display:flex;
-    justify-content:center;
     align-items:center;
     flex-direction:column;
     padding:1rem;
-    margin-top:70px;
     margin-right:16.5rem;
+    height:calc(100vh - 84px);
+    margin-top:70px;
 
     button{
         width:100%;
@@ -23,12 +23,10 @@ const MainContainer = styled.main`
         }
     }
 
-    @media(max-width:1163px){
-        height:calc(100vh - 24px);
-        margin-top:-4rem;
-        align-items:none;
-        margin-right:.5rem;
+    @media(max-width:1900px){
+        margin-right:0px;
     }
+
 `
 export const LogoContainer = styled.div`
     margin-bottom:13px;

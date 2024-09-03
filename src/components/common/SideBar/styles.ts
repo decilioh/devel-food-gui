@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 interface SidebarProps {
   $isOpen?: boolean;
-  $visible?: boolean
+  $visible?: boolean;
 }
 
 interface TextProps {
@@ -15,14 +15,18 @@ interface TextProps {
 export const SidebarContainer = styled.div<SidebarProps>`
   width: 100%;
   max-width: ${({ $isOpen }) => ($isOpen ? '270px' : '60px')};
-  height: 100vh;
+  height: auto;
   background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.whiteColor};
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: max-width 0.4s;
-  margin-top:-1px;
+
+  @media(max-width:1776px){
+    height:auto;
+    margin-bottom:-5rem;
+  }
 
   @media(max-width:1160px){
     height:auto;
@@ -51,9 +55,6 @@ export const SidebarHeader = styled.div`
     font-weight:400;
     color:${({ theme }) => theme.colors.textColorSideBar};
   }
-  /* @media(max-width:630px){
-    display:none;
-  } */
 `;
 
 export const LineDivisor = styled.div<SidebarProps>`
@@ -161,6 +162,7 @@ export const Text = styled.li<TextProps>`
   display: ${({ $isOpen }) => ($isOpen ? 'inline' : 'none')};
   color:${({ theme }) => theme.colors.textColorSideBar};
   font-size:1.2rem;
+  letter-spacing:0.04rem;
 
   &:hover {
     color:${({ theme }) => theme.colors.textColorSideBarHover};

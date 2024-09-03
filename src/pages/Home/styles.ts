@@ -33,7 +33,6 @@ export const MainContainer = styled.main`
         height:auto;
     }
 
-    
 `
 
 export const SectionReviewsAndPromotions = styled.section`

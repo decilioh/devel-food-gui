@@ -7,6 +7,8 @@ import { Home } from "../pages/Home";
 import { LayoutLogged } from "../components/layout";
 import { ErrorUserLogged } from "../pages/ErrorUserLogged";
 import { PrivateRoute } from "./private";
+import { Menu } from "../pages/Menu";
+import { NewDish } from "../pages/NewDish";
 
 
 export const Router = createBrowserRouter([
@@ -35,15 +37,23 @@ export const Router = createBrowserRouter([
     {
         path: '/admin',
         element: <PrivateRoute><LayoutLogged /></PrivateRoute>,
-        errorElement: <ErrorUserLogged />,
+        errorElement: <PrivateRoute><ErrorUserLogged /></PrivateRoute>,
         children: [
             {
                 path: "home",
-                element: <PrivateRoute><Home /></PrivateRoute>
+                element: <Home />
+            },
+            {
+                path: "menu",
+                element: <Menu />
+            },
+            {
+                path: "menu/prato",
+                element: <NewDish />
             },
             {
                 path: "*",
-                element: <PrivateRoute><ErrorUserLogged /></PrivateRoute>
+                element: <ErrorUserLogged />
             }
         ]
     }

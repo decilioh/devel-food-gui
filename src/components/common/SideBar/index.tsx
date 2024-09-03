@@ -10,7 +10,6 @@ import { useWindowSize } from "../../../hooks/useWindowSize";
 import { AuthContext } from "../../../context/AuthContext";
 
 
-
 export const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { theme, toggleTheme } = useTheme();
