@@ -7,6 +7,7 @@ import { Home } from "../pages/Home";
 import { LayoutLogged } from "../components/layout";
 import { ErrorUserLogged } from "../pages/ErrorUserLogged";
 import { PrivateRoute } from "./private";
+import { Menu } from "../pages/Menu";
 
 
 export const Router = createBrowserRouter([
@@ -40,6 +41,10 @@ export const Router = createBrowserRouter([
             {
                 path: "home",
                 element: <PrivateRoute><Home /></PrivateRoute>
+            },
+            {
+                path: "menu",
+                element: <PrivateRoute><Menu /></PrivateRoute>
             },
             {
                 path: "*",

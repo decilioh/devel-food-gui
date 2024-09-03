@@ -26,7 +26,7 @@ export const Loader = () => {
     return (
         <LoaderContainer>
             <div>
-                <MoonLoader color={colorSpinner} size={70} />
+                <MoonLoader color={colorSpinner} size={70} id="loader-component" />
             </div>
         </LoaderContainer>
     )

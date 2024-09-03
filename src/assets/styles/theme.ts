@@ -22,6 +22,7 @@ export const lightTheme = {
     textColorSideBar: '#FFF',
     textColorSideBarHover: '#071A40',
     inputTextColor: '#525252',
+    borderSearchButton: '#D9D9D9',
   }
 };
 
@@ -49,5 +50,6 @@ export const darkTheme = {
     textColorSideBar: '#071A40',
     textColorSideBarHover: '#07D9D9',
     inputTextColor: '#525252',
+    borderSearchButton: '#D9D9D9',
   }
 };

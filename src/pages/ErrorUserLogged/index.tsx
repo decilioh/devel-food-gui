@@ -10,8 +10,9 @@ const MainContainer = styled.main`
     align-items:center;
     flex-direction:column;
     padding:1rem;
-    margin-top:70px;
+    margin-top:-135px;
     margin-right:16.5rem;
+    height:calc(100vh - 24px);
 
     button{
         width:100%;
@@ -29,6 +30,7 @@ const MainContainer = styled.main`
         align-items:none;
         margin-right:.5rem;
     }
+
 `
 export const LogoContainer = styled.div`
     margin-bottom:13px;
