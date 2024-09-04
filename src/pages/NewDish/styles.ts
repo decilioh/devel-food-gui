@@ -3,10 +3,6 @@ import styled from "styled-components";
 export const Main = styled.main`
     width:100%;
     height:calc(100vh - 84px);
-
-    @media(max-width:806px){
-        height:auto;
-    }
 `
 
 export const HeaderContainer = styled.div`
@@ -72,6 +68,10 @@ export const HeaderContainer = styled.div`
     @media(max-width:630px){
         width:100%;
         margin:1rem 4rem 0 0;
+    }
+
+    @media(max-width:809px){
+          margin-bottom:30px;
     }
 `
 

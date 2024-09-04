@@ -7,10 +7,16 @@ export const Container = styled.main`
     flex-direction:column;
     height:calc(100vh - 84px);
     margin-left:5.2rem;
+    margin-top:2.5rem;
+
 
     h1{
         font-size:3.3rem;
         text-align:center;
+    }
+
+    @media(min-width:1900px){
+      margin-top:4rem;
     }
 
     @media(max-height:1000px){
@@ -26,9 +32,7 @@ export const Container = styled.main`
     @media(max-width:1693px){
           height:auto
     }
-    /* @media(max-width:1479px){
-          height:auto;
-    } */
+
 `
 
 export const ButtonContainer = styled.div`
@@ -117,6 +121,11 @@ export const SectionProductsList = styled.section`
     gap:48px;    
     width:100%;
     margin-top:79px;
+    overflow-y:auto;
+
+    &::-webkit-scrollbar{
+        display:none;
+    }
 `
 
 
