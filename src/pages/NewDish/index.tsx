@@ -7,9 +7,19 @@ import { schema, typeNewDish } from "./schema"
 import { useNavigate } from "react-router-dom"
 import { Input } from "../../components/common/Input"
 import { toast } from "react-toastify"
-import { DescriptionAndPrice, DescriptionDish, File, FileContainer, Form, HeaderContainer, Main, NameDish, SectionContainer } from "./styles"
 import { CiImageOn } from "react-icons/ci"
 import { useState } from "react"
+import {
+    DescriptionAndPrice,
+    DescriptionDish,
+    File,
+    FileContainer,
+    Form,
+    HeaderContainer,
+    Main,
+    NameDish,
+    SectionContainer
+} from "./styles"
 
 
 export const NewDish = () => {

@@ -31,4 +31,20 @@ export const mockDish = [
         id: '8',
         title: 'Salada Caesar'
     },
+    {
+        id: '9',
+        title: 'Salada de São paulo'
+    },
+    {
+        id: '82',
+        title: 'Salada tropical'
+    },
+    {
+        id: '83',
+        title: 'Manjericão'
+    },
+    {
+        id: '84',
+        title: 'Frutos do mar'
+    },
 ]
