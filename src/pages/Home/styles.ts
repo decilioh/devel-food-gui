@@ -2,22 +2,28 @@ import styled from "styled-components";
 
 export const MainContainer = styled.main`
     display:flex;
-    height:calc(100vh - 84px);
     width:100%;
     padding:1rem;
     gap:120px;
+    margin-top:6rem;
+
 
     @media(max-width:1765px){
         gap:80px;
         margin-left:0rem;
     }
 
+
+    @media(max-width:1440px){
+        margin-top:2rem;
+    }
+
+
     @media(max-width:1161px){
         flex-wrap:wrap;
         justify-content:center;
         align-items:center;
         gap:200px;
-        height:auto;
     }
 
     @media(max-width:1000px){
@@ -25,13 +31,25 @@ export const MainContainer = styled.main`
         justify-content:center;
         align-items:center;
         gap:200px;
-        height:auto;
     }
 
     @media(max-width:840px){
         gap:0x;
-        height:auto;
     }
+
+    @media(max-width:1162px){
+        height:calc(100vh - 84px);
+        overflow-y:auto;
+    }
+
+    /* @media(max-height:1000px){
+        height:720px;
+        overflow-y:auto;
+
+        &::-webkit-scrollbar{
+        display:none;
+    }
+    }    */
 
 `
 
@@ -48,7 +66,7 @@ export const SectionReviewsAndPromotions = styled.section`
 
     hr{
         width:100%;
-        max-width:981px;
+        max-width:1001px;
         font-size:1px;
         color:${({ theme }) => theme.colors.darkGray}
     }
@@ -64,8 +82,7 @@ export const ReviewsContainer = styled.div`
     justify-content:center;
     flex-direction:column;
     text-align:center;
-    padding:1rem;
-    gap:51px;
+    gap:31px;
 
 
     h2{
@@ -127,8 +144,8 @@ export const DividerBottom = styled.hr`
 export const Divider = styled.div`
   width: 1px;
   background: ${({ theme }) => theme.colors.darkGray};
-  height: 75.30%;
-  margin: 94px 0px 92px -55px;
+  height: 770px;
+  margin-left:-4rem;
 
   @media(max-width:1480px){
         display:none;
@@ -140,9 +157,17 @@ export const SectionFeedback = styled.section`
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    gap:63px;
+    margin-top:1.5rem;
+    gap:70px;
     width:100%;
     max-width:609px;
+
+    @media(max-width:1440px){
+        margin-top:-10rem;
+    }
+    @media(max-width:1162px){
+        margin-top:0rem;
+    }
 
     h4{
         font-size: 48px;
@@ -151,8 +176,4 @@ export const SectionFeedback = styled.section`
         text-align: center;
     }
 
-    div{
-        gap:55px;
-    }
 `
-

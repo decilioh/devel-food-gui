@@ -10,8 +10,6 @@ const MainContainer = styled.main`
     flex-direction:column;
     padding:1rem;
     margin-right:16.5rem;
-    height:calc(100vh - 84px);
-    margin-top:70px;
 
     button{
         width:100%;
@@ -27,9 +25,24 @@ const MainContainer = styled.main`
         margin-right:0px;
     }
 
+    @media(min-width:1900px){
+        margin-top:70px;
+        
+    }
+
+    @media(max-height:1000px){
+        height:100vh;
+    }
+
+    @media(max-height:592px){
+        height:100vh;
+        height:600px;
+        overflow-y:auto;
+    }
+
 `
 export const LogoContainer = styled.div`
-    margin-bottom:13px;
+    margin-bottom:-12px;
 `
 
 const MessageError = styled.div`

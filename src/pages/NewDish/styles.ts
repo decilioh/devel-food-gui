@@ -2,7 +2,16 @@ import styled from "styled-components";
 
 export const Main = styled.main`
     width:100%;
-    height:calc(100vh - 84px);
+
+    @media(max-height:1000px){
+        height:calc(100vh - 80px);
+    }
+
+    @media(max-height:790px){
+        height:700px;
+        overflow-y:auto;
+    }
+    
 `
 
 export const HeaderContainer = styled.div`
