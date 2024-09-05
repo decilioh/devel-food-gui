@@ -5,7 +5,6 @@ export const Container = styled.main`
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    height:calc(100vh - 84px);
     margin-left:5.2rem;
     margin-top:2.5rem;
 
@@ -18,6 +17,10 @@ export const Container = styled.main`
     @media(min-width:1900px){
       margin-top:4rem;
     }
+
+    @media(max-width:1699px){
+      margin-top:1rem;
+        }
 
     @media(max-height:1000px){
       margin-top:3px;
@@ -32,6 +35,7 @@ export const Container = styled.main`
     @media(max-width:1693px){
           height:auto
     }
+
 
 `
 
@@ -120,11 +124,16 @@ export const SectionProductsList = styled.section`
     flex-wrap:wrap;
     gap:48px;    
     width:100%;
+    height:700px;
     margin-top:79px;
     overflow-y:auto;
 
     &::-webkit-scrollbar{
         display:none;
+    }
+
+    @media(max-height:1000px){
+        margin-top:67px;
     }
 `
 
