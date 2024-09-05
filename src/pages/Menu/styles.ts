@@ -36,6 +36,7 @@ export const Container = styled.main`
           height:auto
     }
 
+
 `
 
 export const ButtonContainer = styled.div`
@@ -129,6 +130,10 @@ export const SectionProductsList = styled.section`
 
     &::-webkit-scrollbar{
         display:none;
+    }
+
+    @media(max-height:1000px){
+        margin-top:67px;
     }
 `
 

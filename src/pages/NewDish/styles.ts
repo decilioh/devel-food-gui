@@ -4,7 +4,8 @@ export const Main = styled.main`
     width:100%;
 
     @media(max-height:1000px){
-        height:calc(100vh - 80px);
+        height:calc(100vh - 135px);
+        margin-top:-3rem;
     }
 
     @media(max-height:790px){
@@ -81,6 +82,10 @@ export const HeaderContainer = styled.div`
 
     @media(max-width:809px){
           margin-bottom:30px;
+    }
+
+    @media(max-height:1000px){
+        margin-bottom:40px;
     }
 `
 

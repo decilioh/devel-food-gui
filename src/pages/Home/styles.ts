@@ -43,7 +43,7 @@ export const MainContainer = styled.main`
     }
 
     @media(max-height:1000px){
-        margin-top:2rem;
+        margin-top:1.52rem;
     }
 
 `
