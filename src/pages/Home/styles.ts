@@ -42,14 +42,9 @@ export const MainContainer = styled.main`
         overflow-y:auto;
     }
 
-    /* @media(max-height:1000px){
-        height:720px;
-        overflow-y:auto;
-
-        &::-webkit-scrollbar{
-        display:none;
+    @media(max-height:1000px){
+        margin-top:2rem;
     }
-    }    */
 
 `
 
