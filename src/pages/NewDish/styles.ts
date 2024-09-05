@@ -2,7 +2,17 @@ import styled from "styled-components";
 
 export const Main = styled.main`
     width:100%;
-    height:calc(100vh - 84px);
+
+    @media(max-height:1000px){
+        height:calc(100vh - 135px);
+        margin-top:-3rem;
+    }
+
+    @media(max-height:790px){
+        height:700px;
+        overflow-y:auto;
+    }
+    
 `
 
 export const HeaderContainer = styled.div`
@@ -72,6 +82,10 @@ export const HeaderContainer = styled.div`
 
     @media(max-width:809px){
           margin-bottom:30px;
+    }
+
+    @media(max-height:1000px){
+        margin-bottom:40px;
     }
 `
 

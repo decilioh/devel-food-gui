@@ -15,14 +15,12 @@ interface TextProps {
 export const SidebarContainer = styled.div<SidebarProps>`
   width: 100%;
   max-width: ${({ $isOpen }) => ($isOpen ? '270px' : '60px')};
-  height: auto;
   background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.whiteColor};
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: max-width 0.4s;
-
   @media(max-width:1776px){
     height:auto;
     margin-bottom:-5rem;
@@ -51,9 +49,10 @@ export const SidebarHeader = styled.div`
   align-items: center;
 
   h3{
-    font-size:1.5rem;
+    font-size:1.7rem;
     font-weight:400;
     color:${({ theme }) => theme.colors.textColorSideBar};
+    letter-spacing:0.1rem;
   }
 `;
 
