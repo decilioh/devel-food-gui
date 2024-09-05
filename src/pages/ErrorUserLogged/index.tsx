@@ -31,7 +31,7 @@ const MainContainer = styled.main`
     }
 
     @media(max-height:1000px){
-        height:100vh;
+        height:calc(100vh - 182px);
     }
 
     @media(max-height:592px){
