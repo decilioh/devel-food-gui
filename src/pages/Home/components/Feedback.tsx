@@ -2,7 +2,7 @@ import { Rating } from "react-simple-star-rating"
 import styled from "styled-components";
 
 const Container = styled.div`
-    width:100%;
+    width:98%;
     max-width:567px;
 
     hr{
