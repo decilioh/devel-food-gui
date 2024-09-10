@@ -85,12 +85,12 @@ export const NewPromo = () => {
         <Main>
             <HeaderContainer>
                 <div>
-                    <Button onClick={() => navigate('/admin/promocoes')}>
+                    <Button onClick={() => navigate('/admin/promocoes')} id="button-return">
                         <FaArrowLeftLong size={51} />
                     </Button>
                 </div>
                 <div>
-                    <h1>Cadastro de novas promoções</h1>
+                    <h1 id="title-page">Cadastro de novas promoções</h1>
                 </div>
             </HeaderContainer>
 
@@ -164,7 +164,7 @@ export const NewPromo = () => {
                         />
                     </DivDate>
 
-                    <Button type="submit">
+                    <Button type="submit" id="button-submit">
                         Cadastrar
                     </Button>
                 </Form>
