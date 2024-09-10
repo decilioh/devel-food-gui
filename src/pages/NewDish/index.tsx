@@ -100,6 +100,7 @@ export const NewDish = () => {
                             register={register}
                             placeholder="Nome"
                             error={errors.nameDish?.message}
+                            maxLength={80}
                         />
                     </NameDish>
 

@@ -9,6 +9,8 @@ import { ErrorUserLogged } from "../pages/ErrorUserLogged";
 import { PrivateRoute } from "./private";
 import { Menu } from "../pages/Menu";
 import { NewDish } from "../pages/NewDish";
+import { Promotions } from "../pages/Promotions";
+import { NewPromo } from "../pages/newpromo";
 
 
 export const Router = createBrowserRouter([
@@ -50,6 +52,14 @@ export const Router = createBrowserRouter([
             {
                 path: "menu/prato",
                 element: <NewDish />
+            },
+            {
+                path: "promocoes",
+                element: <Promotions />
+            },
+            {
+                path: "promocoes/cadastrar",
+                element: <NewPromo />
             },
             {
                 path: "*",
