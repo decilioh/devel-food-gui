@@ -4,16 +4,21 @@ import { ThemeProvider } from "./context/ThemeContext";
 import { GlobalStyle } from "./assets/styles/global";
 import { SidebarProvider } from "./context/SiderbarContext";
 import { AuthProvider } from "./context/AuthContext";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <GlobalStyle />
-      <AuthProvider>
-        <SidebarProvider>
-          <RouterProvider router={Router} />
-        </SidebarProvider>
-      </AuthProvider>
-    </ThemeProvider>
+    <HelmetProvider>
+      <ThemeProvider>
+        <GlobalStyle />
+        <AuthProvider>
+          <SidebarProvider>
+            <Helmet titleTemplate='%s | DevelFood' />
+            <RouterProvider router={Router} />
+          </SidebarProvider>
+        </AuthProvider>
+      </ThemeProvider>
+    </HelmetProvider>
+
   );
 }

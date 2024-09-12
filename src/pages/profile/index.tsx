@@ -4,6 +4,7 @@ import { DataAdress } from "./components/Adress";
 import { DataUser } from "./components/DataUser";
 import { ButtonSaveContainer, ContainerSections, DataContent, DivisorFinal, Main, SectionAdress, SectionDataUser } from "./styles"
 import { useRef } from "react";
+import { Helmet } from "react-helmet-async";
 
 export const Profile = () => {
     const navigate = useNavigate();
@@ -34,6 +35,7 @@ export const Profile = () => {
 
     return (
         <Main>
+            <Helmet title="Perfil" />
             <ContainerSections>
                 <SectionDataUser>
                     <h2 id="title-page-user">Informações Pessoais</h2>

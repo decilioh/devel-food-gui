@@ -4,12 +4,14 @@ import { ButtonContainer, ButtonSearch, Container, Form, Header, HeaderContent, 
 import { useNavigate } from "react-router-dom";
 import { PromotionsMock } from "../../mocks/promotionsMock";
 import { PromotionItem } from "./components/PromotionItem/PromotionItem"
+import { Helmet } from "react-helmet-async";
 
 
 export const Promotions = () => {
     const navigate = useNavigate();
     return (
         <Container>
+            <Helmet title="Promoções" />
             <Header id='header-container'>
                 <HeaderContent id="Header-Content">
                     <ButtonContainer>

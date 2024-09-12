@@ -9,6 +9,7 @@ import { CiImageOn } from "react-icons/ci"
 import { ChangeEvent, useState } from "react"
 import { PromotionFormInputs, schema } from "./schema"
 import { LuCalendarDays } from "react-icons/lu";
+import { Helmet } from "react-helmet-async"
 import {
     DivDate,
     File,
@@ -83,6 +84,7 @@ export const NewPromo = () => {
 
     return (
         <Main>
+            <Helmet title="Nova promoção" />
             <HeaderContainer>
                 <div>
                     <Button onClick={() => navigate('/admin/promocoes')} id="button-return">

@@ -9,6 +9,7 @@ import { Input } from "../../components/common/Input"
 import { toast } from "react-toastify"
 import { CiImageOn } from "react-icons/ci"
 import { useState } from "react"
+import { Helmet } from "react-helmet-async"
 import {
     DescriptionAndPrice,
     DescriptionDish,
@@ -62,6 +63,7 @@ export const NewDish = () => {
 
     return (
         <Main>
+            <Helmet title="Novo prato" />
             <HeaderContainer>
                 <div>
                     <Button onClick={() => navigate('/admin/menu')}>

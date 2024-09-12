@@ -1,6 +1,7 @@
 import { Reviews } from "./components/Review"
 import { Feedback } from "./components/Feedback"
 import promotion from '../../assets/images/promotion.png'
+import { Helmet } from "react-helmet-async"
 import {
     Divider,
     DividerBottom,
@@ -18,6 +19,7 @@ export const Home = () => {
 
     return (
         <MainContainer id="home-container">
+            <Helmet title="Home" />
             <SectionReviewsAndPromotions id="ReviewsAndPromotions">
 
                 <ReviewsContainer>

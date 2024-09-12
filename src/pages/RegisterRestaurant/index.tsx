@@ -6,6 +6,7 @@ import { RestaurantType } from "../../components/RestaurantType";
 import { RestaurantAdress } from "../../components/AdressRestaurant";
 import { RegisterSucess } from "../../components/RegisterSucess";
 import { RegisterError } from "../../components/RegisterError";
+import { Helmet } from "react-helmet-async";
 
 export const RegisterRestaurant = () => {
 
@@ -36,6 +37,7 @@ export const RegisterRestaurant = () => {
 
     return (
         <Main>
+            <Helmet title="Cadastre-se" />
             {step === 1 && <RestaurantData onSubmit={handleRestaurantDataSubmit} />}
             {step === 2 && <RestaurantType onSubmit={handleRestaurantTypeSubmit} navigate={returnNavigate} />}
             {step === 3 && <RestaurantAdress onSubmit={handleRestaurantDataAdress} navigate={returnNavigate} />}
