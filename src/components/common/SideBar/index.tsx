@@ -12,14 +12,13 @@ import { AuthContext } from "../../../context/AuthContext";
 
 export const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const { theme, toggleTheme } = useTheme();
+    const { theme } = useTheme();
     const { width } = useWindowSize();
     const { SignOut } = useContext(AuthContext);
     const { sideBarVisible } = useContext(SidebarContext);
 
     const sizeIcon = width < 680;
 
-    const icon = theme.title === 'light'
 
     return (
         <SidebarContainer $isOpen={isOpen} $visible={sideBarVisible} id="sidebar-container">
@@ -61,10 +60,6 @@ export const Sidebar = () => {
                     <Icon><FaDollarSign /></Icon>
                     <Text $isOpen={isOpen}>Promoções</Text>
                 </NavItem>
-                <SideItem onClick={() => toggleTheme()} id="sidebar-theme">
-                    <Icon>{icon ? <MdDarkMode /> : <MdLightMode />}</Icon>
-                    <Text $isOpen={isOpen}>Tema</Text>
-                </SideItem>
                 <SideItem id="sidebar-logout" onClick={() => SignOut()}>
                     <Icon><TbLogout2 /></Icon>
                     <Text $isOpen={isOpen}>Sair</Text>
