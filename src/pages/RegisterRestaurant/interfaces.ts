@@ -1,4 +1,4 @@
-export interface restaurantDataRegister {
+export interface RestaurantDataRegister {
     email: string,
     cnpj: string,
     password: string

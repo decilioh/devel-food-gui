@@ -12,18 +12,19 @@ interface InputProps extends InputHTMLAttributes<HTMLElement> {
     rules?: RegisterOptions;
     icon?: ReactNode;
     id: string;
+    disabled?: boolean
 }
 
 
 
-export const Input = ({ icon, error, placeholder, register, type, rules, name, id, ...props }: InputProps) => {
+export const Input = ({ icon, error, placeholder, register, type, rules, name, id, disabled, ...props }: InputProps) => {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
     const togglePasswordVisibility = () => {
         setIsPasswordVisible(prev => !prev);
     };
     return (
-        <Container tabIndex={-1}>
+        <Container $isDisabled={!!disabled} tabIndex={-1}>
             <InputWrapper $hasError={!!error} tabIndex={-1}>
                 <IconWrapper tabIndex={-1}>{icon}</IconWrapper>
                 <StyledInput
@@ -32,6 +33,7 @@ export const Input = ({ icon, error, placeholder, register, type, rules, name, i
                     type={type === "password" ? (isPasswordVisible ? "text" : "password") : type}
                     id={id}
                     {...props}
+                    disabled={disabled}
                 />
 
                 {type === "password" && (

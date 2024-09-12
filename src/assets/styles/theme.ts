@@ -24,6 +24,7 @@ export const lightTheme = {
     inputTextColor: '#525252',
     borderSearchButton: '#D9D9D9',
     backgroundFile: '#D9D9D9',
+    buttonDisabled: '#DDDDDD',
   }
 };
 
@@ -53,5 +54,6 @@ export const darkTheme = {
     inputTextColor: '#525252',
     borderSearchButton: '#D9D9D9',
     backgroundFile: '#D9D9D9',
+    buttonDisabled: '#DDDDDD',
   }
 };

@@ -10,7 +10,7 @@ import { MdLockOpen } from "react-icons/md"
 
 interface ResetPasswordProps {
     onSubmit: (password: string) => void;
-    navigate: () => void;
+    navigate?: () => void;
 }
 
 export const ResetPassword = ({ onSubmit, navigate }: ResetPasswordProps) => {

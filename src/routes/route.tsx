@@ -11,6 +11,8 @@ import { Menu } from "../pages/Menu";
 import { NewDish } from "../pages/NewDish";
 import { Promotions } from "../pages/Promotions";
 import { NewPromo } from "../pages/newpromo";
+import { Profile } from "../pages/profile";
+import { ResetPasswordLogged } from "../pages/ResetPasswordLogged";
 
 
 export const Router = createBrowserRouter([
@@ -62,9 +64,18 @@ export const Router = createBrowserRouter([
                 element: <NewPromo />
             },
             {
+                path: "perfil",
+                element: <Profile />
+            },
+            {
                 path: "*",
                 element: <ErrorUserLogged />
-            }
+            },
         ]
+    },
+    {
+        path: '/admin/perfil/trocar-senha',
+        element: <PrivateRoute><ResetPasswordLogged /></PrivateRoute>,
+        errorElement: <Error404WithoutUser />,
     }
 ])
