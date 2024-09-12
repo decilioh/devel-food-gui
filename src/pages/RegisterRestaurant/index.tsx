@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Main } from "./styles";
 import { RestaurantData } from "../../components/RestarauntData";
-import { RestaurantAdreesDataProps, restaurantDataRegister, RestaurantTypeDataProps } from "./interfaces";
+import { RestaurantAdreesDataProps, RestaurantDataRegister, RestaurantTypeDataProps } from "./interfaces";
 import { RestaurantType } from "../../components/RestaurantType";
 import { RestaurantAdress } from "../../components/AdressRestaurant";
 import { RegisterSucess } from "../../components/RegisterSucess";
@@ -11,7 +11,7 @@ export const RegisterRestaurant = () => {
 
     const [step, setStep] = useState(1);
 
-    const handleRestaurantDataSubmit = (data: restaurantDataRegister) => {
+    const handleRestaurantDataSubmit = (data: RestaurantDataRegister) => {
         console.log(data)
         setStep(2);
     };
