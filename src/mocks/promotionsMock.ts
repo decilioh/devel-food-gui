@@ -4,7 +4,7 @@ export const PromotionsMock = [
         promotionPercentage: 10.5,
         promotionStart: "2023-06-01T00:00:00Z",
         promotionEnd: "2023-06-30T23:59:59Z",
-        promotionImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwGzjjzClN1KCLMFQf0ybszPI4HAs_-9u_0g&s",
+        promotionImage: "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/pizza-promo-flyer-design-template-8b374732ba9994d4e4e9370f0839bded_screen.jpg?ts=1677722974",
         promotionId: "1",
         restaurantId: "101"
     },
@@ -22,7 +22,7 @@ export const PromotionsMock = [
         promotionPercentage: 20.0,
         promotionStart: "2023-09-15T16:00:00Z",
         promotionEnd: "2023-09-15T19:00:00Z",
-        promotionImage: "https://thumbs.dreamstime.com/b/cartaz-do-promo-dos-macarronetes-136289579.jpg",
+        promotionImage: "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/food-promo-banner-design-template-f921370ea071f5df54bbbb4a3d79276b_screen.jpg?ts=1647426671",
         promotionId: "3",
         restaurantId: "103"
     },
@@ -31,7 +31,7 @@ export const PromotionsMock = [
         promotionPercentage: 12.0,
         promotionStart: "2023-07-01T11:00:00Z",
         promotionEnd: "2023-07-31T14:00:00Z",
-        promotionImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDNGYRmBK4spUV7y7IwNW2qNDzC3ZzUooogw&s",
+        promotionImage: "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6fccd6105043209.5f70a3521f5c6.png",
         promotionId: "4",
         restaurantId: "104"
     },
@@ -40,7 +40,7 @@ export const PromotionsMock = [
         promotionPercentage: 18.0,
         promotionStart: "2023-08-05T00:00:00Z",
         promotionEnd: "2023-08-06T23:59:59Z",
-        promotionImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdOYZIFm_d7S6tToEwDEfeOH7E_CgNcch7KQ&s",
+        promotionImage: "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/pizza-promo-flyer-design-template-8b374732ba9994d4e4e9370f0839bded_screen.jpg?ts=1677722974",
         promotionId: "5",
         restaurantId: "105"
     },
@@ -49,7 +49,7 @@ export const PromotionsMock = [
         promotionPercentage: 25.0,
         promotionStart: "2024-01-01T00:00:00Z",
         promotionEnd: "2024-01-05T23:59:59Z",
-        promotionImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ--n_tgz6XEhsW_XT0cVV4_oBudfZFLIXj5w&s",
+        promotionImage: "https://img.freepik.com/premium-psd/delicious-pizza-promo-instagram-post-square-web-banner-social-media-template_585641-140.jpg",
         promotionId: "6",
         restaurantId: "106"
     },
@@ -67,7 +67,7 @@ export const PromotionsMock = [
         promotionPercentage: 35.0,
         promotionStart: "2023-11-20T00:00:00Z",
         promotionEnd: "2023-11-27T23:59:59Z",
-        promotionImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHlHvkyVcFMClK3m0-E6fzzixc211cyBPtug&s",
+        promotionImage: "https://img.freepik.com/premium-psd/delicious-pizza-promo-instagram-post-square-web-banner-social-media-template_585641-140.jpg",
         promotionId: "8",
         restaurantId: "108"
     },
@@ -76,7 +76,7 @@ export const PromotionsMock = [
         promotionPercentage: 50.0,
         promotionStart: "2024-02-14T00:00:00Z",
         promotionEnd: "2024-02-14T23:59:59Z",
-        promotionImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ07ATqNJXMHNs4NrmUAZtdCuyBYoPjxnapzQ&s",
+        promotionImage: "https://img.freepik.com/psd-premium/modelo-de-midia-social-de-promocao-de-alimentos-para-evento-de-halloween_401134-1647.jpg",
         promotionId: "9",
         restaurantId: "109"
     },
@@ -103,7 +103,7 @@ export const PromotionsMock = [
         promotionPercentage: 22.0,
         promotionStart: "2023-10-31T00:00:00Z",
         promotionEnd: "2023-10-31T23:59:59Z",
-        promotionImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5lwqhbn1P1xHN3yoWiWDlt-NfoqE7Ci_jlg&s",
+        promotionImage: "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/food-promo-banner-design-template-f921370ea071f5df54bbbb4a3d79276b_screen.jpg?ts=1647426671",
         promotionId: "12",
         restaurantId: "112"
     },
@@ -121,7 +121,7 @@ export const PromotionsMock = [
         promotionPercentage: 60.0,
         promotionStart: "2023-11-24T00:00:00Z",
         promotionEnd: "2023-11-24T23:59:59Z",
-        promotionImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdK6ndWIUFGIUJoCVgkcj-qcKmD_aulRZPEQ&s",
+        promotionImage: "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6fccd6105043209.5f70a3521f5c6.png",
         promotionId: "14",
         restaurantId: "114"
     },

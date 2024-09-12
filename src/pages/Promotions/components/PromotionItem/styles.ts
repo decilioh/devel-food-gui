@@ -8,13 +8,13 @@ export const MenuItemContainer = styled.div`
 
 export const ImageContainer = styled.div`
   position:relative;
-  width:271px;
-  height:271px;
+  width:271px !important;
+  height:271px !important;
 `
 
 export const Image = styled.img`
-  width:271px;
-  height:271px;
+  width:271px !important;
+  height:271px !important;
   border-radius: 8px;
   position:relative;
   background-position:center;

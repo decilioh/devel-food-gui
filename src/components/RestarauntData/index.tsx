@@ -9,13 +9,13 @@ import { StepRegister } from "../common/StepRegister"
 import step1Light from '../../assets/images/step/light/step-1-light.svg'
 import step1Dark from '../../assets/images/step/dark/step-1-dark.svg'
 import { maskCNPJ } from "../../utils/mask"
-import { restaurantDataRegister } from "../../pages/RegisterRestaurant/interfaces"
+import { RestaurantDataRegister } from "../../pages/RegisterRestaurant/interfaces"
 import { MdLockOpen, MdOutlineEmail } from "react-icons/md"
 import { IoMdCard } from "react-icons/io";
 import { useNavigate } from "react-router-dom"
 
 interface RestaurantDataProps {
-    onSubmit: (data: restaurantDataRegister) => void;
+    onSubmit: (data: RestaurantDataRegister) => void;
 }
 
 export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
@@ -54,7 +54,7 @@ export const RestaurantData = ({ onSubmit }: RestaurantDataProps) => {
 
         const { confirmPassword, ...dataToSubmit } = dataRestaurant;
 
-        onSubmit(dataToSubmit as restaurantDataRegister);
+        onSubmit(dataToSubmit as RestaurantDataRegister);
 
     };
 

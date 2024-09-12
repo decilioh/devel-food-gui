@@ -26,6 +26,7 @@ declare module "styled-components" {
             inputTextColor: string;
             borderSearchButton: string;
             backgroundFile: string;
+            buttonDisabled: string;
         }
     }
 }

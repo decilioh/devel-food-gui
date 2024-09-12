@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-    background-color:${({ theme }) => theme.colors.whiteColor};
+export const Container = styled.div<{ $isDisabled: boolean }>`
+    background-color: ${({ $isDisabled, theme }) => ($isDisabled ? theme.colors.buttonDisabled : theme.colors.whiteColor)};
+    pointer-events: ${({ $isDisabled }) => ($isDisabled ? 'none' : 'auto')};
     border-radius: 8px;
     height:100%;
 `
@@ -33,6 +34,11 @@ export const StyledInput = styled.input`
     &::placeholder{
         color:${({ theme }) => theme.colors.darkGray};
         letter-spacing:0.04rem;
+    }
+
+    &:disabled{
+        background-color:${({ theme }) => theme.colors.buttonDisabled};
+        cursor: not-allowed;
     }
 
     @media(max-width:600px){
