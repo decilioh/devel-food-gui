@@ -10,8 +10,10 @@ export const Container = styled.main`
 
 
     h1{
-        font-size:3.3rem;
-        text-align:center;
+      font-size: 3rem;
+      font-weight: 500;
+      line-height: 56.25px;
+      text-align: center;
     }
 
     @media(min-width:1900px){

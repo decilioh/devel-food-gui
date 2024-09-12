@@ -10,8 +10,10 @@ export const Container = styled.main`
 
 
     h1{
-        font-size:3.3rem;
-        text-align:center;
+        font-size: 3rem;
+        font-weight: 500;
+        line-height: 56.25px;
+        text-align: center;
     }
 
     @media(min-width:1900px){
@@ -47,7 +49,7 @@ export const ButtonContainer = styled.div`
         width:100%;
 }
 
-@media(max-width:1474px){
+@media(max-width:1551px){
         max-width:310px;
     }
 `
@@ -101,7 +103,7 @@ export const HeaderContent = styled.div`
           width:100%;
         }
 
-        @media(max-width:1694px){
+        @media(max-width:1551px){
           flex-direction:column;
           gap:30px;
           justify-content:center;

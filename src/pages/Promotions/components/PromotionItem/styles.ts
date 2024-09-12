@@ -13,8 +13,8 @@ export const ImageContainer = styled.div`
 `
 
 export const Image = styled.img`
-  width:100%;
-  height:100%;
+  width:271px;
+  height:271px;
   border-radius: 8px;
   position:relative;
   background-position:center;
