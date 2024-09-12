@@ -4,7 +4,7 @@ import { HiEye, HiEyeOff } from "react-icons/hi";
 import { Container, ErrorContainer, ErrorMessage, IconWrapper, InputWrapper, StyledInput } from "./styles";
 
 interface InputProps extends InputHTMLAttributes<HTMLElement> {
-    type: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url';
+    type: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'date';
     placeholder: string;
     name: string;
     register: UseFormRegister<any>;

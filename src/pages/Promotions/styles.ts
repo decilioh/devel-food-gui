@@ -10,10 +10,10 @@ export const Container = styled.main`
 
 
     h1{
-        font-size: 3rem;
-        font-weight: 500;
-        line-height: 56.25px;
-        text-align: center;
+      font-size: 3rem;
+      font-weight: 500;
+      line-height: 56.25px;
+      text-align: center;
     }
 
     @media(min-width:1900px){
@@ -43,13 +43,16 @@ export const Container = styled.main`
 
 export const ButtonContainer = styled.div`
     width:100%;
-    max-width:215px;
+    max-width:340px;
 
     button{
         width:100%;
+        letter-spacing:0.09rem;
+        font-weight:500;
+        line-height:49.22px;
 }
 
-@media(max-width:1551px){
+@media(max-width:1474px){
         max-width:310px;
     }
 `
@@ -63,8 +66,7 @@ export const Header = styled.div`
 
 export const TitleContainer = styled.div`
   @media(min-width:1900px){
-    width:53%;
-    margin-left:2.9125rem;
+    width:40%;
   }
 `
 
@@ -77,6 +79,7 @@ export const Form = styled.form`
   background-color:${({ theme }) => theme.colors.whiteColor};
   width:100%;
   max-width:311px;
+  margin-right:2rem;
 
   div{
     display: flex;
@@ -90,20 +93,25 @@ export const Form = styled.form`
     @media(min-width:1900px){
       margin-left:10px;
   }
+
+  @media(max-width:1695px){
+    margin-right:0;
+    max-width:340px;
+  }
 `;
 
 export const HeaderContent = styled.div`
         display:flex;
         justify-content:space-between;
         align-items:center;
-        width:83.6%;
+        width:100%;
         flex-wrap:wrap;
 
         @media(max-width:1420px){
           width:100%;
         }
 
-        @media(max-width:1551px){
+        @media(max-width:1494px){
           flex-direction:column;
           gap:30px;
           justify-content:center;
@@ -117,14 +125,25 @@ export const HeaderContent = styled.div`
           }
         }
 `
+export const NoItemsMessage = styled.div`
+    text-align: center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:-13rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 28.13px;
+    color:#999090;
 
+`;
 
 
 export const SectionProductsList = styled.section`
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    gap:48px;    
+    gap:45px;    
     width:100%;
     height:700px;
     margin-top:79px;
