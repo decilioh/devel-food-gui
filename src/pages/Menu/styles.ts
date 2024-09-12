@@ -6,7 +6,7 @@ export const Container = styled.main`
     align-items:center;
     flex-direction:column;
     margin-left:5.2rem;
-    margin-top:2.5rem;
+    margin-top:4.5rem;
 
 
     h1{
@@ -16,19 +16,7 @@ export const Container = styled.main`
         text-align: center;
     }
 
-    @media(min-width:1900px){
-      margin-top:4rem;
-    }
-
-    @media(max-width:1699px){
-      margin-top:1rem;
-        }
-
-    @media(max-height:1000px){
-      margin-top:3px;
-    }
-
-    @media(max-width:1474px){
+    @media(max-width:1551px){
       margin-left:0;
       margin-top:.7rem;
   
@@ -101,6 +89,10 @@ export const HeaderContent = styled.div`
 
         @media(max-width:1420px){
           width:100%;
+        }
+
+        @media(max-width:630px){
+          margin-top:8rem;
         }
 
         @media(max-width:1551px){

@@ -63,11 +63,11 @@ export const HeaderContainer = styled.div`
         width:auto;
     }
 
-    @media(max-width:803px){
+    @media(max-width:880px){
         flex-direction:column;
         margin-right:8rem;
         gap:10px;
-        margin-top:.4rem;
+        margin-top:4rem;
         
         h1{
             font-size:2.5rem;
@@ -77,7 +77,7 @@ export const HeaderContainer = styled.div`
 
     @media(max-width:630px){
         width:100%;
-        margin:1rem 4rem 0 0;
+        margin:8rem 4rem 0 0;
     }
 
     @media(max-width:809px){

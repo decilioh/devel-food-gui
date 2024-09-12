@@ -5,7 +5,6 @@ export const Main = styled.main`
     justify-content:center;
     flex-direction:column;
     margin-top:4rem;
-    margin-left:2.5rem;
     padding:1rem;
 
     h3, h2{
@@ -23,8 +22,8 @@ export const Main = styled.main`
 
     @media(max-height:1000px){
         margin-top:1rem;
-    }    
-    
+    }
+     
 `
 
 export const ContainerSections = styled.div`
@@ -32,7 +31,6 @@ export const ContainerSections = styled.div`
     justify-content:center;
     width:100%;
     gap:117px;
-    margin-left:2.5rem;
     hr{
         height:587px;
     }
@@ -52,6 +50,10 @@ export const ContainerSections = styled.div`
             display:none;
         }
     }
+
+    @media(max-width:630px){
+        margin-top:4rem;
+    }   
 `
 
 export const SectionAdress = styled.section`
@@ -96,6 +98,10 @@ export const SectionDataUser = styled.div`
         margin-top:12rem;
         gap:20px;
     }
+
+    @media(max-width:456px){
+        margin-top:17rem;
+    }   
 
 `
 

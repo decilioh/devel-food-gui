@@ -10,7 +10,6 @@ const MainContainer = styled.main`
     align-items:center;
     flex-direction:column;
     padding:1rem;
-    margin-right:16.5rem;
 
     button{
         width:100%;
@@ -33,6 +32,10 @@ const MainContainer = styled.main`
 
     @media(max-height:1000px){
         height:calc(100vh - 182px);
+    }
+
+    @media(max-width:630px){
+        margin-top:6rem;
     }
 
     @media(max-height:592px){

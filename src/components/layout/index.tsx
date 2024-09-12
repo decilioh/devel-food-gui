@@ -4,37 +4,29 @@ import { Header } from "../Header"
 import { Sidebar } from "../common/SideBar"
 
 
-const ContentWrapper = styled.div`
-  margin-left: 250px;
-  width: 100%;
-  max-width: 1740px;
-  height:calc(100vh - 80px);
-  flex:1;
-  margin: 0 auto;
-  padding: 16px;
-
-  @media(max-width:630px){
-    margin-top:84px;
-  }
-
-  @media(max-height:1000px){
-        height:auto;
-    }
-`
-
 const ContentFlexWrapper = styled.div`
     display:flex;
-    height:auto;
+    height:100vh;
+    overflow-y: hidden;
 `
+
+const ContentWrapper = styled.div`
+  width: 100%;
+  margin: 0 auto;
+  height: 100vh;
+  overflow-y: auto; 
+
+`
+
 
 export const LayoutLogged = () => {
 
     return (
         <>
-            <Header />
             <ContentFlexWrapper>
                 <Sidebar />
                 <ContentWrapper>
+                    <Header />
                     <Outlet />
                 </ContentWrapper>
             </ContentFlexWrapper>

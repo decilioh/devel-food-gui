@@ -6,6 +6,7 @@ export const MainContainer = styled.main`
     padding:1rem;
     gap:120px;
     margin-top:6rem;
+    justify-content:center;
 
 
     @media(max-width:1765px){
@@ -44,6 +45,10 @@ export const MainContainer = styled.main`
 
     @media(max-height:1000px){
         margin-top:1.52rem;
+    }
+
+    @media(max-width:630px){
+        margin-top:8rem;;
     }
 
 `

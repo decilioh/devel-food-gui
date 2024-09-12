@@ -15,7 +15,7 @@ export const ImageContainer = styled.div`
 export const Image = styled.img`
   width:271px !important;
   height:271px !important;
-  border-radius: 8px;
+  border-radius: 24px;
   position:relative;
   background-position:center;
   background-size:cover;

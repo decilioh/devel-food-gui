@@ -33,7 +33,7 @@ export const SidebarContainer = styled.div<SidebarProps>`
   @media(max-width:630px){
     transform: ${({ $visible }) => ($visible ? "translateX(-100%)" : "translateX(0%)")};
     transition: transform 1s ease-in-out;
-    width:180px;
+    width:230px;
     position:fixed;
     z-index:9999;
     height:100%;

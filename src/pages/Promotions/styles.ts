@@ -6,7 +6,7 @@ export const Container = styled.main`
     align-items:center;
     flex-direction:column;
     margin-left:5.2rem;
-    margin-top:2.5rem;
+    margin-top:4rem;
 
 
     h1{
@@ -16,17 +16,6 @@ export const Container = styled.main`
       text-align: center;
     }
 
-    @media(min-width:1900px){
-      margin-top:4rem;
-    }
-
-    @media(max-width:1699px){
-      margin-top:1rem;
-        }
-
-    @media(max-height:1000px){
-      margin-top:3px;
-    }
 
     @media(max-width:1474px){
       margin-left:0;
@@ -62,6 +51,10 @@ export const Header = styled.div`
     justify-content:center;
     align-items:center;
     width:100%;
+
+    @media(max-width:630px){
+      margin-top:6rem;
+    }
 `
 
 export const TitleContainer = styled.div`
@@ -105,6 +98,7 @@ export const HeaderContent = styled.div`
         justify-content:space-between;
         align-items:center;
         width:100%;
+        max-width:1486px;
         flex-wrap:wrap;
 
         @media(max-width:1420px){
@@ -144,7 +138,7 @@ export const SectionProductsList = styled.section`
     justify-content:center;
     flex-wrap:wrap;
     gap:45px;    
-    width:100%;
+    width:92%;
     height:700px;
     margin-top:79px;
     overflow-y:auto;
