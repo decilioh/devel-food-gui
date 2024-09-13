@@ -6,6 +6,7 @@ import { mockDish } from "../../mocks/dishMock";
 import { Helmet } from "react-helmet-async";
 import { Pagination } from "../../components/Pagination";
 import { usePagination } from "../../hooks/usePagination";
+import { DishProps } from "./interface";
 import {
     ButtonContainer,
     ButtonSearch,
@@ -20,7 +21,7 @@ import {
 
 export const Menu = () => {
     const itemsPerPage = 8;
-    const { currentPage, currentItems, paginate } = usePagination({
+    const { currentPage, currentItems, paginate } = usePagination<DishProps>({
         itemsPerPage,
         totalItems: mockDish.length,
     });

@@ -5,7 +5,7 @@ interface UsePaginationProps {
     totalItems: number;
 }
 
-export const usePagination = ({ itemsPerPage, totalItems }: UsePaginationProps) => {
+export const usePagination = <T,>({ itemsPerPage, totalItems }: UsePaginationProps) => {
     const [currentPage, setCurrentPage] = useState(1);
 
     const totalPages = Math.ceil(totalItems / itemsPerPage);
@@ -13,7 +13,7 @@ export const usePagination = ({ itemsPerPage, totalItems }: UsePaginationProps) 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 
-    const currentItems = (items: any[]) => items.slice(indexOfFirstItem, indexOfLastItem);
+    const currentItems = (items: T[]) => items.slice(indexOfFirstItem, indexOfLastItem);
 
     const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 

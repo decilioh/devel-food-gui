@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { promoImageMock } from "../../../mocks/promoMock";
 import { usePagination } from "../../../hooks/usePagination";
 import { Pagination } from "../../../components/Pagination";
+import { ReviewProps } from "../interfaces";
 
 const Container = styled.div`
     display:flex;
@@ -18,7 +19,7 @@ const ImageContainer = styled.div`
 export const Promotions = () => {
 
     const itemsPerPage = 2;
-    const { currentPage, currentItems, paginate } = usePagination({
+    const { currentPage, currentItems, paginate } = usePagination<ReviewProps>({
         itemsPerPage,
         totalItems: promoImageMock.length,
     });

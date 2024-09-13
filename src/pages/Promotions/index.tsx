@@ -18,11 +18,12 @@ import {
     SectionProductsList,
     TitleContainer
 } from "./styles"
+import { PromotionProps } from "./interface";
 
 
 export const Promotions = () => {
     const itemsPerPage = 8;
-    const { currentPage, currentItems, paginate } = usePagination({
+    const { currentPage, currentItems, paginate } = usePagination<PromotionProps>({
         itemsPerPage,
         totalItems: PromotionsMock.length,
     });

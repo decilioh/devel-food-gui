@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { FeedBackMock } from "../../../mocks/feedbackMock";
 import { Pagination } from "../../../components/Pagination";
 import { usePagination } from "../../../hooks/usePagination";
+import { FeedBackProps } from "../interfaces";
 
 
 const Container = styled.div`
@@ -69,7 +70,7 @@ const MessageContainer = styled.div`
 
 export const Feedback = () => {
     const itemsPerPage = 3;
-    const { currentPage, currentItems, paginate } = usePagination({
+    const { currentPage, currentItems, paginate } = usePagination<FeedBackProps>({
         itemsPerPage,
         totalItems: FeedBackMock.length,
     });

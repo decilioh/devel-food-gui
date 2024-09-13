@@ -19,6 +19,8 @@ export const Image = styled.img`
   position:relative;
   background-position:center;
   background-size:cover;
+  object-position:center;
+  object-fit:cover;
 `;
 
 export const Overlay = styled.div`

@@ -4,7 +4,7 @@ export const PromotionsMock = [
         promotionPercentage: 10.5,
         promotionStart: "2023-06-01T00:00:00Z",
         promotionEnd: "2023-06-30T23:59:59Z",
-        promotionImage: "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/pizza-promo-flyer-design-template-8b374732ba9994d4e4e9370f0839bded_screen.jpg?ts=1677722974",
+        promotionImage: "https://images.pexels.com/photos/1556698/pexels-photo-1556698.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         promotionId: "1",
         restaurantId: "101"
     },
@@ -13,7 +13,7 @@ export const PromotionsMock = [
         promotionPercentage: 15.0,
         promotionStart: "2023-12-01T00:00:00Z",
         promotionEnd: "2023-12-31T23:59:59Z",
-        promotionImage: "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6fccd6105043209.5f70a3521f5c6.png",
+        promotionImage: "https://images.pexels.com/photos/916904/pexels-photo-916904.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         promotionId: "2",
         restaurantId: "102"
     },
@@ -22,7 +22,7 @@ export const PromotionsMock = [
         promotionPercentage: 20.0,
         promotionStart: "2023-09-15T16:00:00Z",
         promotionEnd: "2023-09-15T19:00:00Z",
-        promotionImage: "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/food-promo-banner-design-template-f921370ea071f5df54bbbb4a3d79276b_screen.jpg?ts=1647426671",
+        promotionImage: "https://images.pexels.com/photos/6216/water-drink-glass-drinking.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         promotionId: "3",
         restaurantId: "103"
     },
@@ -31,7 +31,7 @@ export const PromotionsMock = [
         promotionPercentage: 12.0,
         promotionStart: "2023-07-01T11:00:00Z",
         promotionEnd: "2023-07-31T14:00:00Z",
-        promotionImage: "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6fccd6105043209.5f70a3521f5c6.png",
+        promotionImage: "https://images.pexels.com/photos/580612/pexels-photo-580612.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         promotionId: "4",
         restaurantId: "104"
     },
@@ -40,7 +40,7 @@ export const PromotionsMock = [
         promotionPercentage: 18.0,
         promotionStart: "2023-08-05T00:00:00Z",
         promotionEnd: "2023-08-06T23:59:59Z",
-        promotionImage: "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/pizza-promo-flyer-design-template-8b374732ba9994d4e4e9370f0839bded_screen.jpg?ts=1677722974",
+        promotionImage: "https://images.pexels.com/photos/734983/pexels-photo-734983.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         promotionId: "5",
         restaurantId: "105"
     },
@@ -49,7 +49,7 @@ export const PromotionsMock = [
         promotionPercentage: 25.0,
         promotionStart: "2024-01-01T00:00:00Z",
         promotionEnd: "2024-01-05T23:59:59Z",
-        promotionImage: "https://img.freepik.com/premium-psd/delicious-pizza-promo-instagram-post-square-web-banner-social-media-template_585641-140.jpg",
+        promotionImage: "https://images.pexels.com/photos/6383/food-woman-hand-girl.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         promotionId: "6",
         restaurantId: "106"
     },
@@ -58,7 +58,7 @@ export const PromotionsMock = [
         promotionPercentage: 30.0,
         promotionStart: "2023-10-01T18:00:00Z",
         promotionEnd: "2023-10-31T22:00:00Z",
-        promotionImage: "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/food-promo-banner-design-template-f921370ea071f5df54bbbb4a3d79276b_screen.jpg?ts=1647426671",
+        promotionImage: "https://images.pexels.com/photos/6392/white-kitchen-bakery-cookies.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         promotionId: "7",
         restaurantId: "107"
     },
@@ -67,7 +67,7 @@ export const PromotionsMock = [
         promotionPercentage: 35.0,
         promotionStart: "2023-11-20T00:00:00Z",
         promotionEnd: "2023-11-27T23:59:59Z",
-        promotionImage: "https://img.freepik.com/premium-psd/delicious-pizza-promo-instagram-post-square-web-banner-social-media-template_585641-140.jpg",
+        promotionImage: "https://images.pexels.com/photos/531829/pexels-photo-531829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         promotionId: "8",
         restaurantId: "108"
     },
@@ -76,7 +76,7 @@ export const PromotionsMock = [
         promotionPercentage: 50.0,
         promotionStart: "2024-02-14T00:00:00Z",
         promotionEnd: "2024-02-14T23:59:59Z",
-        promotionImage: "https://img.freepik.com/psd-premium/modelo-de-midia-social-de-promocao-de-alimentos-para-evento-de-halloween_401134-1647.jpg",
+        promotionImage: "https://images.pexels.com/photos/849645/pexels-photo-849645.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         promotionId: "9",
         restaurantId: "109"
     },
@@ -85,7 +85,7 @@ export const PromotionsMock = [
         promotionPercentage: 8.5,
         promotionStart: "2024-03-01T00:00:00Z",
         promotionEnd: "2024-03-31T23:59:59Z",
-        promotionImage: "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/pizza-promo-flyer-design-template-8b374732ba9994d4e4e9370f0839bded_screen.jpg?ts=1677722974",
+        promotionImage: "https://images.pexels.com/photos/103124/pexels-photo-103124.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         promotionId: "10",
         restaurantId: "110"
     },
@@ -94,7 +94,7 @@ export const PromotionsMock = [
         promotionPercentage: 40.0,
         promotionStart: "2023-09-22T00:00:00Z",
         promotionEnd: "2023-09-22T23:59:59Z",
-        promotionImage: "https://img.freepik.com/premium-psd/delicious-pizza-promo-instagram-post-square-web-banner-social-media-template_585641-140.jpg",
+        promotionImage: "https://images.pexels.com/photos/4124830/pexels-photo-4124830.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         promotionId: "11",
         restaurantId: "111"
     },
@@ -103,7 +103,7 @@ export const PromotionsMock = [
         promotionPercentage: 22.0,
         promotionStart: "2023-10-31T00:00:00Z",
         promotionEnd: "2023-10-31T23:59:59Z",
-        promotionImage: "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/food-promo-banner-design-template-f921370ea071f5df54bbbb4a3d79276b_screen.jpg?ts=1647426671",
+        promotionImage: "https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         promotionId: "12",
         restaurantId: "112"
     },
@@ -112,7 +112,7 @@ export const PromotionsMock = [
         promotionPercentage: 45.0,
         promotionStart: "2023-11-23T00:00:00Z",
         promotionEnd: "2023-11-23T23:59:59Z",
-        promotionImage: "https://img.freepik.com/psd-premium/modelo-de-midia-social-de-promocao-de-alimentos-para-evento-de-halloween_401134-1647.jpg",
+        promotionImage: "https://images.pexels.com/photos/1251198/pexels-photo-1251198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         promotionId: "13",
         restaurantId: "113"
     },
@@ -121,7 +121,7 @@ export const PromotionsMock = [
         promotionPercentage: 60.0,
         promotionStart: "2023-11-24T00:00:00Z",
         promotionEnd: "2023-11-24T23:59:59Z",
-        promotionImage: "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6fccd6105043209.5f70a3521f5c6.png",
+        promotionImage: "https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         promotionId: "14",
         restaurantId: "114"
     },
@@ -130,7 +130,7 @@ export const PromotionsMock = [
         promotionPercentage: 55.0,
         promotionStart: "2023-11-27T00:00:00Z",
         promotionEnd: "2023-11-27T23:59:59Z",
-        promotionImage: "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/black-typography-pizza-promo-instagram-post-design-template-715bd3147c1f062c3ccaab16b0eaf81a_screen.jpg?ts=1716314424",
+        promotionImage: "https://images.pexels.com/photos/6595/food-plate-healthy-coffee.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         promotionId: "15",
         restaurantId: "115"
     }
