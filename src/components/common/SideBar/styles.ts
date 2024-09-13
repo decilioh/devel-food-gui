@@ -128,12 +128,12 @@ export const NavItem = styled(Link) <{ $isSubMenu?: boolean; $isOpenItem?: boole
 
 export const NavItemSubMenu = styled(Link) <{ $isSubMenu?: boolean; $isOpenItem?: boolean }>`
   width: 100%;
-  padding: 10px 20px;
+  padding: 10px 10px;
   display: ${({ $isOpenItem }) => $isOpenItem ? 'flex' : 'none'};
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration:none;
-  margin-left:${({ $isSubMenu, $isOpenItem }) => $isSubMenu && $isOpenItem ? '2rem' : 'none'};
+  margin-left:${({ $isSubMenu, $isOpenItem }) => $isSubMenu && $isOpenItem ? '1.5rem' : 'none'};
 
 
 

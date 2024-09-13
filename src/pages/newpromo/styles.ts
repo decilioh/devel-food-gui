@@ -89,7 +89,7 @@ export const HeaderContainer = styled.div`
     }
 `
 
-export const FileContainer = styled.div<{ $hasError: boolean, $backgroundImage?: string }>`
+export const FileContainer = styled.label<{ $hasError: boolean, $backgroundImage?: string }>`
     width:271px;
     height:271px;
     position:relative;
@@ -202,9 +202,9 @@ export const DivDate = styled.div`
 
         &::-webkit-calendar-picker-indicator {
         opacity: 0;
+        width:200px;
         position: absolute;
-        margin-left: 4rem;
-        width: 100%;
+        margin-left: 3rem;
         }
 
         &::-webkit-inner-spin-button,

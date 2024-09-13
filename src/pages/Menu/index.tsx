@@ -5,9 +5,18 @@ import { ButtonContainer, ButtonSearch, Container, Form, Header, HeaderContent, 
 import { useNavigate } from "react-router-dom";
 import { mockDish } from "../../mocks/dishMock";
 import { Helmet } from "react-helmet-async";
+import { Pagination } from "../../components/Pagination";
+import { usePagination } from "../../hooks/usePagination";
 
 export const Menu = () => {
+    const itemsPerPage = 8;
+    const { currentPage, currentItems, paginate } = usePagination({
+        itemsPerPage,
+        totalItems: mockDish.length,
+    });
+    const currentDishes = currentItems(mockDish);
     const navigate = useNavigate();
+
     return (
         <Container>
             <Helmet title="Menu" />
@@ -37,10 +46,17 @@ export const Menu = () => {
             </Header>
 
             <SectionProductsList id="section-dish-container">
-                {mockDish.map((dish) =>
+                {currentDishes.map((dish) =>
                     <MenuItem title={dish.title} id={dish.id} key={dish.id} />
                 )}
+
             </SectionProductsList>
+            <Pagination
+                currentPage={currentPage}
+                totalItems={mockDish.length}
+                itemsPerPage={itemsPerPage}
+                onPageChange={paginate}
+            />
         </Container>
     )
 }

@@ -11,6 +11,7 @@ const HeaderStyle = styled.header`
     background-color:${({ theme }) => theme.colors.primary};
     display:flex;
     justify-content:center;
+    position:relative;
     align-items:center;
     padding:.813rem;
 

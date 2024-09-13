@@ -65,7 +65,7 @@ export const Sidebar = () => {
                 </NavItem>
                 <NavItemSubMenu $isSubMenu={true} $isOpenItem={isOpen} to='/admin/promocoes/cadastrar' id="sidebar-menu-nova-promo">
                     <Icon><FaDollarSign /></Icon>
-                    <Text $isOpen={isOpen}>+ Cadastrar Prato</Text>
+                    <Text $isOpen={isOpen}>+ Cadastrar promoção</Text>
                 </NavItemSubMenu>
                 <SideItem id="sidebar-logout" onClick={() => SignOut()}>
                     <Icon><TbLogout2 /></Icon>

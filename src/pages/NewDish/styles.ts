@@ -84,7 +84,7 @@ export const HeaderContainer = styled.div`
     }
 `
 
-export const FileContainer = styled.div<{ $hasError: boolean, $backgroundImage?: string }>`
+export const FileContainer = styled.label<{ $hasError: boolean, $backgroundImage?: string }>`
     width:271px;
     height:271px;
     position:relative;

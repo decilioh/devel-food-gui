@@ -77,7 +77,7 @@ export const NewDish = () => {
 
             <SectionContainer>
                 <File>
-                    <FileContainer $hasError={errors.photoDish ? true : false} $backgroundImage={imageBackground}>
+                    <FileContainer htmlFor="input-file" $hasError={errors.photoDish ? true : false} $backgroundImage={imageBackground}>
                         <CiImageOn size={64} color={'#4f4f4f'} />
                         <span>Adicionar imagem</span>
                         <input

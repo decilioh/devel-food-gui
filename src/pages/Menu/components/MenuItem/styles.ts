@@ -60,3 +60,4 @@ export const Title = styled.p`
   line-height:21.09px;
   letter-spacing:0.03rem;
 `;
+

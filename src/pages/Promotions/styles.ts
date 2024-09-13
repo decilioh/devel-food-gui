@@ -6,7 +6,7 @@ export const Container = styled.main`
     align-items:center;
     flex-direction:column;
     margin-left:5.2rem;
-    margin-top:4rem;
+    margin-top:3.6rem;
 
 
     h1{

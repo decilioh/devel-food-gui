@@ -26,7 +26,6 @@ export const NewPromo = () => {
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
     const navigate = useNavigate();
-
     const { register, handleSubmit, setValue, formState: { errors } } = useForm<PromotionFormInputs>({
         resolver: zodResolver(schema),
         mode: "onChange"
@@ -98,7 +97,11 @@ export const NewPromo = () => {
 
             <SectionContainer>
                 <File>
-                    <FileContainer $hasError={errors.photoPromo ? true : false} $backgroundImage={imageBackground}>
+                    <FileContainer
+                        htmlFor="input-file"
+                        $hasError={errors.photoPromo ? true : false}
+                        $backgroundImage={imageBackground}
+                    >
                         <CiImageOn size={64} color={'#4f4f4f'} />
                         <span>Adicionar imagem</span>
                         <input

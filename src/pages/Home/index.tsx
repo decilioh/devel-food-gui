@@ -1,6 +1,5 @@
 import { Reviews } from "./components/Review"
 import { Feedback } from "./components/Feedback"
-import promotion from '../../assets/images/promotion.png'
 import { Helmet } from "react-helmet-async"
 import {
     Divider,
@@ -12,6 +11,7 @@ import {
     SectionFeedback,
     SectionReviewsAndPromotions
 } from "./styles"
+import { Promotions } from "./components/Promotions"
 
 
 export const Home = () => {
@@ -35,12 +35,7 @@ export const Home = () => {
                     <h3 id="promotions-active">Promoções ativas</h3>
 
                     <PromotionsImages id="promotion-images">
-                        <figure>
-                            <img src={promotion} alt="" />
-                        </figure>
-                        <figure>
-                            <img src={promotion} alt="" />
-                        </figure>
+                        <Promotions />
                     </PromotionsImages>
                 </PromotionsContainer>
 
@@ -53,21 +48,7 @@ export const Home = () => {
             <SectionFeedback>
                 <h4>O que os clientes estão <br />achando?</h4>
                 <div>
-                    <Feedback
-                        date="01/01/2022"
-                        message="“A comida desse lugar é sensacional. Eu e minha esposa comemos quase todo o domingo!!!”"
-                        ratingValue={5}
-                    />
-                    <Feedback
-                        date="01/01/2022"
-                        message="“A comida desse lugar é sensacional. Eu e minha esposa comemos quase todo o domingo!!!”"
-                        ratingValue={5}
-                    />
-                    <Feedback
-                        date="01/01/2022"
-                        message="“A comida desse lugar é sensacional. Eu e minha esposa comemos quase todo o domingo!!!”"
-                        ratingValue={5}
-                    />
+                    <Feedback />
                 </div>
             </SectionFeedback>
         </MainContainer>

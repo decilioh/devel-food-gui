@@ -117,7 +117,7 @@ export const SectionProductsList = styled.section`
     justify-content:center;
     flex-wrap:wrap;
     gap:48px;    
-    width:100%;
+    width:92%;
     height:700px;
     margin-top:79px;
     overflow-y:auto;
@@ -125,9 +125,8 @@ export const SectionProductsList = styled.section`
     &::-webkit-scrollbar{
         display:none;
     }
-
-    @media(max-height:1000px){
-        margin-top:67px;
+    @media(max-height:1050px){
+        margin-top:40px;
     }
 `
 
