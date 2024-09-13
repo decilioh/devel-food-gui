@@ -1,12 +1,23 @@
 import { Button } from "../../components/common/Button"
 import SearchIcon from '../../assets/images/SearchIcon.svg';
-import { ButtonContainer, ButtonSearch, Container, Form, Header, HeaderContent, InputSearch, NoItemsMessage, SectionProductsList, TitleContainer } from "./styles"
 import { useNavigate } from "react-router-dom";
 import { PromotionsMock } from "../../mocks/promotionsMock";
 import { PromotionItem } from "./components/PromotionItem/PromotionItem"
 import { Helmet } from "react-helmet-async";
 import { Pagination } from "../../components/Pagination";
 import { usePagination } from "../../hooks/usePagination";
+import {
+    ButtonContainer,
+    ButtonSearch,
+    Container,
+    Form,
+    Header,
+    HeaderContent,
+    InputSearch,
+    NoItemsMessage,
+    SectionProductsList,
+    TitleContainer
+} from "./styles"
 
 
 export const Promotions = () => {

@@ -2,9 +2,9 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/common/Button";
 import { DataAdress } from "./components/Adress";
 import { DataUser } from "./components/DataUser";
-import { ButtonSaveContainer, ContainerSections, DataContent, DivisorFinal, Main, SectionAdress, SectionDataUser } from "./styles"
 import { useRef } from "react";
 import { Helmet } from "react-helmet-async";
+import { ButtonSaveContainer, ContainerSections, DataContent, DivisorFinal, Main, SectionAdress, SectionDataUser } from "./styles"
 
 export const Profile = () => {
     const navigate = useNavigate();

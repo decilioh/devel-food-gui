@@ -1,6 +1,7 @@
 import { Reviews } from "./components/Review"
 import { Feedback } from "./components/Feedback"
 import { Helmet } from "react-helmet-async"
+import { Promotions } from "./components/Promotions"
 import {
     Divider,
     DividerBottom,
@@ -11,7 +12,6 @@ import {
     SectionFeedback,
     SectionReviewsAndPromotions
 } from "./styles"
-import { Promotions } from "./components/Promotions"
 
 
 export const Home = () => {

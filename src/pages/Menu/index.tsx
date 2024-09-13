@@ -1,12 +1,22 @@
 import { Button } from "../../components/common/Button"
 import { MenuItem } from "./components/MenuItem/MenuItem"
 import SearchIcon from '../../assets/images/SearchIcon.svg';
-import { ButtonContainer, ButtonSearch, Container, Form, Header, HeaderContent, InputSearch, SectionProductsList, TitleContainer } from "./styles"
 import { useNavigate } from "react-router-dom";
 import { mockDish } from "../../mocks/dishMock";
 import { Helmet } from "react-helmet-async";
 import { Pagination } from "../../components/Pagination";
 import { usePagination } from "../../hooks/usePagination";
+import {
+    ButtonContainer,
+    ButtonSearch,
+    Container,
+    Form,
+    Header,
+    HeaderContent,
+    InputSearch,
+    SectionProductsList,
+    TitleContainer
+} from "./styles"
 
 export const Menu = () => {
     const itemsPerPage = 8;
