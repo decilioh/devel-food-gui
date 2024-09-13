@@ -4,9 +4,6 @@ import thumbnail from '../../../../assets/images/strogonoff.png'
 import { IoTrashSharp } from "react-icons/io5";
 import { Modal } from "../../../../components/common/Modal";
 import { useModal } from "../../../../hooks/useModal";
-import { useState } from "react";
-import { mockDish } from "../../../../mocks/dishMock";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 
 interface MenuItemProps {
