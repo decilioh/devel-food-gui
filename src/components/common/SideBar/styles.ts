@@ -33,7 +33,7 @@ export const SidebarContainer = styled.div<SidebarProps>`
   @media(max-width:630px){
     transform: ${({ $visible }) => ($visible ? "translateX(-100%)" : "translateX(0%)")};
     transition: transform 1s ease-in-out;
-    width:180px;
+    width:230px;
     position:fixed;
     z-index:9999;
     height:100%;
@@ -105,14 +105,37 @@ export const NavMenu = styled.ul`
   gap:14px;
 `;
 
-export const NavItem = styled(Link)`
+export const NavItem = styled(Link) <{ $isSubMenu?: boolean; $isOpenItem?: boolean }>`
   width: 100%;
   padding: 10px 20px;
-  display: flex;
-  align-items: center;
+  display:flex;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration:none;
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.backgroundColor};
+    transform: translateY(-2px);
+    border-radius:14px 0px 0px 14px;
+    margin-left:10px;
+
+
+    div, li{
+        color:${({ theme }) => theme.colors.textColorSideBarHover};
+    }
+  }
+
+`;
+
+export const NavItemSubMenu = styled(Link) <{ $isSubMenu?: boolean; $isOpenItem?: boolean }>`
+  width: 100%;
+  padding: 10px 10px;
+  display: ${({ $isOpenItem }) => $isOpenItem ? 'flex' : 'none'};
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration:none;
+  margin-left:${({ $isSubMenu, $isOpenItem }) => $isSubMenu && $isOpenItem ? '1.5rem' : 'none'};
+
+
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.backgroundColor};
@@ -127,6 +150,10 @@ export const NavItem = styled(Link)`
   }
 
 `;
+
+export const ItemSeparator = styled.div`
+  display:flex;
+`
 
 export const SideItem = styled.div`
   width: 100%;

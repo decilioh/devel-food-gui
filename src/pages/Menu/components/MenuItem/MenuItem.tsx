@@ -36,6 +36,8 @@ export const MenuItem = ({ title, id }: MenuItemProps) => {
         </ImageContainer>
         <Title>{title}</Title>
       </MenuItemContainer>
+
+
       <Modal
         $isOpen={isOpen}
         $onClose={closeModal}

@@ -5,11 +5,13 @@ import { useTheme } from '../../hooks/useTheme'
 import { FaBars } from 'react-icons/fa'
 import { useContext } from 'react'
 import { SidebarContext } from '../../context/SiderbarContext'
+import { MdDarkMode, MdLightMode } from 'react-icons/md'
 
 const HeaderStyle = styled.header`
     background-color:${({ theme }) => theme.colors.primary};
     display:flex;
     justify-content:center;
+    position:relative;
     align-items:center;
     padding:.813rem;
 
@@ -44,12 +46,29 @@ const LogoContainer = styled.div`
     align-items:center;
     flex:1;
 `
+const Icon = styled.div`
+    color:${({ theme }) => theme.colors.textColorSideBar};
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    position:absolute;
+    right:0;
+    margin-right:2.5rem;
+    transition: color 0.3s ease;
+
+    &:hover{
+        opacity:80%;
+    }
+
+    
+`
 
 
 export const Header = () => {
-    const { theme } = useTheme();
+    const { theme, toggleTheme } = useTheme();
     const { setSideBarVisible, sideBarVisible } = useContext(SidebarContext);
     const logo = theme.title === 'light' ? logoLight : logoDark;
+    const isDarkTheme = theme.title === 'light'
 
     return (
         <HeaderStyle>
@@ -59,6 +78,12 @@ export const Header = () => {
             <LogoContainer>
                 <img src={logo} alt="" />
             </LogoContainer>
+            <Icon onClick={() => toggleTheme()}>
+                {isDarkTheme ?
+                    <MdDarkMode size={30} />
+                    : <MdLightMode size={30} />
+                }
+            </Icon>
         </HeaderStyle>
     )
 }

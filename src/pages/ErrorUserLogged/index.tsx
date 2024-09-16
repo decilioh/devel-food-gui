@@ -3,13 +3,13 @@ import { Button } from '../../components/common/Button'
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { useTheme } from '../../hooks/useTheme';
+import { Helmet } from 'react-helmet-async';
 
 const MainContainer = styled.main`
     display:flex;
     align-items:center;
     flex-direction:column;
     padding:1rem;
-    margin-right:16.5rem;
 
     button{
         width:100%;
@@ -32,6 +32,10 @@ const MainContainer = styled.main`
 
     @media(max-height:1000px){
         height:calc(100vh - 182px);
+    }
+
+    @media(max-width:630px){
+        margin-top:6rem;
     }
 
     @media(max-height:592px){
@@ -75,6 +79,7 @@ export const ErrorUserLogged = () => {
     const colorIcon = theme.title === 'light' ? '#071A40' : '#07D9D9';
     return (
         <MainContainer>
+            <Helmet title="Não encontrado" />
             <LogoContainer>
                 <TbMoodSadDizzy size={230} color={colorIcon} id="icon-error" />
             </LogoContainer>

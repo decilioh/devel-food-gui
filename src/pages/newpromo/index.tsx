@@ -9,6 +9,7 @@ import { CiImageOn } from "react-icons/ci"
 import { ChangeEvent, useState } from "react"
 import { PromotionFormInputs, schema } from "./schema"
 import { LuCalendarDays } from "react-icons/lu";
+import { Helmet } from "react-helmet-async"
 import {
     DivDate,
     File,
@@ -25,7 +26,6 @@ export const NewPromo = () => {
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
     const navigate = useNavigate();
-
     const { register, handleSubmit, setValue, formState: { errors } } = useForm<PromotionFormInputs>({
         resolver: zodResolver(schema),
         mode: "onChange"
@@ -83,6 +83,7 @@ export const NewPromo = () => {
 
     return (
         <Main>
+            <Helmet title="Nova promoção" />
             <HeaderContainer>
                 <div>
                     <Button onClick={() => navigate('/admin/promocoes')} id="button-return">
@@ -96,7 +97,11 @@ export const NewPromo = () => {
 
             <SectionContainer>
                 <File>
-                    <FileContainer $hasError={errors.photoPromo ? true : false} $backgroundImage={imageBackground}>
+                    <FileContainer
+                        htmlFor="input-file"
+                        $hasError={errors.photoPromo ? true : false}
+                        $backgroundImage={imageBackground}
+                    >
                         <CiImageOn size={64} color={'#4f4f4f'} />
                         <span>Adicionar imagem</span>
                         <input
