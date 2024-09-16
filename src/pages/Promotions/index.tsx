@@ -1,15 +1,37 @@
 import { Button } from "../../components/common/Button"
 import SearchIcon from '../../assets/images/SearchIcon.svg';
-import { ButtonContainer, ButtonSearch, Container, Form, Header, HeaderContent, InputSearch, NoItemsMessage, SectionProductsList, TitleContainer } from "./styles"
 import { useNavigate } from "react-router-dom";
 import { PromotionsMock } from "../../mocks/promotionsMock";
 import { PromotionItem } from "./components/PromotionItem/PromotionItem"
+import { Helmet } from "react-helmet-async";
+import { Pagination } from "../../components/Pagination";
+import { usePagination } from "../../hooks/usePagination";
+import {
+    ButtonContainer,
+    ButtonSearch,
+    Container,
+    Form,
+    Header,
+    HeaderContent,
+    InputSearch,
+    NoItemsMessage,
+    SectionProductsList,
+    TitleContainer
+} from "./styles"
+import { PromotionProps } from "./interface";
 
 
 export const Promotions = () => {
+    const itemsPerPage = 8;
+    const { currentPage, currentItems, paginate } = usePagination<PromotionProps>({
+        itemsPerPage,
+        totalItems: PromotionsMock.length,
+    });
+    const currentDishes = currentItems(PromotionsMock);
     const navigate = useNavigate();
     return (
         <Container>
+            <Helmet title="Promoções" />
             <Header id='header-container'>
                 <HeaderContent id="Header-Content">
                     <ButtonContainer>
@@ -42,7 +64,7 @@ export const Promotions = () => {
                         Clique no botão acima para adicionar uma!
                     </NoItemsMessage>
                 ) : (
-                    PromotionsMock.map((promo) => (
+                    currentDishes.map((promo) => (
                         <PromotionItem
                             title={promo.promotionName}
                             id={promo.promotionId}
@@ -52,6 +74,12 @@ export const Promotions = () => {
                     ))
                 )}
             </SectionProductsList>
+            <Pagination
+                currentPage={currentPage}
+                totalItems={PromotionsMock.length}
+                itemsPerPage={itemsPerPage}
+                onPageChange={paginate}
+            />
         </Container>
     )
 }

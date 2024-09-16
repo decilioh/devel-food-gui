@@ -6,7 +6,7 @@ export const Container = styled.main`
     align-items:center;
     flex-direction:column;
     margin-left:5.2rem;
-    margin-top:2.5rem;
+    margin-top:4.5rem;
 
 
     h1{
@@ -16,19 +16,7 @@ export const Container = styled.main`
         text-align: center;
     }
 
-    @media(min-width:1900px){
-      margin-top:4rem;
-    }
-
-    @media(max-width:1699px){
-      margin-top:1rem;
-        }
-
-    @media(max-height:1000px){
-      margin-top:3px;
-    }
-
-    @media(max-width:1474px){
+    @media(max-width:1551px){
       margin-left:0;
       margin-top:.7rem;
   
@@ -103,6 +91,10 @@ export const HeaderContent = styled.div`
           width:100%;
         }
 
+        @media(max-width:630px){
+          margin-top:8rem;
+        }
+
         @media(max-width:1551px){
           flex-direction:column;
           gap:30px;
@@ -124,8 +116,9 @@ export const SectionProductsList = styled.section`
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    gap:48px;    
+    gap:48px;
     width:100%;
+    max-width:1400px;
     height:700px;
     margin-top:79px;
     overflow-y:auto;
@@ -133,9 +126,8 @@ export const SectionProductsList = styled.section`
     &::-webkit-scrollbar{
         display:none;
     }
-
-    @media(max-height:1000px){
-        margin-top:67px;
+    @media(max-height:1050px){
+        margin-top:40px;
     }
 `
 

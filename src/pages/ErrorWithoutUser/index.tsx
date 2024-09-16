@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { LogoDevelFood } from "../../components/common/Logo"
 import styled from "styled-components"
 import { Button } from "../../components/common/Button"
+import { Helmet } from "react-helmet-async"
 
 const MainContainer = styled.main`
     display:flex;
@@ -48,6 +49,7 @@ export const Error404WithoutUser = () => {
     const navigate = useNavigate()
     return (
         <MainContainer>
+            <Helmet title="Não encontrado" />
             <LogoContainer>
                 <LogoDevelFood />
             </LogoContainer>

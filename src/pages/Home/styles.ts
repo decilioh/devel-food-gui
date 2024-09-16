@@ -6,18 +6,13 @@ export const MainContainer = styled.main`
     padding:1rem;
     gap:120px;
     margin-top:6rem;
+    justify-content:center;
 
 
     @media(max-width:1765px){
         gap:80px;
         margin-left:0rem;
     }
-
-
-    @media(max-width:1440px){
-        margin-top:2rem;
-    }
-
 
     @media(max-width:1161px){
         flex-wrap:wrap;
@@ -37,13 +32,12 @@ export const MainContainer = styled.main`
         gap:0x;
     }
 
-    @media(max-width:1162px){
-        height:calc(100vh - 84px);
-        overflow-y:auto;
-    }
-
     @media(max-height:1000px){
         margin-top:1.52rem;
+    }
+
+    @media(max-width:630px){
+        margin-top:8rem;;
     }
 
 `
@@ -95,8 +89,16 @@ export const PromotionsImages = styled.div`
     gap:25px;
 
     figure{
-        width:100%;
-        max-width:300px;
+        width:300px;
+        height:207px;
+        border-radius:8px;
+
+        img{
+            width:300px;
+            height:207px;
+            border-radius:8px;
+
+        }
     }
 
     @media(max-width:1161px){
@@ -152,14 +154,14 @@ export const SectionFeedback = styled.section`
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    margin-top:1.5rem;
+    margin-top:3.5rem;
+    height:100%;
+    max-height:700px;
     gap:70px;
     width:100%;
     max-width:609px;
 
-    @media(max-width:1440px){
-        margin-top:-10rem;
-    }
+
     @media(max-width:1162px){
         margin-top:0rem;
     }

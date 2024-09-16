@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { mockUsers } from "../../mocks/UserMock";
+import { Helmet } from "react-helmet-async";
 
 
 export const Login = () => {
@@ -41,7 +42,7 @@ export const Login = () => {
 
     return (
         <Main $image={foodImage}>
-
+            <Helmet title="Login" />
             <FigureIMG $image={foodImage} id="image-login" />
 
             <FormContainer id="form-container">

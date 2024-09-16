@@ -2,10 +2,9 @@ import { useForm } from "react-hook-form"
 import { Input } from "../../../../components/common/Input"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { DataUserSchema, schema } from "./schema"
-import { MdOutlineAccessibility, MdOutlineEmail } from "react-icons/md"
+import { MdOutlineEmail } from "react-icons/md"
 import { maskCNPJ, maskPhone } from "../../../../utils/mask"
 import { IoMdCard } from "react-icons/io"
-import { FaPhoneAlt } from "react-icons/fa"
 import { Dropdown } from "../../../../components/common/DropDown"
 import { FormContainer } from "./styles"
 import { useEffect } from "react"
@@ -78,7 +77,7 @@ export const DataUser = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<
                 placeholder='Nome'
                 register={register}
                 error={errors.restaurantName?.message}
-                icon={<MdOutlineAccessibility />}
+                icon={<IoMdCard />}
                 onChange={handleNameChange}
                 id="input-name"
             />
@@ -88,7 +87,7 @@ export const DataUser = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<
                 placeholder='Telefone'
                 register={register}
                 error={errors.telefone?.message}
-                icon={<FaPhoneAlt />}
+                icon={<IoMdCard />}
                 onChange={handlePhoneChange}
                 id="input-telephone"
             />

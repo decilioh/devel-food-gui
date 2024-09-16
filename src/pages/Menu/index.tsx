@@ -1,14 +1,36 @@
 import { Button } from "../../components/common/Button"
 import { MenuItem } from "./components/MenuItem/MenuItem"
 import SearchIcon from '../../assets/images/SearchIcon.svg';
-import { ButtonContainer, ButtonSearch, Container, Form, Header, HeaderContent, InputSearch, SectionProductsList, TitleContainer } from "./styles"
 import { useNavigate } from "react-router-dom";
 import { mockDish } from "../../mocks/dishMock";
+import { Helmet } from "react-helmet-async";
+import { Pagination } from "../../components/Pagination";
+import { usePagination } from "../../hooks/usePagination";
+import { DishProps } from "./interface";
+import {
+    ButtonContainer,
+    ButtonSearch,
+    Container,
+    Form,
+    Header,
+    HeaderContent,
+    InputSearch,
+    SectionProductsList,
+    TitleContainer
+} from "./styles"
 
 export const Menu = () => {
+    const itemsPerPage = 8;
+    const { currentPage, currentItems, paginate } = usePagination<DishProps>({
+        itemsPerPage,
+        totalItems: mockDish.length,
+    });
+    const currentDishes = currentItems(mockDish);
     const navigate = useNavigate();
+
     return (
         <Container>
+            <Helmet title="Menu" />
             <Header id='header-container'>
                 <HeaderContent id="Header-Content">
                     <ButtonContainer>
@@ -35,10 +57,17 @@ export const Menu = () => {
             </Header>
 
             <SectionProductsList id="section-dish-container">
-                {mockDish.map((dish) =>
+                {currentDishes.map((dish) =>
                     <MenuItem title={dish.title} id={dish.id} key={dish.id} />
                 )}
+
             </SectionProductsList>
+            <Pagination
+                currentPage={currentPage}
+                totalItems={mockDish.length}
+                itemsPerPage={itemsPerPage}
+                onPageChange={paginate}
+            />
         </Container>
     )
 }

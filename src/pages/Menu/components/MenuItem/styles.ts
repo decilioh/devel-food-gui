@@ -8,15 +8,19 @@ export const MenuItemContainer = styled.div`
 
 export const ImageContainer = styled.div`
   position:relative;
+  width:271px !important;
+  height:271px !important;
 `
 
 export const Image = styled.img`
-  width:100%;
-  height:100%;
-  max-width:271px;
-  max-height:271px;
-  border-radius: 8px;
+  width:271px !important;
+  height:271px !important;
+  border-radius: 24px;
   position:relative;
+  background-position:center;
+  background-size:cover;
+  object-position:center;
+  object-fit:cover;
 `;
 
 export const Overlay = styled.div`
@@ -60,3 +64,4 @@ export const Title = styled.p`
   line-height:21.09px;
   letter-spacing:0.03rem;
 `;
+

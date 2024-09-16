@@ -1,25 +1,19 @@
-import { useContext, useState } from "react";
+import { useContext, useState, memo } from "react";
 import { FaDollarSign, FaPhoneAlt, FaUser, FaUtensils } from "react-icons/fa";
 import { AiFillHome } from "react-icons/ai";
-import { useTheme } from "../../../hooks/useTheme";
-import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { TbLogout2 } from "react-icons/tb";
-import { Icon, IconContainer, LineDivisor, MenuArrow, MenuArrowRight, MenuIcon, NavItem, NavMenu, SidebarContainer, SidebarHeader, SideItem, Text } from "./styles";
+import { Icon, IconContainer, LineDivisor, MenuArrow, MenuArrowRight, MenuIcon, NavItem, NavItemSubMenu, NavMenu, SidebarContainer, SidebarHeader, SideItem, Text } from "./styles";
 import { SidebarContext } from "../../../context/SiderbarContext";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 import { AuthContext } from "../../../context/AuthContext";
 
-
-export const Sidebar = () => {
+const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const { theme, toggleTheme } = useTheme();
     const { width } = useWindowSize();
     const { SignOut } = useContext(AuthContext);
     const { sideBarVisible } = useContext(SidebarContext);
 
     const sizeIcon = width < 680;
-
-    const icon = theme.title === 'light'
 
     return (
         <SidebarContainer $isOpen={isOpen} $visible={sideBarVisible} id="sidebar-container">
@@ -53,6 +47,10 @@ export const Sidebar = () => {
                     <Icon><FaUtensils /></Icon>
                     <Text $isOpen={isOpen}>Menu</Text>
                 </NavItem>
+                <NavItemSubMenu $isSubMenu={true} $isOpenItem={isOpen} to='/admin/menu/prato' id="sidebar-menu-novo-prato">
+                    <Icon><FaUtensils /></Icon>
+                    <Text $isOpen={isOpen}>+ Cadastrar Prato</Text>
+                </NavItemSubMenu>
                 <NavItem to='/admin/pedidos' id="sidebar-orders">
                     <Icon><FaPhoneAlt /></Icon>
                     <Text $isOpen={isOpen}>Pedidos</Text>
@@ -61,10 +59,10 @@ export const Sidebar = () => {
                     <Icon><FaDollarSign /></Icon>
                     <Text $isOpen={isOpen}>Promoções</Text>
                 </NavItem>
-                <SideItem onClick={() => toggleTheme()} id="sidebar-theme">
-                    <Icon>{icon ? <MdDarkMode /> : <MdLightMode />}</Icon>
-                    <Text $isOpen={isOpen}>Tema</Text>
-                </SideItem>
+                <NavItemSubMenu $isSubMenu={true} $isOpenItem={isOpen} to='/admin/promocoes/cadastrar' id="sidebar-menu-nova-promo">
+                    <Icon><FaDollarSign /></Icon>
+                    <Text $isOpen={isOpen}>+ Cadastrar promoção</Text>
+                </NavItemSubMenu>
                 <SideItem id="sidebar-logout" onClick={() => SignOut()}>
                     <Icon><TbLogout2 /></Icon>
                     <Text $isOpen={isOpen}>Sair</Text>
@@ -73,3 +71,5 @@ export const Sidebar = () => {
         </SidebarContainer>
     );
 };
+
+export default memo(Sidebar);

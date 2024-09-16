@@ -3,11 +3,6 @@ import styled from "styled-components";
 export const Main = styled.main`
     width:100%;
 
-    @media(max-height:1000px){
-        height:calc(100vh - 135px);
-        margin-top:-3rem;
-    }
-
     @media(max-height:790px){
         height:700px;
         overflow-y:auto;
@@ -67,7 +62,7 @@ export const HeaderContainer = styled.div`
         flex-direction:column;
         margin-right:8rem;
         gap:10px;
-        margin-top:.4rem;
+        margin-top:2%.5rem;
         
         h1{
             font-size:2.5rem;
@@ -77,7 +72,7 @@ export const HeaderContainer = styled.div`
 
     @media(max-width:630px){
         width:100%;
-        margin:1rem 4rem 0 0;
+        margin:7rem 4rem 0 0;
     }
 
     @media(max-width:809px){
@@ -89,7 +84,7 @@ export const HeaderContainer = styled.div`
     }
 `
 
-export const FileContainer = styled.div<{ $hasError: boolean, $backgroundImage?: string }>`
+export const FileContainer = styled.label<{ $hasError: boolean, $backgroundImage?: string }>`
     width:271px;
     height:271px;
     position:relative;

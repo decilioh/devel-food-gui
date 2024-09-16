@@ -9,6 +9,7 @@ import { Input } from "../../components/common/Input"
 import { toast } from "react-toastify"
 import { CiImageOn } from "react-icons/ci"
 import { useState } from "react"
+import { Helmet } from "react-helmet-async"
 import {
     DescriptionAndPrice,
     DescriptionDish,
@@ -62,6 +63,7 @@ export const NewDish = () => {
 
     return (
         <Main>
+            <Helmet title="Novo prato" />
             <HeaderContainer>
                 <div>
                     <Button onClick={() => navigate('/admin/menu')}>
@@ -75,7 +77,7 @@ export const NewDish = () => {
 
             <SectionContainer>
                 <File>
-                    <FileContainer $hasError={errors.photoDish ? true : false} $backgroundImage={imageBackground}>
+                    <FileContainer htmlFor="input-file" $hasError={errors.photoDish ? true : false} $backgroundImage={imageBackground}>
                         <CiImageOn size={64} color={'#4f4f4f'} />
                         <span>Adicionar imagem</span>
                         <input
