@@ -1,23 +1,19 @@
-import { useContext, useState } from "react";
+import { useContext, useState, memo } from "react";
 import { FaDollarSign, FaPhoneAlt, FaUser, FaUtensils } from "react-icons/fa";
 import { AiFillHome } from "react-icons/ai";
-import { useTheme } from "../../../hooks/useTheme";
 import { TbLogout2 } from "react-icons/tb";
 import { Icon, IconContainer, LineDivisor, MenuArrow, MenuArrowRight, MenuIcon, NavItem, NavItemSubMenu, NavMenu, SidebarContainer, SidebarHeader, SideItem, Text } from "./styles";
 import { SidebarContext } from "../../../context/SiderbarContext";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 import { AuthContext } from "../../../context/AuthContext";
 
-
-export const Sidebar = () => {
+const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const { theme } = useTheme();
     const { width } = useWindowSize();
     const { SignOut } = useContext(AuthContext);
     const { sideBarVisible } = useContext(SidebarContext);
 
     const sizeIcon = width < 680;
-
 
     return (
         <SidebarContainer $isOpen={isOpen} $visible={sideBarVisible} id="sidebar-container">
@@ -75,3 +71,5 @@ export const Sidebar = () => {
         </SidebarContainer>
     );
 };
+
+export default memo(Sidebar);

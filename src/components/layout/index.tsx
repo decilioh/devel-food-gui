@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom"
 import styled from "styled-components"
 import { Header } from "../Header"
-import { Sidebar } from "../common/SideBar"
+import Sidebar from "../common/SideBar"
 
 
 const ContentFlexWrapper = styled.div`
