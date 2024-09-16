@@ -138,7 +138,8 @@ export const SectionProductsList = styled.section`
     justify-content:center;
     flex-wrap:wrap;
     gap:45px;    
-    width:92%;
+    width:100%;
+    max-width:1400px;
     height:700px;
     margin-top:79px;
     overflow-y:auto;

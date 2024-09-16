@@ -116,8 +116,9 @@ export const SectionProductsList = styled.section`
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    gap:48px;    
-    width:92%;
+    gap:48px;
+    width:100%;
+    max-width:1400px;
     height:700px;
     margin-top:79px;
     overflow-y:auto;
