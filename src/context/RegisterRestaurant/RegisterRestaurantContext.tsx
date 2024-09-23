@@ -29,7 +29,6 @@ export const RestaurantRegisterProvider = ({ children }: { children: ReactNode }
         state: '',
     });
 
-
     const submitAllData = async () => {
 
         const fullRestaurantData = {
