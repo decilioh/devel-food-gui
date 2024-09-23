@@ -9,6 +9,7 @@ import { Dropdown } from "../../../../components/common/DropDown"
 import { FormContainer } from "./styles"
 import { useEffect } from "react"
 import { mockProfile } from "../../../../mocks/UserMock"
+import { FoodTypes } from "../../../../utils/foodTypes"
 
 export const DataUser = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<(() => Promise<void>) | null> }) => {
     const { register, handleSubmit, setValue, trigger, formState: { errors } } = useForm<DataUserSchema>({
@@ -27,7 +28,7 @@ export const DataUser = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<
         setValue('telefone', maskedValue);
         await trigger('telefone')
     };
-    const handleDropdownChange = (value: string[]) => {
+    const handleDropdownChange = (value: string) => {
         setValue('restaurantType', value);
         trigger('restaurantType');
     };
@@ -95,17 +96,7 @@ export const DataUser = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<
                 name="restaurantType"
                 register={register}
                 error={errors.restaurantType?.message}
-                options={[
-                    { value: 'Brasileira', label: 'Brasileira' },
-                    { value: 'Picante', label: 'Picante' },
-                    { value: 'Mexicana', label: 'Mexicana' },
-                    { value: 'Japonesa', label: 'Japonesa' },
-                    { value: 'Tailandesa', label: 'Tailandesa' },
-                    { value: 'Chinesa', label: 'Chinesa' },
-                    { value: 'Indiana', label: 'Indiana' },
-                    { value: 'Italiana', label: 'Italiana' },
-
-                ]}
+                options={FoodTypes}
                 onChange={handleDropdownChange}
                 value={mockProfile.foodTypes}
             />

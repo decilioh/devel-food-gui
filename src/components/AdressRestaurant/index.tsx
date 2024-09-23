@@ -8,10 +8,20 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { StepRegister } from "../common/StepRegister"
 import { RestaurantAdressData, schema } from "./schema"
-import { ContainerRestaurant, FieldButton, FieldsetFlex, Form, InputsContainer, LogoContainer, SpaceDiv, SpaceDivName, SpaceNumberAdress } from "./styles"
 import { maskCEP } from '../../utils/mask';
-import { RestaurantAdreesDataProps } from '../../pages/RegisterRestaurant/interfaces';
 import { fetchAddressByCep } from '../../services/fetchCEP';
+import { RestaurantAdreesDataProps } from '../../context/RegisterRestaurant/interfaces';
+import {
+    ContainerRestaurant,
+    FieldButton,
+    FieldsetFlex,
+    Form,
+    InputsContainer,
+    LogoContainer,
+    SpaceDiv,
+    SpaceDivName,
+    SpaceNumberAdress
+} from "./styles"
 
 
 interface RestaurantAdressProps {
@@ -21,7 +31,7 @@ interface RestaurantAdressProps {
 
 export const RestaurantAdress = ({ onSubmit, navigate }: RestaurantAdressProps) => {
 
-    const { register, handleSubmit, setValue, trigger, formState: { errors } } = useForm<RestaurantAdressData>({
+    const { register, handleSubmit, setValue, trigger, formState: { errors, isSubmitting } } = useForm<RestaurantAdressData>({
         resolver: zodResolver(schema),
         mode: "onChange"
     })
@@ -81,9 +91,9 @@ export const RestaurantAdress = ({ onSubmit, navigate }: RestaurantAdressProps) 
         await trigger('numberRestaurant');
     }
 
-    const handleSubmitForm = (dataAdress: RestaurantAdressData) => {
-        if (dataAdress) {
-            onSubmit(dataAdress)
+    const handleSubmitForm = (data: RestaurantAdressData) => {
+        if (data) {
+            onSubmit(data);
         }
     };
 
@@ -194,8 +204,12 @@ export const RestaurantAdress = ({ onSubmit, navigate }: RestaurantAdressProps) 
                 </InputsContainer>
 
                 <FieldButton>
-                    <Button id="button-submit-adress-restaurant" type="submit">Continuar</Button>
-                    <Button id="button-return-page" onClick={navigate}>Voltar</Button>
+                    <Button id="button-submit-adress-restaurant" type="submit">
+                        {isSubmitting ? 'Cadastrando...' : 'Continuar'}
+                    </Button>
+                    <Button id="button-return-page" onClick={navigate}>
+                        Voltar
+                    </Button>
                 </FieldButton>
             </Form>
         </ContainerRestaurant>

@@ -8,4 +8,5 @@ export const ButtonStyled = styled.button`
     border-radius:10px;
     font-weight:500;
     line-height:3.076rem;
+
 `
