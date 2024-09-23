@@ -29,7 +29,6 @@ interface RestaurantRegisterHook {
 }
 
 
-// Mock da função de requisição à API
 jest.mock('../../services/registerRestaurant', () => ({
     registerRestaurant: jest.fn(),
 }));
@@ -44,7 +43,6 @@ const Wrapper = ({ children }: wrapperProps) => (
 
 describe('RestaurantRegisterContext', () => {
     it('deve chamar a API com os dados corretos quando submitAllData é chamado', async () => {
-        // Mock da resposta bem-sucedida da API
         (registerRestaurant as jest.Mock).mockResolvedValueOnce({ message: 'Restaurante registrado com sucesso' });
 
         let hookResult: RestaurantRegisterHook;
@@ -60,7 +58,6 @@ describe('RestaurantRegisterContext', () => {
             </Wrapper>
         );
 
-        // Atualizar os estados para simular o preenchimento dos dados
         act(() => {
             hookResult.setRestaurantData({
                 email: 'teste@restaurante.com',
@@ -83,12 +80,10 @@ describe('RestaurantRegisterContext', () => {
             });
         });
 
-        // Chama a função que submete todos os dados
         await act(async () => {
             await hookResult.submitAllData();
         });
 
-        // Verifica se a função da API foi chamada com os dados corretos
         expect(registerRestaurant).toHaveBeenCalledWith({
             email: 'teste@restaurante.com',
             cnpj: '76931734000156',
@@ -127,7 +122,6 @@ describe('RestaurantRegisterContext', () => {
             </Wrapper>
         );
 
-        // Atualiza os estados com os dados simulados
         act(() => {
             hookResult.setRestaurantData({
                 email: 'teste@restaurante.com',
@@ -150,14 +144,11 @@ describe('RestaurantRegisterContext', () => {
             });
         });
 
-        // Chamar a função de submissão
         await act(async () => {
             await hookResult.submitAllData();
         });
 
-        // Verifica se a função da API foi chamada com os dados corretos
         expect(registerRestaurant).toHaveBeenCalled();
-        // Verifica se a etapa (step) foi atualizada para 5 após o erro
         expect(hookResult!.step).toBe(5);
     });
 });
