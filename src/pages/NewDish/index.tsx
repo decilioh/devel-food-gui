@@ -21,6 +21,7 @@ import {
     NameDish,
     SectionContainer
 } from "./styles"
+import { FoodTypes } from "../../utils/foodTypes"
 
 
 export const NewDish = () => {
@@ -31,7 +32,7 @@ export const NewDish = () => {
         mode: "onChange"
     })
 
-    const handleDropdownChange = (value: string[]) => {
+    const handleDropdownChange = (value: string) => {
         setValue('typeDish', value);
         trigger('typeDish');
     };
@@ -132,19 +133,9 @@ export const NewDish = () => {
                             name="typeDish"
                             register={register}
                             error={errors.typeDish?.message}
-                            options={[
-                                { value: 'Brasileira', label: 'Brasileira' },
-                                { value: 'Picante', label: 'Picante' },
-                                { value: 'Mexicana', label: 'Mexicana' },
-                                { value: 'Japonesa', label: 'Japonesa' },
-                                { value: 'Tailandesa', label: 'Tailandesa' },
-                                { value: 'Chinesa', label: 'Chinesa' },
-                                { value: 'Indiana', label: 'Indiana' },
-                                { value: 'Italiana', label: 'Italiana' },
-
-                            ]}
+                            options={FoodTypes}
                             onChange={handleDropdownChange}
-                            value={[]}
+                            value={''}
                         />
                     </div>
                     <Button type="submit">
