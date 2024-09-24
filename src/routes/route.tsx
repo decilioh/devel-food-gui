@@ -13,6 +13,7 @@ import { Promotions } from "../pages/Promotions";
 import { NewPromo } from "../pages/newpromo";
 import { Profile } from "../pages/profile";
 import { ResetPasswordLogged } from "../pages/ResetPasswordLogged";
+import { Orders } from "../pages/Orders";
 
 
 export const Router = createBrowserRouter([
@@ -66,6 +67,10 @@ export const Router = createBrowserRouter([
             {
                 path: "perfil",
                 element: <Profile />
+            },
+            {
+                path: "pedidos",
+                element: <Orders />,
             },
             {
                 path: "*",
