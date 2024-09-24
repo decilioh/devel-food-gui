@@ -9,10 +9,11 @@ import { StepRegister } from "../common/StepRegister"
 import { restaurantTypeData, schema } from "./schema"
 import { maskPhone } from "../../utils/mask"
 import { FaPhoneAlt } from "react-icons/fa";
-import { RestaurantTypeDataProps } from '../../pages/RegisterRestaurant/interfaces'
 import { Dropdown } from '../common/DropDown'
 import { MdOutlineAccessibility } from 'react-icons/md'
 import { Container, FieldButton, Form, InputFieldset, InputsContainer, LogoView } from "./styles"
+import { RestaurantTypeDataProps } from '../../context/RegisterRestaurant/interfaces'
+import { FoodTypes } from '../../utils/foodTypes'
 interface RestaurantTypeProps {
     onSubmit: (data: RestaurantTypeDataProps) => void;
     navigate: () => void;
@@ -37,7 +38,7 @@ export const RestaurantType = ({ onSubmit, navigate }: RestaurantTypeProps) => {
         await trigger('name');
     };
 
-    const handleDropdownChange = (value: string[]) => {
+    const handleDropdownChange = (value: string) => {
         setValue('restaurantType', value);
         trigger('restaurantType');
     };
@@ -93,19 +94,9 @@ export const RestaurantType = ({ onSubmit, navigate }: RestaurantTypeProps) => {
                             name="restaurantType"
                             register={register}
                             error={errors.restaurantType?.message}
-                            options={[
-                                { value: 'Brasileira', label: 'Brasileira' },
-                                { value: 'Picante', label: 'Picante' },
-                                { value: 'Mexicana', label: 'Mexicana' },
-                                { value: 'Japonesa', label: 'Japonesa' },
-                                { value: 'Tailandesa', label: 'Tailandesa' },
-                                { value: 'Chinesa', label: 'Chinesa' },
-                                { value: 'Indiana', label: 'Indiana' },
-                                { value: 'Italiana', label: 'Italiana' },
-
-                            ]}
+                            options={FoodTypes}
                             onChange={handleDropdownChange}
-                            value={[]}
+                            value={''}
                         />
                     </InputFieldset>
                 </InputsContainer>

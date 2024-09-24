@@ -10,8 +10,8 @@ interface DropdownProps {
     error?: string;
     rules?: RegisterOptions;
     options: { value: string; label: string }[];
-    onChange?: (value: string[]) => void;
-    value?: string[];
+    onChange?: (value: string) => void;
+    value?: string;
 }
 
 export const Dropdown = ({
@@ -21,18 +21,18 @@ export const Dropdown = ({
     rules,
     options,
     onChange,
-    value = [],
+    value = '',
 }: DropdownProps) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedValues, setSelectedValues] = useState<string[]>(value);
+    const [selectedValues, setSelectedValues] = useState<string>(value);
     const containerRef = useRef<HTMLDivElement>(null);
 
     const handleToggle = () => setIsOpen(!isOpen);
 
     const handleCheckboxChange = (optionValue: string) => {
         const updatedValues = selectedValues.includes(optionValue)
-            ? selectedValues.filter(v => v !== optionValue)
-            : [...selectedValues, optionValue];
+            ? selectedValues.split(',').filter(v => v !== optionValue).join(',')
+            : selectedValues ? `${selectedValues},${optionValue}` : optionValue;
 
         setSelectedValues(updatedValues);
         if (onChange) onChange(updatedValues);
@@ -59,7 +59,7 @@ export const Dropdown = ({
             <ToggleDiv onClick={handleToggle} $hasError={!!error}>
                 <div>
                     <MdFastfood />
-                    <p>{selectedValues.length > 0 ? `Selecionados: ${selectedValues.join(', ')}` : <span>Tipos de comida</span>}</p>
+                    <p>{selectedValues.length > 0 ? `Selecionados: ${selectedValues.split(',').join(', ')}` : <span>Tipos de comida</span>}</p>
                 </div>
                 {isOpen ? <FaChevronUp /> : <FaChevronDown />}
             </ToggleDiv>

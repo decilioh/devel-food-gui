@@ -9,10 +9,10 @@ import { StepRegister } from "../common/StepRegister"
 import step1Light from '../../assets/images/step/light/step-1-light.svg'
 import step1Dark from '../../assets/images/step/dark/step-1-dark.svg'
 import { maskCNPJ } from "../../utils/mask"
-import { RestaurantDataRegister } from "../../pages/RegisterRestaurant/interfaces"
 import { MdLockOpen, MdOutlineEmail } from "react-icons/md"
 import { IoMdCard } from "react-icons/io";
 import { useNavigate } from "react-router-dom"
+import { RestaurantDataRegister } from "../../context/RegisterRestaurant/interfaces"
 
 interface RestaurantDataProps {
     onSubmit: (data: RestaurantDataRegister) => void;

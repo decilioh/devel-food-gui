@@ -3,7 +3,7 @@ export interface UserProfileProps {
     cnpj: string;
     restaurantName: string;
     telefone: string;
-    restaurantType: string[];
+    restaurantType: string;
 }
 
 export interface AdressProfileProps {
