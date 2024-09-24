@@ -2,12 +2,17 @@ import { Button } from '../common/Button'
 import { LogoDevelFood } from '../common/Logo'
 import { ActionContainer, CheckContainer, Container, LogoContainer } from './styles'
 import SucessIcon from '../../assets/images/RegisterSucessIcon.svg'
+import { useNavigate } from 'react-router-dom'
+import { useRestaurantRegister } from '../../context/RegisterRestaurant/RegisterRestaurantContext'
 
-interface RegisterSucessProps {
-    onSubmit: () => void;
-}
+export const RegisterSucess = () => {
+    const navigate = useNavigate();
+    const { setStep } = useRestaurantRegister()
 
-export const RegisterSucess = ({ onSubmit }: RegisterSucessProps) => {
+    function handleContinue() {
+        navigate('/')
+        setStep(1)
+    }
 
     return (
         <Container>
@@ -27,7 +32,9 @@ export const RegisterSucess = ({ onSubmit }: RegisterSucessProps) => {
             </CheckContainer>
 
             <ActionContainer>
-                <Button id='continue-button' onClick={onSubmit}>Continuar</Button>
+                <Button id='continue-button' onClick={() => handleContinue()}>
+                    Continuar
+                </Button>
             </ActionContainer>
         </Container>
     )
