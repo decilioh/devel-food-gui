@@ -6,7 +6,7 @@ export type typeNewDish = z.infer<typeof schema>
 
 export const schema = z.object({
     nameDish: z.string().min(1, 'Insira o nome do prato'),
-    typeDish: z.array(z.string()).min(1, "Escolha no mínimo 1 tipo de comida"),
+    typeDish: z.string().min(1, "Escolha no mínimo 1 tipo de comida"),
     descriptionDish: z.string().min(1, 'Digite a descrição do prato'),
     priceDish: z.string().min(1, 'Insira o preço')
         .regex(priceRegex, 'Preço inválido. Apenas números e até duas casas decimais são permitidos.'),
