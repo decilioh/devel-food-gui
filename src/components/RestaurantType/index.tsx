@@ -11,17 +11,22 @@ import { maskPhone } from "../../utils/mask"
 import { FaPhoneAlt } from "react-icons/fa";
 import { Dropdown } from '../common/DropDown'
 import { MdOutlineAccessibility } from 'react-icons/md'
-import { Container, FieldButton, Form, InputFieldset, InputsContainer, LogoView } from "./styles"
+import { Container, FieldButton, File, FileContainer, Form, InputFieldset, InputsContainer, LogoView } from "./styles"
 import { RestaurantTypeDataProps } from '../../context/RegisterRestaurant/interfaces'
 import { FoodTypes } from '../../utils/foodTypes'
+import { CiImageOn } from 'react-icons/ci'
+import { useState } from 'react'
+import { uploadImage } from '../../hooks/useFireStorage'
+import { Loader } from '../common/Loader'
 interface RestaurantTypeProps {
     onSubmit: (data: RestaurantTypeDataProps) => void;
     navigate: () => void;
 }
 
 export const RestaurantType = ({ onSubmit, navigate }: RestaurantTypeProps) => {
+    const [imageBackground, setImageBackground] = useState("");
 
-    const { register, handleSubmit, setValue, trigger, formState: { errors } } = useForm<restaurantTypeData>({
+    const { register, handleSubmit, setValue, trigger, formState: { errors, isSubmitting } } = useForm<restaurantTypeData>({
         resolver: zodResolver(schema),
         mode: "onChange"
     })
@@ -43,11 +48,24 @@ export const RestaurantType = ({ onSubmit, navigate }: RestaurantTypeProps) => {
         trigger('restaurantType');
     };
 
+    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            setImageBackground(URL.createObjectURL(file));
+        }
+    };
 
-    const handleSubmitForm = (data: restaurantTypeData) => {
+
+    const handleSubmitForm = async (data: restaurantTypeData) => {
 
         if (data) {
-            onSubmit(data);
+            const { name, telefone, restaurantType, photoDish } = data;
+            const photoURL = await uploadImage(photoDish[0]);
+            onSubmit({ name, telefone, restaurantType, photoURL });
+        }
+
+        if (isSubmitting) {
+            return null
         }
     }
 
@@ -65,6 +83,22 @@ export const RestaurantType = ({ onSubmit, navigate }: RestaurantTypeProps) => {
                     />
                 </figure>
                 <InputsContainer>
+                    <File>
+                        <FileContainer htmlFor="input-file" $hasError={errors.photoDish ? true : false} $backgroundImage={imageBackground}>
+                            <CiImageOn size={64} color={'#4f4f4f'} />
+                            <span>Adicionar imagem</span>
+                            <input
+                                type="file"
+                                id="input-file"
+                                {...register('photoDish')}
+                                accept=".png, .jpg, jpeg"
+                                onChange={handleImageChange}
+                                max={1}
+                            />
+                        </FileContainer>
+                        {errors.photoDish && <span>{errors.photoDish.message}</span>}
+                    </File>
+
                     <InputFieldset>
                         <Input
                             name="name"
@@ -102,8 +136,8 @@ export const RestaurantType = ({ onSubmit, navigate }: RestaurantTypeProps) => {
                 </InputsContainer>
 
                 <FieldButton>
-                    <Button id="button-submit-restaurant-type" type="submit">
-                        Continuar
+                    <Button id="button-submit-restaurant-type" disabled={isSubmitting} type="submit">
+                        {isSubmitting ? 'Enviando...' : 'Continuar'}
                     </Button>
                     <Button id="button-return-page" onClick={navigate}>
                         Voltar

@@ -31,6 +31,7 @@ declare module "styled-components" {
             buttonDisabled: string;
             borderOrder: string;
             TitleOrder: string;
+            textButtonColor: string;
         }
     }
 }

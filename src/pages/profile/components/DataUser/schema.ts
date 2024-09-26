@@ -10,5 +10,15 @@ export const schema = z.object({
     cnpj: z.string().min(14, "Insira um CNPJ válido").regex(cnpjRegex, 'Insira um CNPJ válido').refine(isValidCNPJ, 'Insira um CNPJ válido').optional(),
     restaurantName: z.string().min(4, 'Insira o nome do restaurante'),
     telefone: z.string().regex(phoneRegex, 'Insira um telefone válido'),
-    restaurantType: z.string().min(1, "Escolha no mínimo 1 tipo de comida")
+    restaurantType: z.string().min(1, "Escolha no mínimo 1 tipo de comida"),
+    photoDish: z
+        .instanceof(FileList)
+        .refine((files) => files.length > 0, "Insira um Arquivo para continuar")
+        .refine(
+            (files) => {
+                const allowedTypes = ['image/png', 'image/jpeg'];
+                return Array.from(files).every(file => allowedTypes.includes(file.type))
+            },
+            { message: "O arquivo deve ser um PNG ou JPG" }
+        ),
 });

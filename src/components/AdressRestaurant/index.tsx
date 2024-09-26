@@ -204,7 +204,7 @@ export const RestaurantAdress = ({ onSubmit, navigate }: RestaurantAdressProps) 
                 </InputsContainer>
 
                 <FieldButton>
-                    <Button id="button-submit-adress-restaurant" type="submit">
+                    <Button id="button-submit-adress-restaurant" disabled={isSubmitting} type="submit">
                         {isSubmitting ? 'Cadastrando...' : 'Continuar'}
                     </Button>
                     <Button id="button-return-page" onClick={navigate}>

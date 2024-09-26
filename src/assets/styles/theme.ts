@@ -29,6 +29,7 @@ export const lightTheme = {
     TitleOrder: '#625858',
     borderCard: '#6B6B6B',
     textExpandCard: '#979797',
+    textButtonColor: '#FFF'
   }
 };
 
@@ -63,5 +64,6 @@ export const darkTheme = {
     TitleOrder: '#FFFFFF',
     borderCard: '#FFFFFF',
     textExpandCard: '#07D9D9',
+    textButtonColor: '#031626'
   }
 };
