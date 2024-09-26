@@ -14,6 +14,7 @@ interface RestaurantRegisterHook {
         name: string;
         telefone: string;
         restaurantType: string;
+        photoURL: string;
     }) => void;
     setRestaurantAddressData: (data: {
         nameAdress: string;
@@ -68,6 +69,7 @@ describe('RestaurantRegisterContext', () => {
                 name: 'Restaurante Teste',
                 telefone: '11943232328',
                 restaurantType: 'Brasileira,Churrasco',
+                photoURL: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'
             });
             hookResult.setRestaurantAddressData({
                 nameAdress: 'Rua Teste',
@@ -91,6 +93,7 @@ describe('RestaurantRegisterContext', () => {
             name: 'Restaurante Teste',
             phoneNumber: '11943232328',
             foodType: 'Brasileira,Churrasco',
+            photoURL: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
             restaurantAddress: {
                 addressLabel: 'Rua Teste',
                 postalCode: '12345000',
@@ -132,6 +135,7 @@ describe('RestaurantRegisterContext', () => {
                 name: 'Restaurante Teste',
                 telefone: '11999999999',
                 restaurantType: 'Italiana, Japonesa',
+                photoURL: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'
             });
             hookResult.setRestaurantAddressData({
                 nameAdress: 'Rua Teste',
