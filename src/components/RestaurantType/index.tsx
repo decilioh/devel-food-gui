@@ -17,7 +17,6 @@ import { FoodTypes } from '../../utils/foodTypes'
 import { CiImageOn } from 'react-icons/ci'
 import { useState } from 'react'
 import { uploadImage } from '../../hooks/useFireStorage'
-import { Loader } from '../common/Loader'
 interface RestaurantTypeProps {
     onSubmit: (data: RestaurantTypeDataProps) => void;
     navigate: () => void;
