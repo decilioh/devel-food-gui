@@ -7,16 +7,24 @@ export const CardContainer = styled.div<{ $isExpanded?: boolean }>`
     flex-direction:column;
     gap:26px;
     width:329px;
-    height:${({ $isExpanded }) => $isExpanded ? '100%' : '179px'};
+    height:${({ $isExpanded }) => $isExpanded ? '70%' : '179px'};
     transition: height 0.3s;
     padding:1.5rem .75rem 1.5rem .95rem;
-    border-radius:0.5rem;
+    border-radius:14px;
     background-color:${({ theme }) => theme.colors.backgroundCard};
     color:${({ theme }) => theme.colors.textCardColor};
     box-shadow: 4px 3px 5.7px 0px #00000070;
+    cursor: grab;
+    &:active {
+        cursor: grabbing;
+    }
 
     ${({ $isExpanded }) => $isExpanded && `
-        &:only-child {
+        &:only-child, &:nth-child(2):last-child {
+            height: 280px;
+            transition: height 0.3s;
+        }
+        &:nth-child(1):nth-last-child(2) {
             height: 280px;
             transition: height 0.3s;
         }
@@ -26,6 +34,7 @@ export const CardContainer = styled.div<{ $isExpanded?: boolean }>`
         width:100%;
         display:${({ $isExpanded }) => $isExpanded ? 'none' : 'block'};
         border-color:${({ theme }) => theme.colors.borderCard};
+        margin-top: .3rem;
     }
 `
 
