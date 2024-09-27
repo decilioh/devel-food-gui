@@ -6,12 +6,15 @@ import { MdOutlineEmail } from "react-icons/md"
 import { maskCNPJ, maskPhone } from "../../../../utils/mask"
 import { IoMdCard } from "react-icons/io"
 import { Dropdown } from "../../../../components/common/DropDown"
-import { FormContainer } from "./styles"
-import { useEffect } from "react"
+import { File, FileContainer, FormContainer } from "./styles"
+import { useEffect, useState } from "react"
 import { mockProfile } from "../../../../mocks/UserMock"
 import { FoodTypes } from "../../../../utils/foodTypes"
+import { CiImageOn } from "react-icons/ci"
 
 export const DataUser = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<(() => Promise<void>) | null> }) => {
+    const [imageBackground, setImageBackground] = useState("");
+
     const { register, handleSubmit, setValue, trigger, formState: { errors } } = useForm<DataUserSchema>({
         resolver: zodResolver(schema),
         mode: "onChange"
@@ -37,6 +40,13 @@ export const DataUser = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<
         console.log('UserData:', data);
     };
 
+    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            setImageBackground(URL.createObjectURL(file));
+        }
+    };
+
     useEffect(() => {
         onSubmitRef.current = handleSubmit(onSubmit);
     }, [onSubmitRef, handleSubmit]);
@@ -51,6 +61,22 @@ export const DataUser = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<
 
     return (
         <FormContainer onSubmit={handleSubmit(onSubmit)}>
+            <File>
+                <FileContainer htmlFor="input-file" $hasError={errors.photoDish ? true : false} $backgroundImage={imageBackground}>
+                    <CiImageOn size={64} color={'#4f4f4f'} />
+                    <span>Adicionar imagem</span>
+                    <input
+                        type="file"
+                        id="input-file"
+                        {...register('photoDish')}
+                        accept=".png, .jpg, jpeg"
+                        onChange={handleImageChange}
+                        max={1}
+                    />
+                </FileContainer>
+                {errors.photoDish && <span>{errors.photoDish.message}</span>}
+            </File>
+
             <Input
                 name="email"
                 type="email"

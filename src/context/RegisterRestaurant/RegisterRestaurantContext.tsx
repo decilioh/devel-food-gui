@@ -17,6 +17,7 @@ export const RestaurantRegisterProvider = ({ children }: { children: ReactNode }
         name: '',
         telefone: '',
         restaurantType: '',
+        photoURL: '',
     });
 
     const [restaurantAddressData, setRestaurantAddressData] = useState<RestaurantAdreesDataProps>({
@@ -38,6 +39,7 @@ export const RestaurantRegisterProvider = ({ children }: { children: ReactNode }
             name: restaurantTypeData.name,
             phoneNumber: restaurantTypeData.telefone.replace(/\D/g, ''),
             foodType: restaurantTypeData.restaurantType,
+            photoURL: restaurantTypeData.photoURL,
             restaurantAddress: {
                 addressLabel: restaurantAddressData.nameAdress,
                 postalCode: restaurantAddressData.cep.replace(/\D/g, ''),

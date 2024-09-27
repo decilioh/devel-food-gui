@@ -64,18 +64,22 @@ export const SectionAdress = styled.section`
     gap:40px;
     height:500px;
 
+    
+
     button{
         display:none;
     }
 
     @media(max-width:1145px){
-        margin-top:0.9rem;
+        margin-top:9rem;
         gap:20px;
 
         button{
             display:block;
         }
     }
+
+    
 
 
 
@@ -88,14 +92,14 @@ export const SectionDataUser = styled.div`
     margin-top:1.95rem;
     width:100%;
     max-width:428px;
-    gap:61px;
+    gap:31px;
 
     button{
         margin-top:-2.2rem;
     }
 
     @media(max-width:1145px){
-        margin-top:12rem;
+        margin-top:25rem;
         gap:20px;
     }
 
@@ -127,7 +131,9 @@ export const ButtonSaveContainer = styled.div`
     width:100%;
     display:flex;
     justify-content:center;
+    flex-direction:column;
     align-items:center;
+    gap:14px;
 
     button{
         width:100%;
