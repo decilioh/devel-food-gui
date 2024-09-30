@@ -41,6 +41,12 @@ export const StyledInput = styled.input`
         cursor: not-allowed;
     }
 
+    &[type='number']::-webkit-inner-spin-button,
+    &[type='number']::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
     @media(max-width:600px){
         &::placeholder{
     }
