@@ -70,7 +70,7 @@ export const NewDish = () => {
 
         } catch (error) {
             if (error instanceof AxiosError) {
-                toast.error('O prato já foi cadastrado!')
+                toast.error('Ocorreu um erro!')
                 return
             }
         }
