@@ -16,6 +16,8 @@ declare module "styled-components" {
             darkGray: string;
             backgroundCard: string;
             textCardColor: string;
+            borderCard: string;
+            textExpandCard: string;
             colorInputBorder: string;
             backgroundLogin: string
             verifyCodeColor: string;
@@ -27,6 +29,9 @@ declare module "styled-components" {
             borderSearchButton: string;
             backgroundFile: string;
             buttonDisabled: string;
+            borderOrder: string;
+            TitleOrder: string;
+            textButtonColor: string;
         }
     }
 }

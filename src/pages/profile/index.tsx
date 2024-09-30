@@ -41,13 +41,6 @@ export const Profile = () => {
                     <h2 id="title-page-user">Informações Pessoais</h2>
                     <DataContent>
                         <DataUser onSubmitRef={submitUserInfosRef} />
-                        <Button
-                            id="button-id-navigate"
-                            type="button"
-                            onClick={() => navigate('/admin/perfil/trocar-senha')}
-                        >
-                            Alterar senha
-                        </Button>
                     </DataContent>
                 </SectionDataUser>
                 <hr />
@@ -58,6 +51,13 @@ export const Profile = () => {
                     <Button type="button" id="button-submit-all-min-resolution" onClick={handleSubmitAll}>
                         Salvar
                     </Button>
+                    <Button
+                        id="button-id-navigate"
+                        type="button"
+                        onClick={() => navigate('/admin/perfil/trocar-senha')}
+                    >
+                        Alterar senha
+                    </Button>
                 </SectionAdress>
             </ContainerSections>
 
@@ -66,6 +66,13 @@ export const Profile = () => {
             <ButtonSaveContainer>
                 <Button type="button" id="button-submit-all-full-resolution" onClick={handleSubmitAll}>
                     Salvar
+                </Button>
+                <Button
+                    id="button-id-navigate"
+                    type="button"
+                    onClick={() => navigate('/admin/perfil/trocar-senha')}
+                >
+                    Alterar senha
                 </Button>
             </ButtonSaveContainer>
         </Main>

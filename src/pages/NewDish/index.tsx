@@ -22,12 +22,15 @@ import {
     SectionContainer
 } from "./styles"
 import { FoodTypes } from "../../utils/foodTypes"
+import { uploadImage } from "../../hooks/useFireStorage"
+import { registerDish } from "../../services/registerDish"
+import { AxiosError } from "axios"
 
 
 export const NewDish = () => {
     const [imageBackground, setImageBackground] = useState("");
     const navigate = useNavigate();
-    const { register, handleSubmit, setValue, trigger, formState: { errors } } = useForm<typeNewDish>({
+    const { register, handleSubmit, setValue, trigger, formState: { errors, isSubmitting } } = useForm<typeNewDish>({
         resolver: zodResolver(schema),
         mode: "onChange"
     })
@@ -44,20 +47,32 @@ export const NewDish = () => {
         }
     };
 
-    const handleSubmitForm = (data: typeNewDish) => {
+    const handleSubmitForm = async (data: typeNewDish) => {
+        try {
+            const restaurantId = 2
+            const photoURL = await uploadImage(data.photoDish[0])
 
-        if (data) {
-            console.log(data);
-            console.log(`foto do prato:${data.photoDish}`)
-            console.log(`Nome do prato:${data.nameDish}`)
-            console.log(`Descrição:${data.descriptionDish}`)
-            console.log(`Tipo de comida:${data.typeDish}`)
-            console.log(`Preço:${data.priceDish}`)
-            toast.success('Prato adicionado com sucesso!')
-            setImageBackground("")
-            navigate('/admin/menu')
-        } else {
-            toast.error('Ocorreu algum erro!')
+            const newDish = {
+                dishName: data.nameDish,
+                description: data.descriptionDish,
+                price: data.priceDish,
+                photo: photoURL,
+                foodType: data.typeDish.replace(/,/g, ' '),
+                restaurant: {
+                    id: restaurantId
+                }
+            }
+
+            await registerDish(newDish)
+            toast.success('Prato adicionado com sucesso!');
+            setImageBackground("");
+            navigate('/admin/menu');
+
+        } catch (error) {
+            if (error instanceof AxiosError) {
+                toast.error('O prato já foi cadastrado!')
+                return
+            }
         }
     }
 
@@ -138,8 +153,8 @@ export const NewDish = () => {
                             value={''}
                         />
                     </div>
-                    <Button type="submit">
-                        Salvar
+                    <Button disabled={isSubmitting} type="submit">
+                        {isSubmitting ? 'Enviando...' : 'Salvar'}
                     </Button>
                 </Form>
             </SectionContainer>

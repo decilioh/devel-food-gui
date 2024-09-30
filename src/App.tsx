@@ -6,6 +6,8 @@ import { SidebarProvider } from "./context/SiderbarContext";
 import { AuthProvider } from "./context/AuthContext";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { RestaurantRegisterProvider } from "./context/RegisterRestaurant/RegisterRestaurantContext";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 export default function App() {
   return (
@@ -16,7 +18,9 @@ export default function App() {
           <AuthProvider>
             <SidebarProvider>
               <Helmet titleTemplate='%s | DevelFood' />
-              <RouterProvider router={Router} />
+              <DndProvider backend={HTML5Backend}>
+                <RouterProvider router={Router} />
+              </DndProvider>
             </SidebarProvider>
           </AuthProvider>
         </RestaurantRegisterProvider>

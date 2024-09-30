@@ -25,6 +25,11 @@ export const lightTheme = {
     borderSearchButton: '#D9D9D9',
     backgroundFile: '#D9D9D9',
     buttonDisabled: '#DDDDDD',
+    borderOrder: '#B7B7B7',
+    TitleOrder: '#625858',
+    borderCard: '#6B6B6B',
+    textExpandCard: '#979797',
+    textButtonColor: '#FFF'
   }
 };
 
@@ -43,7 +48,7 @@ export const darkTheme = {
     sucessInput: '#07D9D9',
     darkGray: '#A2A2A2',
     backgroundCard: '#071A40',
-    textCardColor: '#031626',
+    textCardColor: '#07D9D9',
     colorInputBorder: '#DDDDDD',
     backgroundLogin: '#F2F2F2',
     verifyCodeColor: '#FFFFFF',
@@ -55,5 +60,10 @@ export const darkTheme = {
     borderSearchButton: '#D9D9D9',
     backgroundFile: '#D9D9D9',
     buttonDisabled: '#DDDDDD',
+    borderOrder: '#FFFFFF',
+    TitleOrder: '#FFFFFF',
+    borderCard: '#FFFFFF',
+    textExpandCard: '#07D9D9',
+    textButtonColor: '#031626'
   }
 };
