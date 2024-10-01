@@ -10,6 +10,10 @@ import { toast } from "react-toastify"
 import { CiImageOn } from "react-icons/ci"
 import { useState } from "react"
 import { Helmet } from "react-helmet-async"
+import { FoodTypes } from "../../utils/foodTypes"
+import { uploadImage } from "../../hooks/useFireStorage"
+import { registerDish } from "../../services/registerDish"
+import { AxiosError } from "axios"
 import {
     DescriptionAndPrice,
     DescriptionDish,
@@ -21,14 +25,11 @@ import {
     NameDish,
     SectionContainer
 } from "./styles"
-import { FoodTypes } from "../../utils/foodTypes"
-import { uploadImage } from "../../hooks/useFireStorage"
-import { registerDish } from "../../services/registerDish"
-import { AxiosError } from "axios"
 
 
 export const NewDish = () => {
     const [imageBackground, setImageBackground] = useState("");
+    const [priceValue, setPriceValue] = useState('');
     const navigate = useNavigate();
     const { register, handleSubmit, setValue, trigger, formState: { errors, isSubmitting } } = useForm<typeNewDish>({
         resolver: zodResolver(schema),
@@ -47,15 +48,34 @@ export const NewDish = () => {
         }
     };
 
+    const formatPrice = (value: string) => {
+        const numberString = value.replace(/\D/g, '');
+
+        if (!numberString) return '';
+
+        const number = parseFloat(numberString) / 100;
+
+        if (number > 1000) return '1000,00'
+        return `${number.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+    };
+
+    const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        const formattedValue = formatPrice(value);
+        setPriceValue(formattedValue);
+        setValue('priceDish', value, { shouldValidate: true });
+    };
+
     const handleSubmitForm = async (data: typeNewDish) => {
         try {
             const restaurantId = 2
             const photoURL = await uploadImage(data.photoDish[0])
+            const priceValueFormatted = priceValue.replace('R$ ', '').replace('.', '').replace(',', '.');
 
             const newDish = {
                 dishName: data.nameDish,
                 description: data.descriptionDish,
-                price: data.priceDish,
+                price: priceValueFormatted,
                 photo: photoURL,
                 foodType: data.typeDish.replace(/,/g, ' '),
                 restaurant: {
@@ -70,7 +90,7 @@ export const NewDish = () => {
 
         } catch (error) {
             if (error instanceof AxiosError) {
-                toast.error('O prato já foi cadastrado!')
+                toast.error('Ocorreu um erro!')
                 return
             }
         }
@@ -93,7 +113,7 @@ export const NewDish = () => {
 
             <SectionContainer>
                 <File>
-                    <FileContainer htmlFor="input-file" $hasError={errors.photoDish ? true : false} $backgroundImage={imageBackground}>
+                    <FileContainer htmlFor="input-file" $hasError={!!errors.photoDish} $backgroundImage={imageBackground}>
                         <CiImageOn size={64} color={'#4f4f4f'} />
                         <span>Adicionar imagem</span>
                         <input
@@ -126,7 +146,7 @@ export const NewDish = () => {
                         <DescriptionDish
                             id="description-dish"
                             placeholder="Descrição"
-                            $hasError={errors.descriptionDish ? true : false}
+                            $hasError={!!errors.descriptionDish}
                             {...register('descriptionDish')}
                         />
                         {errors.photoDish && <span>{errors.descriptionDish?.message}</span>}
@@ -137,6 +157,8 @@ export const NewDish = () => {
                             id="input-price-dish"
                             register={register}
                             placeholder="Preço"
+                            onChange={handlePriceChange}
+                            value={priceValue}
                             error={errors.priceDish?.message}
                         />
 
