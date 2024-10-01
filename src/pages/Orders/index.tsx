@@ -118,7 +118,7 @@ export const Orders = () => {
         <Container>
             <Helmet title="Pedidos" />
             <Main>
-                <h1>Seus Pedidos</h1>
+                <h1>Seus pedidos</h1>
 
                 <OrdersSections>
                     <OrderContainer id="waiting-container" ref={waitingDrop}>
