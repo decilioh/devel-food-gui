@@ -16,7 +16,6 @@ import {
 
 export const Home = () => {
 
-
     return (
         <MainContainer id="home-container">
             <Helmet title="Home" />

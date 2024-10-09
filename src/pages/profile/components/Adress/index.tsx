@@ -5,8 +5,10 @@ import { maskCEP } from "../../../../utils/mask";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { fetchAddressByCep } from "../../../../services/fetchCEP";
-import { useEffect } from "react";
-import { mockProfile } from "../../../../mocks/UserMock";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../../context/AuthContext";
+import { getAddressData } from "../../../../services/getAddressById";
+import { updateAddressData } from "../../../../services/updatedAddressData";
 import {
     FieldsetFlex,
     Form,
@@ -17,6 +19,9 @@ import {
 } from "./styles";
 
 export const DataAdress = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<(() => Promise<void>) | null> }) => {
+    const { user } = useContext(AuthContext)
+    const [shouldFetch, setShouldFetch] = useState(true);
+
     const {
         register,
         setValue,
@@ -55,23 +60,49 @@ export const DataAdress = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObjec
         }
     };
 
+    useEffect(() => {
+        const fetchAddressUser = async () => {
+            try {
+                const restaurantId = user?.id
+                const response = await getAddressData(restaurantId)
+                const rawValue = response.postalCode;
+                const maskedValue = maskCEP(rawValue);
+                setValue('cep', maskedValue)
+                setValue('city', response.city)
+                setValue('nameAdress', response.addressLabel)
+                setValue('neighborhood', response.neighborhood)
+                setValue('numberRestaurant', response.number)
+                setValue('road', response.street)
+                setValue('state', response.state)
+
+            } catch (error) {
+                throw new Error('Falha ao buscar os dados');
+            }
+        };
+
+        if (shouldFetch) {
+            fetchAddressUser();
+            setShouldFetch(false);
+        }
+
+        fetchAddressUser();
+    }, [shouldFetch]);
+
     const onSubmit = async (data: RestaurantAdressData) => {
-        console.log('FormAddressData:', data);
+        updateAddressData({
+            ...data,
+            id: user?.id,
+            addressLabel: data.nameAdress,
+            postalCode: data.cep.replace(/\D/g, ''),
+            street: data.road,
+            number: data.numberRestaurant
+        });
+        setShouldFetch(true)
     };
 
     useEffect(() => {
         onSubmitRef.current = handleSubmit(onSubmit);
     }, [onSubmitRef, handleSubmit]);
-
-    useEffect(() => {
-        setValue("cep", maskCEP(mockProfile.cep));
-        setValue("road", mockProfile.road);
-        setValue("city", mockProfile.city);
-        setValue("neighborhood", mockProfile.bairro);
-        setValue("state", mockProfile.state);
-        setValue("numberRestaurant", mockProfile.number);
-        setValue("nameAdress", mockProfile.complement)
-    }, [setValue]);
 
     return (
         <Form id="form-adress-restaurant" onSubmit={handleSubmit(onSubmit)}>

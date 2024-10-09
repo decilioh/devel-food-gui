@@ -1,35 +1,42 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "../../components/common/Button";
 import { DataAdress } from "./components/Adress";
 import { DataUser } from "./components/DataUser";
-import { useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { ButtonSaveContainer, ContainerSections, DataContent, DivisorFinal, Main, SectionAdress, SectionDataUser } from "./styles"
+import { updateUserData } from "../../services/updatedUserData";
+import { AuthContext } from "../../context/AuthContext";
+import { toast } from "react-toastify";
+import { Button } from "../../components/common/Button";
 
 export const Profile = () => {
+
     const navigate = useNavigate();
+    const { user } = useContext(AuthContext)
+    const [imageLink, setImageLink] = useState("");
 
     const submitUserInfosRef = useRef<(() => Promise<any>) | null>(null);
     const submitAddressRef = useRef<(() => Promise<any>) | null>(null);
 
+    const handleImageUpload = (imageUrl: string) => {
+        setImageLink(imageUrl);
+    };
+
+
     const handleSubmitAll = async () => {
         try {
             if (submitUserInfosRef.current) {
-                submitUserInfosRef.current();
+                await submitUserInfosRef.current();
+                updateUserData({ photo: imageLink, id: user?.id })
+
             }
             if (submitAddressRef.current) {
-                submitAddressRef.current();
+                await submitAddressRef.current();
             }
-
-            const combinedData = {
-                ...submitUserInfosRef.current,
-                ...submitAddressRef.current,
-            };
-
-            console.log(combinedData)
+            toast.success('Dados atualizados com sucesso!')
 
         } catch (error) {
-            console.error('Erro ao submeter os formulários', error);
+            toast.error('Ocorreu um erro!');
         }
     };
 
@@ -40,7 +47,7 @@ export const Profile = () => {
                 <SectionDataUser>
                     <h2 id="title-page-user">Informações Pessoais</h2>
                     <DataContent>
-                        <DataUser onSubmitRef={submitUserInfosRef} />
+                        <DataUser onSubmitRef={submitUserInfosRef} onImageUpload={handleImageUpload} />
                     </DataContent>
                 </SectionDataUser>
                 <hr />
@@ -71,6 +78,7 @@ export const Profile = () => {
                     id="button-id-navigate"
                     type="button"
                     onClick={() => navigate('/admin/perfil/trocar-senha')}
+
                 >
                     Alterar senha
                 </Button>

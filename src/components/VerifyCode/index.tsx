@@ -21,17 +21,12 @@ export const VerifyCode = ({ onSubmit, navigate }: VerifyCodeProps) => {
 
             <div>
                 <Message id="paragraph-message">
-                    Copie ou anote este código,
-                    ele será utilizado para você
-                    finalizar a <br />recuperação de senha!
+                    Foi enviado um código para você no seu email, anote e use
+                    <br />na próxima tela!
                 </Message>
             </div>
 
             <ActionContainer>
-                <span id="code-request-password">
-                    AUIhuiaasa56d4as56-AUIhuiaasa56d4as56<br />
-                    56das465fa4d56-5fsd4fgsd65f4sa
-                </span>
                 <div>
                     <Button id="button-return-" onClick={navigate}>Voltar</Button>
                     <Button id="button-submit-verify-code" onClick={onSubmit}>Continuar</Button>

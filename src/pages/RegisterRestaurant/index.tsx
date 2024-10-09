@@ -1,13 +1,13 @@
 import { Main } from "./styles";
-import { RestaurantData } from "../../components/RestarauntData";
-import { RestaurantType } from "../../components/RestaurantType";
-import { RestaurantAdress } from "../../components/AdressRestaurant";
-import { RegisterSucess } from "../../components/RegisterSucess";
-import { RegisterError } from "../../components/RegisterError";
 import { Helmet } from "react-helmet-async";
 import { useRestaurantRegister } from "../../context/RegisterRestaurant/RegisterRestaurantContext";
 import { RestaurantAdreesDataProps, RestaurantDataRegister, RestaurantTypeDataProps } from "../../context/RegisterRestaurant/interfaces";
 import { useEffect, useState } from "react";
+import { RestaurantData } from "../../components/RestarauntData";
+import { RestaurantAdress } from "../../components/AdressRestaurant";
+import { RegisterError } from "../../components/RegisterError";
+import { RegisterSucess } from "../../components/RegisterSucess";
+import { RestaurantType } from "../../components/RestaurantType";
 
 export const RegisterRestaurant = () => {
     const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);

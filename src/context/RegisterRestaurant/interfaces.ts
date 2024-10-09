@@ -10,7 +10,7 @@ export interface RestaurantTypeDataProps {
     name: string;
     telefone: string;
     restaurantType: string;
-    photoURL: string;
+    photo: string;
 }
 
 export interface RestaurantAdreesDataProps {
@@ -29,6 +29,7 @@ export interface RestaurantData {
     password: string;
     name: string;
     phoneNumber: string;
+    photo: string;
     foodType: string;
     restaurantAddress: {
         addressLabel: string;

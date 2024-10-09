@@ -1,22 +1,20 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import foodImage from '../../assets/images/backlogin.png'
-import { Link, useNavigate } from 'react-router-dom'
-import { Button } from '../../components/common/Button'
-import { Input } from '../../components/common/Input'
+import { Link } from 'react-router-dom'
 import { Box, FigureIMG, Form, FormContainer, LinkContainer, Main } from './styles'
 import { useForm } from 'react-hook-form'
 import { LoginData, schema } from './schema'
 import { MdLockOpen, MdOutlineEmail } from "react-icons/md";
-import { LogoDevelFood } from "../../components/common/Logo";
 import { toast } from "react-toastify";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import { mockUsers } from "../../mocks/UserMock";
 import { Helmet } from "react-helmet-async";
+import { LogoDevelFood } from "../../components/common/Logo";
+import { Input } from "../../components/common/Input";
+import { Button } from "../../components/common/Button";
 
 
 export const Login = () => {
-    const navigate = useNavigate()
 
     const { SignIn } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm<LoginData>({
@@ -25,14 +23,9 @@ export const Login = () => {
     })
 
     const handleSubmitSign = async (data: LoginData) => {
-        const user = mockUsers.find(user => user.email === data.email && user.password === data.password);
         try {
-            if (!user) {
-                toast.error('Email ou senha inválidos!');
-                return;
-            }
             await SignIn(data)
-            navigate('/admin/home')
+            window.location.replace('/admin/home');
 
         } catch (error) {
             toast.error("ocorreu um erro, tente novamente")

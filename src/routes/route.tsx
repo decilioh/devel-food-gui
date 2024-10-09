@@ -57,11 +57,19 @@ export const Router = createBrowserRouter([
                 element: <NewDish />
             },
             {
+                path: "menu/prato/:id",
+                element: <NewDish />
+            },
+            {
                 path: "promocoes",
                 element: <Promotions />
             },
             {
                 path: "promocoes/cadastrar",
+                element: <NewPromo />
+            },
+            {
+                path: "promocoes/editar/:id",
                 element: <NewPromo />
             },
             {
