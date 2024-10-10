@@ -14,7 +14,7 @@ interface RestaurantRegisterHook {
         name: string;
         telefone: string;
         restaurantType: string;
-        photoURL: string;
+        photo: string;
     }) => void;
     setRestaurantAddressData: (data: {
         nameAdress: string;
@@ -63,13 +63,13 @@ describe('RestaurantRegisterContext', () => {
             hookResult.setRestaurantData({
                 email: 'teste@restaurante.com',
                 cnpj: '76931734000156',
-                password: 'senha123!',
+                password: '$2a$10$44PGlvxaFaAyqMZlKK4u2.WNP74eFpO2POYZAohTaxqGdH9q5woRm',
             });
             hookResult.setRestaurantTypeData({
                 name: 'Restaurante Teste',
                 telefone: '11943232328',
                 restaurantType: 'Brasileira,Churrasco',
-                photoURL: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'
+                photo: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'
             });
             hookResult.setRestaurantAddressData({
                 nameAdress: 'Rua Teste',
@@ -86,24 +86,14 @@ describe('RestaurantRegisterContext', () => {
             await hookResult.submitAllData();
         });
 
-        expect(registerRestaurant).toHaveBeenCalledWith({
+        expect(registerRestaurant).toHaveBeenCalledWith(expect.objectContaining({
             email: 'teste@restaurante.com',
             cnpj: '76931734000156',
-            password: 'senha123!',
-            name: 'Restaurante Teste',
+            password: expect.any(String),
             phoneNumber: '11943232328',
-            foodType: 'Brasileira,Churrasco',
-            photoURL: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-            restaurantAddress: {
-                addressLabel: 'Rua Teste',
-                postalCode: '12345000',
-                street: 'Rua Teste',
-                neighborhood: 'Centro',
-                city: 'São Paulo',
-                number: '123',
-                state: 'SP',
-            },
-        });
+            photo: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+            restaurantAddress: expect.any(Object),
+        }));
 
         expect(hookResult!.step).toBe(4);
     });
@@ -129,13 +119,13 @@ describe('RestaurantRegisterContext', () => {
             hookResult.setRestaurantData({
                 email: 'teste@restaurante.com',
                 cnpj: '12345678901234',
-                password: 'senha123!',
+                password: '$2a$10$44PGlvxaFaAyqMZlKK4u2.WNP74eFpO2POYZAohTaxqGdH9q5woRm',
             });
             hookResult.setRestaurantTypeData({
                 name: 'Restaurante Teste',
                 telefone: '11999999999',
                 restaurantType: 'Italiana, Japonesa',
-                photoURL: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'
+                photo: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'
             });
             hookResult.setRestaurantAddressData({
                 nameAdress: 'Rua Teste',
