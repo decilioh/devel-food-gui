@@ -1,9 +1,11 @@
 import { Rating } from "react-simple-star-rating"
 import styled from "styled-components";
-import { FeedBackMock } from "../../../mocks/feedbackMock";
-import { Pagination } from "../../../components/Pagination";
 import { usePagination } from "../../../hooks/usePagination";
 import { FeedBackProps } from "../interfaces";
+import { apiRestaurantRegister } from "../../../services/backend";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../context/AuthContext";
+import { Pagination } from "../../../components/Pagination";
 
 
 const Container = styled.div`
@@ -70,38 +72,65 @@ const MessageContainer = styled.div`
 
 export const Feedback = () => {
     const itemsPerPage = 3;
+    const [feedbacks, setFeedbacks] = useState<FeedBackProps[]>([]);
     const { currentPage, currentItems, paginate } = usePagination<FeedBackProps>({
         itemsPerPage,
-        totalItems: FeedBackMock.length,
+        totalItems: feedbacks.length,
     });
-    const currentFeedbacks = currentItems(FeedBackMock);
+    const currentFeedbacks = currentItems(feedbacks);
+    const { user } = useContext(AuthContext)
+
+    const fetchFeedbacks = async (id: number | null | undefined) => {
+        try {
+            const response = await apiRestaurantRegister.get(`/restaurant_evaluation/${id}/evaluations`);
+            setFeedbacks(response.data);
+        } catch (error) {
+            console.log("Erro ao buscar feedbacks:");
+        }
+    };
+
+    useEffect(() => {
+        fetchFeedbacks(user?.id);
+    }, []);
 
     return (
         <>
-            {currentFeedbacks.map((feedback, index) => (
-                <Container key={feedback.id} id="feedback-container">
-                    <MessageContainer>
-                        <MessageFeedback id="feedback-message">{feedback.message}</MessageFeedback>
-                    </MessageContainer>
+            {currentFeedbacks.length === 0 ? (
+                <p>
+                    Você ainda não possui avaliações
+                </p>
+            ) : (
+                currentFeedbacks.map((feedback) => (
+                    <Container key={feedback.id} id="feedback-container">
+                        <MessageContainer>
+                            <MessageFeedback id="feedback-message">{feedback.comment}</MessageFeedback>
+                        </MessageContainer>
 
-                    <ReviewsRatingAndDate id="feedback-Reviews">
-                        <Rating
-                            initialValue={feedback.ratingValue}
-                            allowFraction
-                            fillColor="#DFCC1B"
-                            emptyColor="#E0E0E0"
-                            size={30}
-                            readonly
-                        />
-                        <span id="feedback-date">{feedback.date}</span>
-                    </ReviewsRatingAndDate>
-                    <hr id="divisor-feedback" />
-                </Container>
-            ))}
+                        <ReviewsRatingAndDate id="feedback-Reviews">
+                            <Rating
+                                initialValue={feedback.rating}
+                                allowFraction
+                                fillColor="#DFCC1B"
+                                emptyColor="#E0E0E0"
+                                size={30}
+                                readonly
+                            />
+                            <span id="feedback-date">
+                                {new Date(feedback.createdAt).toLocaleDateString("pt-BR", {
+                                    day: "2-digit",
+                                    month: "2-digit",
+                                    year: "numeric"
+                                }).replace(/\//g, "/")}
+                            </span>
+                        </ReviewsRatingAndDate>
+                        <hr id="divisor-feedback" />
+                    </Container>
+                ))
+            )}
 
             <Pagination
                 currentPage={currentPage}
-                totalItems={FeedBackMock.length}
+                totalItems={feedbacks.length}
                 itemsPerPage={itemsPerPage}
                 onPageChange={paginate}
             />

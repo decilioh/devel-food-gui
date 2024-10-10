@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Rating } from 'react-simple-star-rating';
 import styled from 'styled-components';
 import { useWindowSize } from '../../../hooks/useWindowSize';
+import { apiRestaurantRegister } from '../../../services/backend';
+import { AuthContext } from '../../../context/AuthContext';
 
 const ReviewValue = styled.p`
     font-size:2.5rem;
@@ -10,12 +12,29 @@ const ReviewValue = styled.p`
 `
 
 export const Reviews = () => {
-    const [rating, setRating] = useState<number>(4.5);
+    const [rating, setRating] = useState<number>(0);
     const { width } = useWindowSize();
+    const { user } = useContext(AuthContext)
 
     const handleRating = (rate: number) => {
         setRating(rate / 20)
     };
+
+    useEffect(() => {
+        const fetchRating = async (id: number | null | undefined) => {
+            try {
+                const response = await apiRestaurantRegister.get(`/restaurant_evaluation/${id}/average_rating`);
+                const fetchedRating = response.data && typeof response.data === 'number' ? response.data : 0;
+                setRating(fetchedRating);
+            } catch (error) {
+                console.log("Ocorreu um erro ao buscar os dados")
+            }
+        };
+
+        fetchRating(user?.id);
+    }, []);
+
+
 
     const sizeRating = width < 680;
 

@@ -59,8 +59,11 @@ export const RestaurantType = ({ onSubmit, navigate }: RestaurantTypeProps) => {
 
         if (data) {
             const { name, telefone, restaurantType, photoDish } = data;
-            const photoURL = await uploadImage(photoDish[0]);
-            onSubmit({ name, telefone, restaurantType, photoURL });
+            const photo = await uploadImage(photoDish[0]);
+            if (photo) {
+                onSubmit({ name, telefone, restaurantType, photo });
+                console.log(data)
+            }
         }
 
         if (isSubmitting) {
@@ -83,7 +86,7 @@ export const RestaurantType = ({ onSubmit, navigate }: RestaurantTypeProps) => {
                 </figure>
                 <InputsContainer>
                     <File>
-                        <FileContainer htmlFor="input-file" $hasError={errors.photoDish ? true : false} $backgroundImage={imageBackground}>
+                        <FileContainer htmlFor="input-file" $hasError={!!errors.photoDish} $backgroundImage={imageBackground}>
                             <CiImageOn size={64} color={'#4f4f4f'} />
                             <span>Adicionar imagem</span>
                             <input
