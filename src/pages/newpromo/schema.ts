@@ -5,11 +5,15 @@ export const schema = z
     .object({
         photoPromo: z
             .instanceof(FileList)
-            .refine((files) => files.length > 0, "Insira uma imagem")
+            .optional()
             .refine(
                 (files) => {
-                    const allowedTypes = ['image/png', 'image/jpeg'];
-                    return Array.from(files).every(file => allowedTypes.includes(file.type))
+
+                    if (files && files.length > 0) {
+                        const allowedTypes = ['image/png', 'image/jpeg'];
+                        return Array.from(files).every(file => allowedTypes.includes(file.type));
+                    }
+                    return true;
                 },
                 { message: "O arquivo deve ser um PNG ou JPG" }
             ),

@@ -1,19 +1,22 @@
 import { FaArrowLeftLong } from "react-icons/fa6"
-import { Button } from "../../components/common/Button"
-import { Dropdown } from "../../components/common/DropDown"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { schema, typeNewDish } from "./schema"
-import { useNavigate } from "react-router-dom"
-import { Input } from "../../components/common/Input"
+import { useNavigate, useParams } from "react-router-dom"
 import { toast } from "react-toastify"
 import { CiImageOn } from "react-icons/ci"
-import { useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Helmet } from "react-helmet-async"
 import { FoodTypes } from "../../utils/foodTypes"
 import { uploadImage } from "../../hooks/useFireStorage"
 import { registerDish } from "../../services/registerDish"
 import { AxiosError } from "axios"
+import { AuthContext } from "../../context/AuthContext"
+import { getDishById } from "../../services/getDishById"
+import { updateDish } from "../../services/updatedDish"
+import { Dropdown } from "../../components/common/DropDown"
+import { Input } from "../../components/common/Input"
+import { Button } from "../../components/common/Button"
 import {
     DescriptionAndPrice,
     DescriptionDish,
@@ -29,12 +32,26 @@ import {
 
 export const NewDish = () => {
     const [imageBackground, setImageBackground] = useState("");
+    const [imageFile, setImageFile] = useState<File | null>(null);
     const [priceValue, setPriceValue] = useState('');
+    const [isUpdating, setIsUpdating] = useState(false);
+    const [initialDishType, setInitialDishType] = useState<string>('')
+    const { user } = useContext(AuthContext)
+    const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
-    const { register, handleSubmit, setValue, trigger, formState: { errors, isSubmitting } } = useForm<typeNewDish>({
+    const { register, handleSubmit, setValue, trigger, setError, formState: { errors, isSubmitting } } = useForm<typeNewDish>({
         resolver: zodResolver(schema),
-        mode: "onChange"
+        mode: "onChange",
     })
+
+    useEffect(() => {
+        if (id) {
+            setIsUpdating(true);
+            loadDishData(id);
+        }
+    }, [id]);
+
+
 
     const handleDropdownChange = (value: string) => {
         setValue('typeDish', value);
@@ -45,8 +62,10 @@ export const NewDish = () => {
         const file = e.target.files?.[0];
         if (file) {
             setImageBackground(URL.createObjectURL(file));
+            setImageFile(file);
         }
-    };
+    }
+
 
     const formatPrice = (value: string) => {
         const numberString = value.replace(/\D/g, '');
@@ -64,42 +83,84 @@ export const NewDish = () => {
         const formattedValue = formatPrice(value);
         setPriceValue(formattedValue);
         setValue('priceDish', value, { shouldValidate: true });
+        setValue('priceDish', formattedValue, { shouldValidate: true });
+
+    };
+
+    const loadDishData = async (dishId: string) => {
+        try {
+            const dish = await getDishById(parseInt(dishId));
+
+            setValue('nameDish', dish.dishName);
+            setValue('descriptionDish', dish.description);
+
+
+            const formattedPrice = parseFloat(dish.price).toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+            setPriceValue(formattedPrice);
+            setValue('priceDish', formattedPrice);
+
+            setInitialDishType(dish.foodType);
+            setValue('typeDish', dish.foodType);
+            console.log(initialDishType)
+
+            setImageBackground(dish.photo);
+        } catch (error) {
+            toast.error('Erro ao carregar o prato.');
+        }
     };
 
     const handleSubmitForm = async (data: typeNewDish) => {
         try {
-            const restaurantId = 2
-            const photoURL = await uploadImage(data.photoDish[0])
-            const priceValueFormatted = priceValue.replace('R$ ', '').replace('.', '').replace(',', '.');
+            let photoURL = imageBackground;
 
-            const newDish = {
+            if (!imageFile && !imageBackground) {
+                setError("photoDish", {
+                    type: "manual",
+                    message: "Insira uma imagem para continuar",
+                });
+                return;
+            }
+
+            if (imageFile) {
+                photoURL = await uploadImage(imageFile);
+            }
+
+            const priceValueFormatted = priceValue.replace('R$ ', '').replace('.', '').replace(',', '.');
+            const restaurantId = user?.id;
+
+            const dishPayload = {
                 dishName: data.nameDish,
                 description: data.descriptionDish,
                 price: priceValueFormatted,
                 photo: photoURL,
-                foodType: data.typeDish.replace(/,/g, ' '),
+                foodType: data.typeDish.split(',').join(' '),
                 restaurant: {
                     id: restaurantId
                 }
+            };
+
+            if (isUpdating && id) {
+                await updateDish({ ...dishPayload, id: parseInt(id) });
+                toast.success('Prato atualizado com sucesso!');
+            } else {
+                await registerDish(dishPayload);
+                toast.success('Prato adicionado com sucesso!');
             }
 
-            await registerDish(newDish)
-            toast.success('Prato adicionado com sucesso!');
             setImageBackground("");
             navigate('/admin/menu');
-
         } catch (error) {
             if (error instanceof AxiosError) {
-                toast.error('Ocorreu um erro!')
-                return
+                toast.error('Ocorreu um erro!');
+                return;
             }
         }
-    }
+    };
 
 
     return (
         <Main>
-            <Helmet title="Novo prato" />
+            <Helmet title={id ? "Edição prato" : "Novo prato"} />
             <HeaderContainer>
                 <div>
                     <Button onClick={() => navigate('/admin/menu')}>
@@ -172,7 +233,7 @@ export const NewDish = () => {
                             error={errors.typeDish?.message}
                             options={FoodTypes}
                             onChange={handleDropdownChange}
-                            value={''}
+                            value={initialDishType}
                         />
                     </div>
                     <Button disabled={isSubmitting} type="submit">

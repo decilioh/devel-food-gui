@@ -27,6 +27,7 @@ export const Dropdown = ({
     const [selectedValues, setSelectedValues] = useState<string>(value);
     const containerRef = useRef<HTMLDivElement>(null);
 
+
     const handleToggle = () => setIsOpen(!isOpen);
 
     const handleCheckboxChange = (optionValue: string) => {
@@ -41,7 +42,13 @@ export const Dropdown = ({
 
     useEffect(() => {
         register(name, { ...rules, value: selectedValues });
-    }, [register, name, rules, selectedValues]);
+    }, [name, rules, selectedValues]);
+
+    useEffect(() => {
+        setSelectedValues(value);
+    }, [value]);
+
+
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {

@@ -1,12 +1,10 @@
 import { FaArrowLeftLong } from "react-icons/fa6"
-import { Button } from "../../components/common/Button"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { useNavigate } from "react-router-dom"
-import { Input } from "../../components/common/Input"
+import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { toast } from "react-toastify"
 import { CiImageOn } from "react-icons/ci"
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useContext, useEffect, useState } from "react"
 import { PromotionFormInputs, schema } from "./schema"
 import { LuCalendarDays } from "react-icons/lu";
 import { Helmet } from "react-helmet-async"
@@ -19,17 +17,38 @@ import {
     Main,
     SectionContainer
 } from "./styles"
+import { AuthContext } from "../../context/AuthContext"
+import { newPromo } from "../../services/registerPromo"
+import { uploadImage } from "../../hooks/useFireStorage"
+import { AxiosError } from "axios"
+import { getPromoById } from "../../services/getPromoById"
+import { updatePromo } from "../../services/updatedPromo"
+import { convertDateFormat } from "../../utils/convertData"
+import { Button } from "../../components/common/Button"
+import { Input } from "../../components/common/Input"
 
 
 export const NewPromo = () => {
     const [imageBackground, setImageBackground] = useState("");
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
+    const [isUpdating, setIsUpdating] = useState(false);
+    const [imageFile, setImageFile] = useState<File | null>(null);
+    const { pathname } = useLocation()
     const navigate = useNavigate();
-    const { register, handleSubmit, setValue, formState: { errors } } = useForm<PromotionFormInputs>({
+    const { user } = useContext(AuthContext)
+    const { id } = useParams<{ id: string }>();
+    const { register, handleSubmit, setValue, setError, formState: { errors, isSubmitting } } = useForm<PromotionFormInputs>({
         resolver: zodResolver(schema),
         mode: "onChange"
     })
+
+    useEffect(() => {
+        if (id) {
+            setIsUpdating(true);
+            loadPromoData(id);
+        }
+    }, [id]);
 
     const handleChangeStartDate = (e: ChangeEvent<HTMLInputElement>) => {
         const newDate = e.target.value;
@@ -51,39 +70,92 @@ export const NewPromo = () => {
         const file = e.target.files?.[0];
         if (file) {
             setImageBackground(URL.createObjectURL(file));
+            setImageFile(file)
         }
     };
 
-    const handleSubmitForm = (data: PromotionFormInputs) => {
 
-        if (data) {
 
-            const convertDateFormat = (date: string): string => {
-                const [year, month, day] = date.split('-');
-                return `${day}/${month}/${year}`
+    const loadPromoData = async (promoId: string) => {
+        try {
+            const allPromos = await getPromoById();
+            const promo = allPromos.find((promo: { idPromotion: number }) => promo.idPromotion === parseInt(promoId));
+            if (promo) {
+                setValue('promotionName', promo.name);
+                setValue('percentage', promo.discountPercentage.toString());
+
+                const [dayStart, monthStart, yearStart] = promo.startDate.split('/');
+                const formattedStartDate = `${yearStart}-${monthStart}-${dayStart}`;
+                const [dayEnd, monthEnd, yearEnd] = promo.endDate.split('/');
+                const formattedEndDate = `${yearEnd}-${monthEnd}-${dayEnd}`;
+
+                setValue('startDate', formattedStartDate);
+                setValue('endDate', formattedEndDate);
+
+                setImageBackground(promo.imageUrl);
+            } else {
+                toast.error('Promoção não encontrada.');
             }
+        } catch (error) {
+            toast.error('Erro ao carregar a promoção.');
+        }
+    };
+
+
+
+    const handleSubmitForm = async (data: PromotionFormInputs) => {
+        try {
+            let photoURL = imageBackground;
+
+            if (!imageFile && !imageBackground) {
+                setError("photoPromo", {
+                    type: "manual",
+                    message: "Insira uma imagem para continuar",
+                });
+                return;
+            }
+
+            if (imageFile) {
+                photoURL = await uploadImage(imageFile);
+            }
+
 
             const convertedStartDate = convertDateFormat(data.startDate);
             const convertedEndDate = convertDateFormat(data.endDate);
 
-            console.log(data);
-            console.log(`foto do promoção:${data.photoPromo}`)
-            console.log(`Nome do promoção:${data.promotionName}`)
-            console.log(`Desconto:${data.percentage} %`)
-            console.log(`Data de início:${convertedStartDate}`)
-            console.log(`Data final:${convertedEndDate}`)
-            toast.success('Promoção adicionada com sucesso!')
-            setImageBackground("")
-            navigate('/admin/promocoes')
-        } else {
-            toast.error('Ocorreu algum erro!')
+            const restaurantId = user?.id;
+
+            const promoPayload = {
+                name: data.promotionName,
+                discountPercentage: data.percentage,
+                imageUrl: photoURL,
+                startDate: convertedStartDate,
+                endDate: convertedEndDate,
+                id: id,
+            };
+
+            if (isUpdating && id) {
+                await updatePromo({ ...promoPayload, id: parseInt(id) });
+                toast.success('Prato atualizado com sucesso!');
+            } else {
+                await newPromo({ ...promoPayload, id: restaurantId });
+                toast.success('Promoção adicionada com sucesso!');
+            }
+
+            setImageBackground("");
+            navigate('/admin/promocoes');
+        } catch (error) {
+            if (error instanceof AxiosError) {
+                toast.error('Ocorreu um erro!');
+                return;
+            }
         }
     }
 
 
     return (
         <Main>
-            <Helmet title="Nova promoção" />
+            <Helmet title={id ? "Edição promoção" : "Nova promoção"} />
             <HeaderContainer>
                 <div>
                     <Button onClick={() => navigate('/admin/promocoes')} id="button-return">
@@ -99,7 +171,7 @@ export const NewPromo = () => {
                 <File>
                     <FileContainer
                         htmlFor="input-file"
-                        $hasError={errors.photoPromo ? true : false}
+                        $hasError={!!errors.photoPromo}
                         $backgroundImage={imageBackground}
                     >
                         <CiImageOn size={64} color={'#4f4f4f'} />
@@ -170,7 +242,12 @@ export const NewPromo = () => {
                     </DivDate>
 
                     <Button type="submit" id="button-submit">
-                        Cadastrar
+                        {
+                            pathname === `/admin/promocoes/editar/${id}` ?
+                                (isSubmitting ? 'Enviando...' : 'Salvar')
+                                :
+                                (isSubmitting ? 'Enviando...' : 'Cadastrar')
+                        }
                     </Button>
                 </Form>
             </SectionContainer>

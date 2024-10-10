@@ -1,11 +1,12 @@
 export interface FeedBackProps {
     id: number
-    date: string
-    message: string
-    ratingValue: number
+    createdAt: string
+    comment: string
+    rating: number
 }
 
 export interface ReviewProps {
     id: number
-    url: string
+    imageUrl: string
+    idPromotion: string
 }

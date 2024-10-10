@@ -1,8 +1,7 @@
 import React, { createContext, useState, ReactNode, useMemo } from 'react';
 import { RestaurantAdreesDataProps, RestaurantDataRegister, RestaurantRegisterContextProps, RestaurantTypeDataProps } from './interfaces';
 import { registerRestaurant } from '../../services/registerRestaurant';
-import { toast } from 'react-toastify';
-
+import bcrypt from 'bcryptjs';
 const RestaurantRegisterContext = createContext<RestaurantRegisterContextProps | undefined>(undefined);
 
 export const RestaurantRegisterProvider = ({ children }: { children: ReactNode }) => {
@@ -17,7 +16,7 @@ export const RestaurantRegisterProvider = ({ children }: { children: ReactNode }
         name: '',
         telefone: '',
         restaurantType: '',
-        photoURL: '',
+        photo: '',
     });
 
     const [restaurantAddressData, setRestaurantAddressData] = useState<RestaurantAdreesDataProps>({
@@ -32,14 +31,17 @@ export const RestaurantRegisterProvider = ({ children }: { children: ReactNode }
 
     const submitAllData = async () => {
 
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(restaurantData.password, saltRounds);
+
         const fullRestaurantData = {
             email: restaurantData.email,
             cnpj: restaurantData.cnpj.replace(/\D/g, ''),
-            password: restaurantData.password,
+            password: hashedPassword,
             name: restaurantTypeData.name,
             phoneNumber: restaurantTypeData.telefone.replace(/\D/g, ''),
             foodType: restaurantTypeData.restaurantType,
-            photoURL: restaurantTypeData.photoURL,
+            photo: restaurantTypeData.photo,
             restaurantAddress: {
                 addressLabel: restaurantAddressData.nameAdress,
                 postalCode: restaurantAddressData.cep.replace(/\D/g, ''),

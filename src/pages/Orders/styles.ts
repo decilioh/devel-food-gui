@@ -39,7 +39,11 @@ export const Main = styled.main`
             margin-bottom: 3.58rem;
         }
 
-
+        
+        
+    }
+    svg{
+        cursor: pointer;
     }
 
     @media (max-height: 1000px) {

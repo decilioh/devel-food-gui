@@ -7,7 +7,7 @@ import { FormatCurrency } from "../../../utils/formatCurrency.";
 interface DragItem {
     Date: Date;
     Name: string;
-    Observation: string;
+    Addrress: string;
     Quantity: number;
     Price: number;
 }
@@ -15,7 +15,7 @@ interface DragItem {
 export type CardProps = {
     Date: Date;
     Name: string;
-    Observation: string;
+    Addrress: string;
     Quantity: number;
     Price: number;
     id: number;
@@ -25,12 +25,12 @@ export const ItemType = {
     CARD: "card",
 };
 
-export const CardOrder = ({ Date, Name, Observation, Quantity, Price, id }: CardProps) => {
+export const CardOrder = ({ Date, Name, Addrress, Quantity, Price, id }: CardProps) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     const [{ isDragging }, drag] = useDrag<DragItem, unknown, { isDragging: boolean }>({
         type: ItemType.CARD,
-        item: { Date, Name, Observation, Quantity, Price },
+        item: { Date, Name, Addrress, Quantity, Price },
         collect: (monitor) => ({
             isDragging: monitor.isDragging(),
         }),
@@ -48,8 +48,8 @@ export const CardOrder = ({ Date, Name, Observation, Quantity, Price, id }: Card
                     <p>Valor do prato: <span>{FormatCurrency(Price, "BRL")}</span></p>
                     <CardItensExpand $isExpanded={isExpanded}>
                         <p>Nome do prato: <span>{Name}</span></p>
-                        <p>Observação: <span>{Observation}</span></p>
                         <p>Quantidade: <span>{Quantity}x</span></p>
+                        <p>Endereço: <span>{Addrress}</span></p>
                     </CardItensExpand>
                 </OrderItens>
                 <div>

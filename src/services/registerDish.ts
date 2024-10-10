@@ -7,7 +7,7 @@ interface RegisterDish {
     photo: string;
     foodType: string;
     restaurant: {
-        id: number
+        id: number | null | undefined
     };
 }
 

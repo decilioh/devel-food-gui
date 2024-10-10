@@ -1,12 +1,14 @@
-import { Button } from "../../components/common/Button"
 import { MenuItem } from "./components/MenuItem/MenuItem"
 import SearchIcon from '../../assets/images/SearchIcon.svg';
 import { useNavigate } from "react-router-dom";
-import { mockDish } from "../../mocks/dishMock";
 import { Helmet } from "react-helmet-async";
-import { Pagination } from "../../components/Pagination";
 import { usePagination } from "../../hooks/usePagination";
 import { DishProps } from "./interface";
+import { useContext, useEffect, useState } from "react";
+import { apiRestaurantRegister } from "../../services/backend";
+import { AuthContext } from "../../context/AuthContext";
+import { Button } from "../../components/common/Button";
+import { Pagination } from "../../components/Pagination";
 import {
     ButtonContainer,
     ButtonSearch,
@@ -21,12 +23,52 @@ import {
 
 export const Menu = () => {
     const itemsPerPage = 8;
+    const { user } = useContext(AuthContext)
+    const [dishes, setDishes] = useState<DishProps[]>([]);
+    const [shouldFetch, setShouldFetch] = useState(true);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [filteredDishes, setFilteredDishes] = useState<DishProps[]>([]);
+    const navigate = useNavigate();
+
     const { currentPage, currentItems, paginate } = usePagination<DishProps>({
         itemsPerPage,
-        totalItems: mockDish.length,
+        totalItems: dishes.length,
     });
-    const currentDishes = currentItems(mockDish);
-    const navigate = useNavigate();
+    const currentDishes = currentItems(filteredDishes);
+
+    const handleDishDeleted = () => {
+        setShouldFetch(true);
+    };
+
+    useEffect(() => {
+        const fetchDishes = async () => {
+            try {
+                const restaurantId = user?.id
+                const response = await apiRestaurantRegister(`/dish/restaurant/${restaurantId}`);
+                setDishes(response.data.content || []);
+                setFilteredDishes(response.data.content || []);
+
+
+            } catch (error) {
+                console.error('Failed to fetch dishes:', error);
+            }
+        };
+
+        if (shouldFetch) {
+            fetchDishes();
+            setShouldFetch(false);
+        }
+
+        fetchDishes();
+    }, [shouldFetch]);
+
+    useEffect(() => {
+        const filtered = dishes.filter(dish =>
+            dish.dishName.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setFilteredDishes(filtered);
+    }, [searchTerm, dishes]);
+
 
     return (
         <Container>
@@ -48,6 +90,8 @@ export const Menu = () => {
                             type="text"
                             placeholder="Nome do prato"
                             id="input-search"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
                         />
                         <ButtonSearch id="button-search">
                             <img src={SearchIcon} alt="Botão pesquisar" />
@@ -57,14 +101,25 @@ export const Menu = () => {
             </Header>
 
             <SectionProductsList id="section-dish-container">
-                {currentDishes.map((dish) =>
-                    <MenuItem title={dish.title} id={dish.id} key={dish.id} />
-                )}
+
+                {currentDishes.length > 0 ? currentDishes.map((dish) =>
+                    <MenuItem
+                        title={dish.dishName}
+                        id={dish.id}
+                        key={dish.id}
+                        photo={dish.photo}
+                        onDelete={handleDishDeleted}
+                    />
+                ) :
+                    <>
+                        <span>Não possui pratos no momento</span>
+                    </>
+                }
 
             </SectionProductsList>
             <Pagination
                 currentPage={currentPage}
-                totalItems={mockDish.length}
+                totalItems={dishes.length}
                 itemsPerPage={itemsPerPage}
                 onPageChange={paginate}
             />

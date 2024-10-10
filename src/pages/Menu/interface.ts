@@ -1,4 +1,6 @@
 export interface DishProps {
     id: string;
-    title: string;
+    dishName: string;
+    photo: string;
+    totalItems: number
 }
